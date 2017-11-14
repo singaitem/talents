@@ -25,7 +25,7 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">10</span>
+              <span class="label label-warning">2</span>
             </a>
             <ul class="dropdown-menu">
               <li class="header">You have 10 notifications</li>
@@ -126,7 +126,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-share-square-o"></i>Request</a></li>
+                <li><a href="{{route('selfservice')}}"><i class="fa fa-share-square-o"></i>Request</a></li>
                 <li><a href="#"><i class="fa fa-list-alt"></i>List</a></li>
                 <li><a href="#"><i class="fa fa-file-o"></i>Report</a></li>
               </ul>

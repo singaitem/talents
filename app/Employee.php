@@ -16,5 +16,12 @@ class Employee extends Model
     public function company(){
     	return $this->belongsTo(Company::Class);
     }
-
+    public function balances(){
+        return $this->hasMany(Balance::Class);
+    }
+    public function claims(){
+        return $this->hasMany(Claim::Class);
+    }
+        
+        
 }

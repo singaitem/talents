@@ -14,6 +14,8 @@
 Route::group(['namespace' => 'User'], function () {
 
 	Route::get('/','DashboardController@index')->name('dashboard');
+	Route::get('/Request','SelfServiceController@index')->name('selfservice');
+
 });
 
 Route::group(['namespace' => 'Auth'], function () {
@@ -23,5 +25,5 @@ Route::group(['namespace' => 'Auth'], function () {
 
 	Route::get('/register','RegisterController@showRegistrationForm')->name('register');
 	Route::post('/register','RegisterController@store');
-	Route::get('password/	reset', 'ForgotPasswordController@showLinkRequestForm')->name('password.request');
+	
 });

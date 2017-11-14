@@ -5,13 +5,14 @@
 	@extends('user.layouts.navbar')
     {{--Region Content--}}
     @yield('content')
-
 @endsection
 
 @section('stylesheet')
 	<link rel="stylesheet" href="/assets/user/css/user.css">
 	<link rel="stylesheet" href="/assets/user/font/flaticon.css">
+	@yield('css')
 @endsection
 @section('scripts')
 	<script src="/assets/user/js/user.js"></script>
+	@yield('javascript')
 @endsection

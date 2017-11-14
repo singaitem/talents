@@ -9,14 +9,14 @@ let mix = require('laravel-mix');
  | for your Laravel application. By default, we are compiling the Sass
  | file for the application as well as bundling up all the JS files.
  |
- */
+*/
 
 /*
  |--------------------------------------------------------------------------
  | Core
  |--------------------------------------------------------------------------
  |
- */
+*/
 mix.scripts([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
@@ -39,7 +39,7 @@ mix.copy([
  | Auth
  |--------------------------------------------------------------------------
  |
- */
+*/
 mix.styles([
 	'node_modules/iCheck/square/blue.css',
 ],'public/assets/auth/css/auth.css').version();
@@ -53,7 +53,7 @@ mix.scripts([
  | User
  |--------------------------------------------------------------------------
  |
- */
+*/
  mix.scripts([
     'node_modules/jquery-slimscroll/jquery.slimscroll.min.js',
     'node_modules/fastclick/lib/fastclick.js',
@@ -63,3 +63,18 @@ mix.scripts([
  mix.styles([
     'node_modules/adminlte/css/skins/all-skins.min.css',
 ],'public/assets/user/css/user.css').version();
+
+/*
+ |--------------------------------------------------------------------------
+ | Self Service
+ |--------------------------------------------------------------------------
+ |
+*/ 
+mix.scripts([
+    'node_modules/baguetteBox/dist/baguetteBox.min.js',
+    'node_modules/baguetteBox/dist/gallery-grid.js',
+],'public/assets/user/self_service/js/gallery.js').version();
+mix.styles([
+    'node_modules/baguetteBox/dist/baguetteBox.min.css',
+    'node_modules/baguetteBox/dist/gallery-grid.css',
+],'public/assets/user/self_service/css/gallery.css').version();

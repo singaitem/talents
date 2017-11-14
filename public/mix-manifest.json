@@ -1,8 +1,10 @@
 {
-    "/assets/app/js/app.js": "/assets/app/js/app.js?id=d1d039257f8f0d37b3e0",
-    "/assets/app/css/app.css": "/assets/app/css/app.css?id=c0b06518a11f84e37441",
-    "/assets/auth/css/auth.css": "/assets/auth/css/auth.css?id=37fd35194ed2735b31d7",
-    "/assets/auth/js/auth.js": "/assets/auth/js/auth.js?id=c7c6c1a8d839d769c459",
-    "/assets/user/js/user.js": "/assets/user/js/user.js?id=df894fac05019bc99f0f",
-    "/assets/user/css/user.css": "/assets/user/css/user.css?id=4e7f7de25ef272107d5a"
+    "/assets/app/js/app.js": "/assets/app/js/app.js?id=617e487f9a8339a9599e",
+    "/assets/app/css/app.css": "/assets/app/css/app.css?id=b3164f0c08de8479e981",
+    "/assets/auth/css/auth.css": "/assets/auth/css/auth.css?id=ba3a161e0ce8a0e664a8",
+    "/assets/auth/js/auth.js": "/assets/auth/js/auth.js?id=11147bb0afaeb12d0251",
+    "/assets/user/js/user.js": "/assets/user/js/user.js?id=3e65a02936f8db92b557",
+    "/assets/user/css/user.css": "/assets/user/css/user.css?id=4e7f7de25ef272107d5a",
+    "/assets/user/self_service/js/gallery.js": "/assets/user/self_service/js/gallery.js?id=c5cad97558976bcbc938",
+    "/assets/user/self_service/css/gallery.css": "/assets/user/self_service/css/gallery.css?id=6abb3eafaa82bc71c96e"
 }
