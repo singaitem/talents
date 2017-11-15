@@ -28,7 +28,7 @@
                         
                          <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('kacamata.store')}}" method="post">
+                        <form role="form" action="{{route('kacamata.confirmation')}}" method="post">
                             {{csrf_field()}}
                             <div class="box-body">
                                 <div class="form-group">

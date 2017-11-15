@@ -44,9 +44,7 @@ class KacamataController extends Controller
             $claimdetails['lensa']=$lensa;
         }
         return view('user.self_service.kacamata',['status'=>'success','claim'=>$claim,'claimdetails'=>$claimdetails,'transaction_categories'=>$trCat]);
-        return redirect(route('kacamata'))->withErrors([
-                'error_code' => '1',
-            ]);
+        
     }
     public function store(){
     	$balanceFrame = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
