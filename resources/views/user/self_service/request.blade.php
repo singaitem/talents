@@ -19,7 +19,7 @@
                 <div class="gallery-box">
                     <div class="row">
                         <div class="col-sm-6 col-md-4 box-transition">
-                            <a class="lightbox" href="">
+                            <a class="lightbox" href="{{route('kacamata')}}">
                                 <img src="/img/glasses.svg" alt="Eyeglasses">
                                 <div class="text-center panel-footer">Eyeglasses</div>
                             </a>

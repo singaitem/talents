@@ -66,7 +66,7 @@ mix.scripts([
 
 /*
  |--------------------------------------------------------------------------
- | Self Service
+ | Request
  |--------------------------------------------------------------------------
  |
 */ 
@@ -78,3 +78,16 @@ mix.styles([
     'node_modules/baguetteBox/dist/baguetteBox.min.css',
     'node_modules/baguetteBox/dist/gallery-grid.css',
 ],'public/assets/user/self_service/css/gallery.css').version();
+/*
+ |--------------------------------------------------------------------------
+ | Kacamata
+ |--------------------------------------------------------------------------
+ |
+*/ 
+mix.scripts([
+    'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js',
+    'resources/assets/self_service/js/datepicker.js'
+],'public/assets/user/self_service/js/datepicker.js').version();
+mix.styles([
+    'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
+],'public/assets/user/self_service/css/datepicker.css').version();

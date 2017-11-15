@@ -16,6 +16,9 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/','DashboardController@index')->name('dashboard');
 	Route::get('/Request','SelfServiceController@index')->name('selfservice');
 
+	Route::get('/Request/Eyeglasses','KacamataController@index')->name('kacamata');
+	Route::post('/Request/Eyeglasses/store','KacamataController@confirmation')->name('kacamata.store');
+
 });
 
 Route::group(['namespace' => 'Auth'], function () {

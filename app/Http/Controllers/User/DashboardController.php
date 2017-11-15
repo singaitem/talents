@@ -14,4 +14,8 @@ class DashboardController extends Controller
     {
         return view('user.home');
     }
+    public function confirmation(){
+    	
+    }
+    	
 }

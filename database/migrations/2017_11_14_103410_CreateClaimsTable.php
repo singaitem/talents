@@ -17,6 +17,8 @@ class CreateClaimsTable extends Migration
             $table->increments('id');
             $table->integer('employee_id');
             $table->date('transaction_date');
+            $table->integer('total_value');
+            $table->string('image');
             $table->timestamps();
         });
     }
