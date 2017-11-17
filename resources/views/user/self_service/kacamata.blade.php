@@ -18,7 +18,7 @@
         </section>
 
         <!-- Main content -->
-        <section class="content" id="kacamata">
+        <section class="content">
             <div class="row">
             <!-- left column -->
                 
@@ -55,7 +55,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="frame" value="{{ old('frame') }}">
+                                                    <input type="number" class="form-control numbers" name="frame" id="frame" value="{{ old('frame') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -74,7 +74,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control" name="lensa" value="{{ old('lensa') }}" @v-model="item.price">
+                                                    <input type="number" id="lensa" class="form-control" name="lensa" value="{{ old('lensa') }}" oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@
                                 
                                 <div class="form-group">
                                     <label class="col-sm-2">Total</label>
-                                    <label class="col-sm-4 col-sm-offset-6 text-right">Rp.@{{totalPrice}}</label>
+                                    <label class="col-sm-4 col-sm-offset-6 text-right" id="countTotal">Rp.--</label>
                                     <div class="col-sm-12 box box-success"></div>
                                     
                                 </div>
@@ -120,10 +120,17 @@
             });
         </script>
     @endif
-    <script src="/js/app.js"></script>
     <script type="text/javascript">
-        
-
+        function calculateTotal(){
+            var total = 0;
+            if($('#frame').val()!=null){
+                total=isNaN(parseInt($('#frame').val()))?0:parseInt($('#frame').val());
+            }
+            if($('#lensa').val()!=null){
+                total+=isNaN(parseInt($('#lensa').val()))?0:parseInt($('#lensa').val());
+            }
+            $('#countTotal').text(total);
+        }
     </script>
     <script src="/assets/user/self_service/js/datepicker.js"></script>
 @endsection
