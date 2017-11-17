@@ -127,7 +127,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{route('selfservice')}}"><i class="fa fa-share-square-o"></i>Request</a></li>
-                <li><a href="#"><i class="fa fa-list-alt"></i>List</a></li>
+                <li><a href="{{route('request.list')}}"><i class="fa fa-list-alt"></i>List</a></li>
                 <li><a href="#"><i class="fa fa-file-o"></i>Report</a></li>
               </ul>
             </li>

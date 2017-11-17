@@ -22,11 +22,26 @@ class KacamataController extends Controller
     }
     public function confirmation(){
     	$trCat = TransactionCategory::where('name','Kacamata')->first();
+
+
+
     	$emp = auth()->user()->employee;
         $claim = new Claim();
         $claim->employee_id = $emp->id;
         $claim->date=request('transaction_date');
-        $claim->total_value= request('frame')+request('lensa');
+        $totalClaim= request('frame')+request('lensa');
+
+        $balanceFrame = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
+            ->where('employee_id',$emp->id)
+            ->where('transaction_types.name','Frame')->first();
+        $balanceCategory = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
+            ->where('employee_id',$emp->id)
+            ->where('transaction_types.name',request('selected_category'))->first();
+        if($totalClaim>$balanceFrame->value){
+            $claim->total_value = $balanceFrame->value;
+        }else{
+            $claim->total_value = $totalClaim;
+        }
 
         $claimdetails =  array();
         if(request('frame')!=0&&request('frame')!=null){
@@ -43,17 +58,12 @@ class KacamataController extends Controller
             $lensa->value=request('lensa');
             $claimdetails['lensa']=$lensa;
         }
-        return view('user.self_service.kacamata',['status'=>'success','claim'=>$claim,'claimdetails'=>$claimdetails,'transaction_categories'=>$trCat]);
+        
+        return view('user.self_service.kacamata',['status'=>'success','claim'=>$claim,'claimdetails'=>$claimdetails,'transaction_categories'=>$trCat,'totalClaim'=>$totalClaim]);
         
     }
     public function store(){
-    	$balanceFrame = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
-            ->where('employee_id',$emp->id)
-            ->where('transaction_types.name','Frame')->first();
-        
-        $balanceCategory = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
-            ->where('employee_id',$emp->id)
-            ->where('transaction_types.name',request('selected_category'))->first();
+    	
     }
     	
     	

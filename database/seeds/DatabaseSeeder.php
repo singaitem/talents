@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
     	$this->call(UsersTableSeeder::class);
 
         $this->call(BalancesTableSeeder::class);
+        $this->call(RequestsTableSeeder::class);
         $this->call(ClaimsTableSeeder::class);
         $this->call(ClaimDetailsTableSeeder::class);
     }

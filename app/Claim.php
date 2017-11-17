@@ -12,5 +12,12 @@ class Claim extends Model
    	public function employee(){
    		return $this->belongsTo(Employee::Class);
    	}
+   	public function request(){
+   		return $this->belongsTo(Request::Class);
+   	}
+    public function transaction_category(){
+      return $this->belongsTo(TransactionCategory::Class);
+    }
+      
    		
 }
