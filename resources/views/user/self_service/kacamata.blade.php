@@ -18,7 +18,7 @@
         </section>
 
         <!-- Main content -->
-        <section class="content" id="kacamata">
+        <section class="content">
             <div class="row">
             <!-- left column -->
                 
@@ -74,7 +74,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control" name="lensa" value="{{ old('lensa') }}" @v-model="item.price">
+                                                    <input type="number" class="form-control" name="lensa" value="{{ old('lensa') }}">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -86,7 +86,7 @@
                                 
                                 <div class="form-group">
                                     <label class="col-sm-2">Total</label>
-                                    <label class="col-sm-4 col-sm-offset-6 text-right">Rp.@{{totalPrice}}</label>
+                                    <label class="col-sm-4 col-sm-offset-6 text-right">Rp.123</label>
                                     <div class="col-sm-12 box box-success"></div>
                                     
                                 </div>
@@ -120,10 +120,5 @@
             });
         </script>
     @endif
-    <script src="/js/app.js"></script>
-    <script type="text/javascript">
-        
-
-    </script>
     <script src="/assets/user/self_service/js/datepicker.js"></script>
 @endsection

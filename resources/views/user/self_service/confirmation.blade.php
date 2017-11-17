@@ -11,7 +11,7 @@
                 </div>
                 <div class="modal-body">
                     <label class="col-sm-6" style="font-weight: normal;">Total Claim</label>
-                    <label class="col-sm-6 text-right">Rp.{{$totalClaim}}</label>
+                    <label class="col-sm-6 text-right">Rp.{{$claim->total_value}}</label>
                     <div class="col-sm-12 box box-primary"></div>
                     <label class="col-sm-6">Total Current Claim</label>
                     <label class="col-sm-6 text-right">Rp.{{$claim->total_value}}</label>
