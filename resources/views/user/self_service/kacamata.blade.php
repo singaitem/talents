@@ -28,7 +28,7 @@
                         
                          <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('kacamata.confirmation')}}" method="post">
+                        <form role="form" action="{{route('kacamata.store')}}" method="post">
                             {{csrf_field()}}
                             <div class="box-body">
                                 <div class="form-group">
@@ -62,7 +62,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-3">
-                                                <select class="form-control control-label text-right" name="selected_type">
+                                                <select class="form-control control-label text-right" name="selected_type" id="selected_type">
                                                     @foreach($transaction_categories->types as $type)
                                                         @if($type->name!='Frame')
                                                             <option value="{{$type->name}}">{{$type->name}}</option>
@@ -90,13 +90,19 @@
                                     <div class="col-sm-12 box box-success"></div>
                                     
                                 </div>
-                                
+                                <div class="form-group">
+                                    <label for="transactionDate">Attach Supporting Document</label>
+                                    <div class="input-group">
+                                        <input type="file" id="exampleInputFile">
+                                    </div>
+                                </div>
                             </div>
                             <!-- /.box-body -->
 
-                            <div class="box-footer text-right">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                            <div class="box-footer text-right" id="appendModal">
+                                <a id="confirm" class="btn btn-primary">Submit</a>
                             </div>
+                            @extends('user.self_service.confirmation')
                         </form>
                     </div>
                     <!-- /.box -->
@@ -104,23 +110,15 @@
             <!--/.col (left) -->
             </div>
         </section>
-        @if ($status=='success')
-            @extends('user.self_service.confirmation')
-        @endif
+        
     </div>
 @endsection
 @section('css')
     <link rel="stylesheet" href="/assets/user/self_service/css/datepicker.css">
 @endsection
 @section('javascript')
-    @if ($status!=null && $status=='success')
-        <script>
-            $(function() {
-                $('#myModal').modal('show');
-            });
-        </script>
-    @endif
     <script type="text/javascript">
+        $("#myModal").insertAfter($("#appendModal"));
         function calculateTotal(){
             var total = 0;
             if($('#frame').val()!=null){
@@ -131,6 +129,33 @@
             }
             $('#countTotal').text(total);
         }
+        function isLower(a,b){
+            if(a<b){
+                return a
+            }else{
+                return b
+            }
+        }
+        $('#confirm').click(function() {
+            var total = $('#countTotal').text();
+            $('#totalClaim').html('Rp. '+total);
+            var value = 0;
+            var frameValue = {{$balance->findDetail('Frame')->value}};
+            var frameCurrValue = isNaN(parseInt($('#frame').val()))?0:parseInt($('#frame').val());
+            value+= isLower(frameValue,frameCurrValue);
+            
+            var lensatype =  $('#selected_type').find(":selected").text();
+            var lensaValue = 0;
+            @foreach($balance->details as $detail)
+                if('{{$detail->transaction_type->name}}' == lensatype){
+                    lensaValue={{$detail->value}};
+                }
+            @endforeach
+            var lensaCurrValue = isNaN(parseInt($('#lensa').val()))?0:parseInt($('#lensa').val());
+            value+= isLower(lensaValue,lensaCurrValue);
+            $('#totalValue').html('Rp. '+value);
+            $('#myModal').modal('show');
+        });
     </script>
     <script src="/assets/user/self_service/js/datepicker.js"></script>
 @endsection

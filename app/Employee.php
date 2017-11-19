@@ -22,6 +22,14 @@ class Employee extends Model
     public function claims(){
         return $this->hasMany(Claim::Class);
     }
+    public function position()
+    {
+        return $this->belongsTo(Position::Class);
+    }
+    public function supervisor()
+    {
+        return $this->belongsTo(Employee::Class,'supervisor_id');
+    }
         
         
 }

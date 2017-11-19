@@ -12,6 +12,10 @@ class TransactionCategory extends Model
     public function claims(){
     	return $this->hasMany(Claim::Class);
     }
+    public function balances()
+    {
+    	return $this->hasMany(Balance::Class);
+    }
     	
     	
 }

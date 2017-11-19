@@ -6,9 +6,14 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\TransactionCategory;
 use App\TransactionType;
+use App\RequestDetail;
 use App\Claim;
 use App\ClaimDetail;
 use App\Balance;
+use App\SettingRequest;
+use App\Employee;
+use App\Position;
+use Carbon\Carbon;
 class KacamataController extends Controller
 {
     public function __construct()
@@ -17,53 +22,93 @@ class KacamataController extends Controller
     }
     public function index()
     {
-        $trCat = TransactionCategory::where('name','Kacamata')->first();
-    	return view('user.self_service.kacamata',['transaction_categories'=>$trCat,'status'=>'none']);
-    }
-    public function confirmation(){
-    	$trCat = TransactionCategory::where('name','Kacamata')->first();
-
-
-
-    	$emp = auth()->user()->employee;
-        $claim = new Claim();
-        $claim->employee_id = $emp->id;
-        $claim->date=request('transaction_date');
-        $totalClaim= request('frame')+request('lensa');
-
-        $balanceFrame = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
-            ->where('employee_id',$emp->id)
-            ->where('transaction_types.name','Frame')->first();
-        $balanceCategory = Balance::join('transaction_types','transaction_type_id','=','transaction_types.id')
-            ->where('employee_id',$emp->id)
-            ->where('transaction_types.name',request('selected_category'))->first();
-        if($totalClaim>$balanceFrame->value){
-            $claim->total_value = $balanceFrame->value;
-        }else{
-            $claim->total_value = $totalClaim;
-        }
-
-        $claimdetails =  array();
-        if(request('frame')!=0&&request('frame')!=null){
-            $transaction_frame = TransactionType::where('name','Frame')->first();
-            $frame = new ClaimDetail();
-            $frame->transaction_type_id=$transaction_frame->id;
-            $frame->value=request('frame');
-            $claimdetails['frame']=$frame;
-        }
-        if(request('lensa')!=0&&request('lensa')!=null){
-            $transaction_lensa = TransactionType::where('name',request('selected_type'))->first();
-            $lensa = new ClaimDetail();
-            $lensa->transaction_type_id=$transaction_lensa->id;
-            $lensa->value=request('lensa');
-            $claimdetails['lensa']=$lensa;
-        }
-        
-        return view('user.self_service.kacamata',['status'=>'success','claim'=>$claim,'claimdetails'=>$claimdetails,'transaction_categories'=>$trCat,'totalClaim'=>$totalClaim]);
-        
+        $kacamata = TransactionCategory::where('name','Kacamata')->first();
+        $balanceKacamata = Balance::where('employee_id',auth()->user()->employee->id)
+        ->where('transaction_category_id',$kacamata->id)->first();
+    	return view('user.self_service.kacamata',['transaction_categories'=>$kacamata,'balance'=>$balanceKacamata]);
     }
     public function store(){
-    	
+        
+    	$settingKacamata = SettingRequest::
+        join('transaction_categories','category_id','=','transaction_categories.id')
+        ->where('transaction_categories.name','Kacamata')->first();
+        $kacamata = TransactionCategory::where('name','Kacamata')->first();
+
+
+        $request = new \App\Request();
+        $request->status='Waiting for Approval';
+        $request->save();
+        $isFirst=true;
+        foreach($settingKacamata->details as $setting){
+            $requestdetail = new RequestDetail();
+            $requestdetail->request_id=$request->id;
+            //type 1 = Supervisor
+            //type 2 = Position
+            //type 3 = Employee No
+            if($setting->type==1){
+                $requestdetail->request_to=auth()->user()->employee->supervisor->id;
+            }else if($setting->type==2){
+                $emp = Employee::where('position_id',$setting->position_id)->first();
+                $requestdetail->request_to=$emp->id;
+            }else if($setting->type==3){
+                $requestdetail->request_to=$setting->employee_id;
+            }
+            if($isFirst==true){
+                $requestdetail->status ='Waiting';
+                $isFirst=false;
+            }else{
+                $requestdetail->status='Pending';
+            }
+            $requestdetail->save();
+        }
+
+        $balanceKacamata = Balance::where('employee_id',auth()->user()->employee->id)
+        ->where('transaction_category_id',$kacamata->id)->first();
+        $balanceFrame = $balanceKacamata->findDetail('Frame');
+        $balanceLensa = $balanceKacamata->findDetail(request('selected_type'));
+
+        $valueFrame = 0;
+        $valueLensa = 0;
+
+        if(request('frame')<$balanceFrame->value){
+            $valueFrame=request('frame');
+        }else{
+            $valueFrame=$balanceFrame->value;
+        }
+        if(request('lensa')<$balanceLensa->value){
+            $valueFrame=request('lensa');
+        }else{
+            $valueFrame=$balanceLensa->value;
+        }
+        $tr_date = Carbon::createFromFormat('d/m/Y', request('transaction_date'));
+        $noUrut = Claim::where('transaction_date',Carbon::now()->format('Y-m-d'))->count();
+        $noUrut++;
+        $invNoUrut = str_pad($noUrut, 3, '0', STR_PAD_LEFT);
+        $claim = new Claim();
+        $claim->employee_id=auth()->user()->employee->id;
+        $claim->request_id=$request->id;
+        $claim->transaction_category_id = $kacamata->id;
+        $claim->name='BN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
+        $claim->transaction_date= $tr_date;
+        $claim->total_value=$valueFrame+$valueLensa;
+        $claim->image='image.jpg';
+        $claim->save();
+
+        if($valueFrame!=0){
+            $frame = new ClaimDetail();
+            $frame->transaction_type_id=$balanceFrame->transaction_type->id;
+            $frame->claim_id=$claim->id;
+            $frame->value=$valueFrame;
+            $frame->save();
+        }
+        if($valueLensa!=0){
+            $lensa = new ClaimDetail();
+            $lensa->transaction_type_id=$balanceLensa->transaction_type->id;
+            $lensa->claim_id=$claim->id;
+            $lensa->value=$valueLensa;
+            $lensa->save();
+        }
+        return redirect()->intended(route('request.list'));
     }
     	
     	

@@ -17,7 +17,7 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/Request','SelfServiceController@index')->name('selfservice');
 
 	Route::get('/Request/Eyeglasses','KacamataController@index')->name('kacamata');
-	Route::post('/Request/Eyeglasses','KacamataController@confirmation')->name('kacamata.confirmation');
+	Route::post('/Request/Eyeglasses','KacamataController@store')->name('kacamata.store');
 
 	Route::post('/Request/submit','ClaimController@claim')->name('claim.submit');
 

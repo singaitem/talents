@@ -21,7 +21,7 @@ class ClaimsTableSeeder extends Seeder
         $claim1->employee_id=$dummy1->id;
         $claim1->request_id=$req1->id;
         $claim1->transaction_category_id = $kacamata->id;
-        $claim1->name='BN/20171114/01';
+        $claim1->name='BN/20171114/001';
         $claim1->transaction_date='2017-11-14';
         $claim1->total_value=200000;
         $claim1->image='image.jpg';

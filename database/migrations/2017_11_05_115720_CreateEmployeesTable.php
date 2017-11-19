@@ -17,6 +17,8 @@ class CreateEmployeesTable extends Migration
             $table->increments('id');
             $table->integer('person_id');
             $table->integer('company_id');
+            $table->integer('position_id');
+            $table->integer('supervisor_id')->nullable();
             $table->string('name')->unique();
             $table->timestamps();
         });
