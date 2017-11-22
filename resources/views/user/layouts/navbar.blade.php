@@ -4,9 +4,9 @@
     <!-- Logo -->
     <a href="../../index2.html" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>E</b>SS</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>Employee</b>SS</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -167,7 +167,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../forms/general.html"><i class="fa fa-user-o"></i>Personal</a></li>
-            <li><a href="../forms/advanced.html"><i class="fa fa-money"></i>Benefit</a></li>
+            <li><a href="{{route('approve.benefit')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>
       </ul>

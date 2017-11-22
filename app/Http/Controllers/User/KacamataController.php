@@ -76,9 +76,9 @@ class KacamataController extends Controller
             $valueFrame=$balanceFrame->value;
         }
         if(request('lensa')<$balanceLensa->value){
-            $valueFrame=request('lensa');
+            $valueLensa=request('lensa');
         }else{
-            $valueFrame=$balanceLensa->value;
+            $valueLensa=$balanceLensa->value;
         }
         $tr_date = Carbon::createFromFormat('d/m/Y', request('transaction_date'));
         $noUrut = Claim::where('transaction_date',Carbon::now()->format('Y-m-d'))->count();
@@ -92,6 +92,7 @@ class KacamataController extends Controller
         $claim->transaction_date= $tr_date;
         $claim->total_value=$valueFrame+$valueLensa;
         $claim->image='image.jpg';
+        $claim->info='Claim Benefit';
         $claim->save();
 
         if($valueFrame!=0){

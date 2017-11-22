@@ -22,6 +22,7 @@ class CreateClaimsTable extends Migration
             $table->date('transaction_date');
             $table->integer('total_value');
             $table->string('image');
+            $table->string('info');
             $table->timestamps();
         });
     }

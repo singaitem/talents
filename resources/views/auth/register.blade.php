@@ -5,7 +5,7 @@
 @section('content')
 <div class="register-box">
 	<div class="register-logo">
-		<b>Talents</b>
+		<b><img src="/img/logo.png"></b>
 	</div>
 
 	<div class="register-box-body">
