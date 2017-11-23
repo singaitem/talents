@@ -5,6 +5,7 @@ use App\Claim;
 use App\Employee;
 use App\Request;
 use App\TransactionCategory;
+use App\ClaimAttachment;
 class ClaimsTableSeeder extends Seeder
 {
     /**
@@ -29,5 +30,13 @@ class ClaimsTableSeeder extends Seeder
         $claim1->description='On Melawai Optical Store';
         $claim1->save();
 
+        $claimAttach1 = new ClaimAttachment();
+        $claimAttach1->claim_id=$claim1->id;
+        $claimAttach1->name='2-1.jpg';
+        $claimAttach1->save();
+        $claimAttach2 = new ClaimAttachment();
+        $claimAttach2->claim_id=$claim1->id;
+        $claimAttach2->name='2-2.jpg';
+        $claimAttach2->save();
     }
 }

@@ -19,5 +19,14 @@ class ApprovalController extends Controller
     	return view('user.approval.detail',['claim'=>$claim]);
     }
     	
-    	
+    public function approve(Claim $claim){
+        $requestDetail = $claim->request->getWaitingRequestAuth();
+        if($requestDetail!=null){
+            $requestDetail->status='Approved';
+            $requestDetail->save();
+            return back();
+        }
+        dd('error');
+    }
+        
 }

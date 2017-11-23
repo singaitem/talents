@@ -75,26 +75,20 @@
 
       <div class="row">
         <!-- accepted payments column -->
-        <div class="col-xs-6">
+        <div class="col-xs-6 col-xs-offset-6 text-right">
+          <label>Total:</label>
+          <label>Rp. {{$claim->total_value}}</label>
+        </div>
+        <div class="col-xs-12">
           <p class="lead">Attachment</p>
-          <img src="/img/credit/visa.png" alt="Visa">
-          <img src="/img/credit/mastercard.png" alt="Mastercard">
-          <img src="/img/credit/american-express.png" alt="American Express">
-          <img src="/img/credit/paypal2.png" alt="Paypal">
+          @foreach($claim->attachments as $photo)
+            <div class="col-md-4 col-xs-12">
+              <img src="/img/upload/{{$photo->name}}" style="max-width: 100%;">
+            </div>
+          @endforeach
         </div>
         <!-- /.col -->
-        <div class="col-xs-6">
-          <p class="lead">Amount Due 2/22/2014</p>
-
-          <div class="table-responsive">
-            <table class="table">
-              <tr>
-                <th>Total:</th>
-                <td>Rp. {{$claim->total_value}}</td>
-              </tr>
-            </table>
-          </div>
-        </div>
+        
         <!-- /.col -->
       </div>
       <!-- /.row -->
@@ -102,11 +96,17 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Approve
-          </button>
-          <button type="submit" class="btn btn-danger pull-right" style="margin-right: 5px;">
+          <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
+            {{csrf_field()}}
+            <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Approve
+            </button>
+          </form>
+          <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
+            {{csrf_field()}}
+            <button type="submit" class="btn btn-danger pull-right" style="margin-right: 5px;">
             <i class="fa fa-times"></i> Reject
-          </button>
+            </button>
+          </form>
         </div>
       </div>
     </section>

@@ -14,6 +14,7 @@ use App\SettingRequest;
 use App\Employee;
 use App\Position;
 use Carbon\Carbon;
+use App\ClaimAttachment;
 class KacamataController extends Controller
 {
     public function __construct()
@@ -81,7 +82,7 @@ class KacamataController extends Controller
             $valueLensa=$balanceLensa->value;
         }
         $tr_date = Carbon::createFromFormat('d/m/Y', request('transaction_date'));
-        $noUrut = Claim::where('transaction_date',Carbon::now()->format('Y-m-d'))->count();
+        $noUrut = Claim::where('transaction_date',$tr_date->format('Y-m-d'))->count();
         $noUrut++;
         $invNoUrut = str_pad($noUrut, 3, '0', STR_PAD_LEFT);
         $claim = new Claim();
@@ -95,7 +96,30 @@ class KacamataController extends Controller
         $claim->info='Claim Benefit';
         $claim->description='On '.request('optical_store').' Optical Store';
         $claim->save();
-
+        if (request()->hasFile('image1')) {
+            $photoName = time().'.'.request()->file('image1')->getClientOriginalExtension();
+            request()->file('image1')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
+        if (request()->hasFile('image2')) {
+            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            request()->file('image2')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
+        if (request()->hasFile('image3')) {
+            $photoName = time().'.'.request()->file('image3')->getClientOriginalExtension();
+            request()->file('image3')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
         if($valueFrame!=0){
             $frame = new ClaimDetail();
             $frame->transaction_type_id=$balanceFrame->transaction_type->id;

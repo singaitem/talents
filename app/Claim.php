@@ -18,6 +18,10 @@ class Claim extends Model
     public function transaction_category(){
       return $this->belongsTo(TransactionCategory::Class);
     }
+    public function attachments(){
+      return $this->hasMany(ClaimAttachment::Class);
+    }
+      
       
    		
 }

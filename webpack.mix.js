@@ -67,7 +67,7 @@ mix.scripts([
 
 /*
  |--------------------------------------------------------------------------
- | Request
+ | List Request
  |--------------------------------------------------------------------------
  |
 */ 
@@ -79,6 +79,19 @@ mix.styles([
     'node_modules/baguetteBox/dist/baguetteBox.min.css',
     'node_modules/baguetteBox/dist/gallery-grid.css',
 ],'public/assets/user/self_service/css/gallery.css').version();
+/*
+ |--------------------------------------------------------------------------
+ | Request
+ |--------------------------------------------------------------------------
+ |
+*/ 
+mix.scripts([
+    'resources/assets/self_service/js/stopExecutionTimeout.js',
+    'resources/assets/self_service/js/request.js',
+],'public/assets/user/self_service/js/request.js').version();
+mix.styles([
+    'resources/assets/self_service/css/request.css',
+],'public/assets/user/self_service/css/request.css').version();
 /*
  |--------------------------------------------------------------------------
  | Kacamata
