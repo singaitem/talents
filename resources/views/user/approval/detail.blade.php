@@ -38,10 +38,9 @@
         </div>
         <!-- /.col -->
         <div class="col-sm-4 col-sm-offset-4 invoice-col">
-          <b>Invoice #007612</b><br>
-          <br>
           <b>Request Type:</b> {{$claim->info}}<br>
           <b>Category:</b> {{$claim->transaction_category->name}}<br>
+          <b>Description:</b>{{$claim->description}}<br>
           <b>Request Due:</b> {{$claim->transaction_date}}
         </div>
         <!-- /.col -->
@@ -90,20 +89,8 @@
           <div class="table-responsive">
             <table class="table">
               <tr>
-                <th style="width:50%">Subtotal:</th>
-                <td>$250.30</td>
-              </tr>
-              <tr>
-                <th>Tax (9.3%)</th>
-                <td>$10.34</td>
-              </tr>
-              <tr>
-                <th>Shipping:</th>
-                <td>$5.80</td>
-              </tr>
-              <tr>
                 <th>Total:</th>
-                <td>$265.24</td>
+                <td>Rp. {{$claim->total_value}}</td>
               </tr>
             </table>
           </div>
@@ -115,11 +102,10 @@
       <!-- this row will not appear when printing -->
       <div class="row no-print">
         <div class="col-xs-12">
-          <a href="invoice-print.html" target="_blank" class="btn btn-default"><i class="fa fa-print"></i> Print</a>
-          <button type="button" class="btn btn-success pull-right"><i class="fa fa-credit-card"></i> Submit Payment
+          <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Approve
           </button>
-          <button type="button" class="btn btn-primary pull-right" style="margin-right: 5px;">
-            <i class="fa fa-download"></i> Generate PDF
+          <button type="submit" class="btn btn-danger pull-right" style="margin-right: 5px;">
+            <i class="fa fa-times"></i> Reject
           </button>
         </div>
       </div>

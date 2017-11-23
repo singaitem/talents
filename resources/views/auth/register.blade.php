@@ -3,6 +3,16 @@
 @section('body_class','register-page')
 
 @section('content')
+	<div id="clouds">
+	    <div class="cloud x1"></div>
+	    <!-- Time for multiple clouds to dance around -->
+	    <div class="cloud x2"></div>
+	    <div class="cloud x3"></div>
+	    <div class="cloud x4"></div>
+	    <div class="cloud x5"></div>
+  	</div>
+
+<div class="container">
 <div class="register-box">
 	<div class="register-logo">
 		<b><img src="/img/logo.png"></b>
@@ -59,5 +69,6 @@
 	  		<a href="login" class="btn btn-block btn-social"><i class="fa fa-user"></i>I already have an account</a>
 		</div>
 	</div>
+</div>
 </div>
 @endsection

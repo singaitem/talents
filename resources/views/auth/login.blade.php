@@ -3,6 +3,18 @@
 @section('body_class','login-page')
 
 @section('content')
+ 
+    
+  <div id="clouds">
+    <div class="cloud x1"></div>
+    <!-- Time for multiple clouds to dance around -->
+    <div class="cloud x2"></div>
+    <div class="cloud x3"></div>
+    <div class="cloud x4"></div>
+    <div class="cloud x5"></div>
+  </div>
+
+ <div class="container">
 	<div class="login-box">
   <div class="login-logo">
     <b><img src="/img/logo.png"></b>
@@ -53,5 +65,6 @@
 
   </div>
   <!-- /.login-box-body -->
+</div>
 </div>
 @endsection

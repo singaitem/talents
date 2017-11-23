@@ -26,6 +26,7 @@ class ClaimsTableSeeder extends Seeder
         $claim1->total_value=200000;
         $claim1->image='image.jpg';
         $claim1->info='Claim Benefit';
+        $claim1->description='On Melawai Optical Store';
         $claim1->save();
 
     }

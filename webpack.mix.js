@@ -42,6 +42,7 @@ mix.copy([
 */
 mix.styles([
 	'node_modules/iCheck/square/blue.css',
+    'resources/assets/auth/css/style.css'
 ],'public/assets/auth/css/auth.css').version();
 
 mix.scripts([

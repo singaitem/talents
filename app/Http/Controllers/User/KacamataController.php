@@ -93,6 +93,7 @@ class KacamataController extends Controller
         $claim->total_value=$valueFrame+$valueLensa;
         $claim->image='image.jpg';
         $claim->info='Claim Benefit';
+        $claim->description='On '.request('optical_store').' Optical Store';
         $claim->save();
 
         if($valueFrame!=0){
