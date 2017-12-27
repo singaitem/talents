@@ -30,6 +30,10 @@ class Employee extends Model
     {
         return $this->belongsTo(Employee::Class,'supervisor_id');
     }
+    public function subordinate()
+    {
+        return Employee::where('supervisor_id',$this->id)->get();
+    }
         
         
 }

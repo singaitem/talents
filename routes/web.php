@@ -28,6 +28,11 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/Approve/Benefit/{claim}','ApprovalController@detail')->name('approve.detail');
 	Route::post('/Approve/Benefit/{claim}','ApprovalController@approve')->name('approve.approved');
 
+
+
+	Route::get('/Profile','MyHRController@index')->name('profile');
+	Route::get('/Family','MyHRController@family')->name('family');
+
 });
 
 Route::group(['namespace' => 'Auth'], function () {

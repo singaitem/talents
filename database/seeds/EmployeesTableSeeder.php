@@ -14,10 +14,10 @@ class EmployeesTableSeeder extends Seeder
      */
     public function run()
     {
-        $perDummy1 = Person::where('name','Dummy 1')->first();
-        $perDummy2 = Person::where('name','Dummy 2')->first();
-        $perDummy3 = Person::where('name','Dummy 3')->first();
-        $perDummy4 = Person::where('name','Dummy 4')->first();
+        $perDummy1 = Person::find(1)->first();
+        $perDummy2 = Person::find(2)->first();
+        $perDummy3 = Person::find(3)->first();
+        $perDummy4 = Person::find(4)->first();
 
 
         $comp1= Company::where('code','XYZ123')->first();

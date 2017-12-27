@@ -59,10 +59,12 @@ mix.scripts([
     'node_modules/jquery-slimscroll/jquery.slimscroll.min.js',
     'node_modules/fastclick/lib/fastclick.js',
     'node_modules/adminlte/js/adminlte.min.js',
+    'node_modules/pace/pace.min.js',
     'node_modules/adminlte/js/demo.js',
 ],'public/assets/user/js/user.js').version();
  mix.styles([
     'node_modules/adminlte/css/skins/all-skins.min.css',
+    'node_modules/pace/pace.min.css',
 ],'public/assets/user/css/user.css').version();
 
 /*
@@ -105,3 +107,16 @@ mix.scripts([
 mix.styles([
     'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
 ],'public/assets/user/self_service/css/datepicker.css').version();
+/*
+ |--------------------------------------------------------------------------
+ | Profile
+ |--------------------------------------------------------------------------
+ |
+*/ 
+mix.scripts([
+    'resources/assets/myhr/js/dropzone.js',
+],'public/assets/user/myhr/js/dropzone.js').version();
+mix.styles([
+    'resources/assets/myhr/css/profile.css',
+    'resources/assets/myhr/css/dropzone.css',
+],'public/assets/user/myhr/css/profile.css').version();
