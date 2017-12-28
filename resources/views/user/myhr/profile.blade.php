@@ -92,21 +92,6 @@
                                 <div class="active tab-pane" id="basic">
                                     <form class="form-horizontal form-material">
                                         <div class="form-group">
-                                            <label class="col-md-12">Full Name</label>
-                                            <div class="col-md-12">
-                                                <input type="text" placeholder="Full Name" class="form-control form-control-line" value="{{auth()->user()->employee->person->name}}"> </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="example-email" class="col-md-12">Email</label>
-                                            <div class="col-md-12">
-                                                <input type="email" placeholder="Email" class="form-control form-control-line" name="example-email" id="example-email" value="{{auth()->user()->employee->person->email}}"> </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Phone No</label>
-                                            <div class="col-md-12">
-                                                <input type="text" placeholder="Phonenumber" class="form-control form-control-line" value="{{auth()->user()->employee->person->phone_number}}"> </div>
-                                        </div>
-                                        <div class="form-group">
                                             <label class="col-sm-12">Profile Picture</label>
                                             <div class="col-sm-4">
                                                 <div class="wrapper-upload">
@@ -119,6 +104,23 @@
                                                 </label>
                                             </div>
                                         </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Full Name</label>
+                                            <div class="col-md-12">
+                                                <input type="text" placeholder="Full Name" class="form-control form-control-line" value="{{auth()->user()->employee->person->name}}"> </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="example-email" class="col-md-12">Email</label>
+                                            <div class="col-md-12">
+                                                <input type="email" placeholder="Email" class="form-control form-control-line" name="example-email" id="example-email" value="{{auth()->user()->employee->person->email}}"> </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-md-12">Phone No</label>
+                                            <div class="col-md-12">
+                                                <input type="text" placeholder="Phonenumber" class="form-control form-control-line" value="{{auth()->user()->employee->person->phone_number}}"> </div>
+                                        </div>
+                                        
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success">Update Profile</button>
@@ -239,6 +241,11 @@
 @endsection
 @section('css')
     <link rel="stylesheet" href="/assets/user/myhr/css/profile.css">
+    <style>
+        .upload-img {
+            height: 150px;
+        }
+    </style>
 @endsection
 @section('javascript')
     <script>

@@ -5,47 +5,206 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Fixed Layout
-                <small>Blank example to the fixed layout</small>
+                Dashboard
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Layout</a></li>
-                <li class="active">Fixed</li>
+                <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
             </ol>
         </section>
 
             <!-- Main content -->
         <section class="content">
-            <div class="callout callout-info">
-                <h4>Tip!</h4>
-
-                <p>Add the fixed class to the body tag to get this layout. The fixed layout is your best option if your sidebar
-                  is bigger than your content because it prevents extra unwanted scrolling.</p>
-            </div>
-            <!-- Default box -->
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Title</h3>
-
-                    <div class="box-tools pull-right">
-                        <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
-                          <i class="fa fa-minus"></i></button>
-                        <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-                          <i class="fa fa-times"></i></button>
+            <div class="row">
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-aqua">
+                        <div class="inner">
+                            <h3>150</h3>
+                            <p>All Request</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-compose"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="box-body">
-                  Start creating your amazing application!
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-green">
+                        <div class="inner">
+                            <h3>53</h3>
+                            <p>Benefit Request</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-cash"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                  Footer
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-yellow">
+                        <div class="inner">
+                            <h3>44</h3>
+                            <p>Personalia Request</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-stalker"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                <!-- /.box-footer-->
+                <!-- ./col -->
+                <div class="col-lg-3 col-xs-6">
+                    <!-- small box -->
+                    <div class="small-box bg-red">
+                        <div class="inner">
+                            <h3>65</h3>
+                            <p>Pending Request</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-social-buffer"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
             </div>
-            <!-- /.box -->
-
+            <div class="row">
+                <div class="col-md-8">
+                    <!-- TABLE: LATEST ORDERS -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Latest Request</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                        <tr>
+                                            <th>Request ID</th>
+                                            <th>Module</th>
+                                            <th>Type</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                            <td>Benefit</td>
+                                            <td>Kacamata</td>
+                                            <td><span class="label label-success">Approved</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                            <td>Personalia</td>
+                                            <td>Change Marital Status</td>
+                                            <td><span class="label label-success">Approved</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                            <td>Benefit</td>
+                                            <td>Medical</td>
+                                            <td><span class="label label-danger">Rejected</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
+                                            <td>Benefit</td>
+                                            <td>Medical Overlimit</td>
+                                            <td><span class="label label-info">Waiting for Approval</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
+                                            <td>Personalia</td>
+                                            <td>Add Family</td>
+                                            <td><span class="label label-info">Waiting for Approval</span>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer clearfix">
+                            <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">View All Request</a>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+                <div class="col-md-4">
+                    <!-- PRODUCT LIST -->
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Recent Payslip</h3>
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <ul class="products-list product-list-in-box">
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="/img/payslip.svg" alt="Product Image">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            November - 2017
+                                        </a>
+                                        <span class="product-description">
+                                            Payment at 25/November/2017
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="/img/payslip.svg" alt="Product Image">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            October - 2017
+                                        </a>
+                                        <span class="product-description">
+                                            Payment at 25/October/2017
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                <li class="item">
+                                    <div class="product-img">
+                                        <img src="/img/payslip.svg" alt="Product Image">
+                                    </div>
+                                    <div class="product-info">
+                                        <a href="javascript:void(0)" class="product-title">
+                                            December - 2017
+                                        </a>
+                                        <span class="product-description">
+                                            Payment at 25/December/2017
+                                        </span>
+                                    </div>
+                                </li>
+                                <!-- /.item -->
+                                
+                            </ul>
+                        </div>
+                        <!-- /.box-body -->
+                        
+                    </div>
+                    <!-- /.box --> 
+                </div>
+            </div>
         </section>
         <!-- /.content -->
     </div>
