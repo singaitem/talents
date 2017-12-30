@@ -11,4 +11,26 @@ class Person extends Model
     public function employee(){
         return $this->belongsTo(Employee::Class);
     }
+    public function birthdateformated(){
+    	$originalDate = $this->dateofbirth;
+		return date("d/m/Y", strtotime($originalDate));
+    }
+    public function families(){
+        return $this->hasMany(Family::Class);
+    }
+    public function addresses(){
+        return $this->hasMany(Address::Class);            
+    }
+    public function primaryaddress(){
+        foreach ($this->addresses as $address) {
+            if($address->primary_address==1){
+                return $address;
+            }
+        }
+        return null;            
+    }
+    public function certificates(){
+        return $this->hasMany(Certificate::Class);        
+    }
+            	
 }

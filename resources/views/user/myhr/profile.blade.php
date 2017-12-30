@@ -8,8 +8,7 @@
                 User Profile
             </h1>
             <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="#">Examples</a></li>
+                <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li class="active">User profile</li>
             </ol>
         </section>
@@ -43,8 +42,8 @@
                                 <li class="navigation-header">Navigation</li>
                                 <li class="active"><a href="{{route('profile')}}"><i class="fa fa-user"></i> Profile</a></li>
                                 <li><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
-                                <li><a href="#schedule"><i class="fa fa-home"></i> Address</a></li>
-                                <li><a href="#orders"><i class="fa fa-certificate"></i> Certificate</a></li>
+                                <li><a href="{{route('address')}}"><i class="fa fa-home"></i> Address</a></li>
+                                <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
                                 <li class="navigation-divider"></li>
                                 <li><a href="{{route('logout')}}"><i class="fa fa-power-off"></i> Log out</a></li>
                             </ul>
@@ -84,8 +83,8 @@
                     <div class="white-box">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#basic" data-toggle="tab">Basic Information</a></li>
-                                <li><a href="#detail" data-toggle="tab">Detail Information</a></li>
+                                <li class="active"><a href="#basic" data-toggle="tab"> Information</a></li>
+                                <li><a href="#detail" data-toggle="tab">Change Marital Status</a></li>
                                 <li><a href="#changePassword" data-toggle="tab">Change Password</a></li>
                             </ul>
                             <div class="tab-content">
@@ -120,7 +119,12 @@
                                             <div class="col-md-12">
                                                 <input type="text" placeholder="Phonenumber" class="form-control form-control-line" value="{{auth()->user()->employee->person->phone_number}}"> </div>
                                         </div>
-                                        
+                                        <div class="form-group">
+                                            <label class="col-md-12">Date of Birth</label>
+                                            <div class="col-md-12 date">
+                                                <input type="text" class="form-control pull-right" id="datepicker" value="{{auth()->user()->employee->person->birthdateformated()}}">
+                                            </div>
+                                        </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success">Update Profile</button>
@@ -130,29 +134,8 @@
                                 </div>
                                 <div class="tab-pane" id="detail">
                                     <form class="form-horizontal form-material">
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Home Base</label>
-                                            <div class="col-sm-12">
-                                                <select class="form-control form-control-line">
-                                                    <option>London</option>
-                                                    <option>India</option>
-                                                    <option>Usa</option>
-                                                    <option>Canada</option>
-                                                    <option>Thailand</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Address</label>
-                                            <div class="col-md-12">
-                                                <textarea rows="5" class="form-control form-control-line">{{auth()->user()->employee->person->address}}</textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-md-12">Date of Birth</label>
-                                            <div class="col-md-12">
-                                                <input type="text" placeholder="Phonenumber" class="form-control form-control-line" value="{{auth()->user()->employee->person->dateofbirth}}"> </div>
-                                        </div>
+                                       
+                                        
                                         <div class="form-group">
                                             <label class="col-sm-12">Marital Status</label>
                                             <div class="col-sm-12">
@@ -165,17 +148,8 @@
                                         </div>
                                         <div class="form-group">
                                             <label class="col-sm-12">Attachment</label>
-                                            <div class="col-sm-4">
-                                                <div class="wrapper-upload">
-                                                    <div class="upload-img">
-                                                        <img src="/img/upload.png" class="img-responsive">
-                                                    </div>
-                                                </div>
-                                                <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*" >
-                                                </label>
-                                            </div>
-                                            <div class="col-sm-4">
+                                           
+                                            <div class="col-sm-6">
                                                 <div class="wrapper-upload">
                                                     <div class="upload-img">
                                                         <img src="/img/upload.png" class="img-responsive">
@@ -185,7 +159,7 @@
                                                     Browse <input type="file" name="image2" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
-                                            <div class="col-sm-4">
+                                            <div class="col-sm-6">
                                                 <div class="wrapper-upload">
                                                     <div class="upload-img">
                                                         <img src="/img/upload.png" class="img-responsive">
@@ -240,31 +214,8 @@
 </div>
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/assets/user/myhr/css/profile.css">
-    <style>
-        .upload-img {
-            height: 150px;
-        }
-    </style>
+    <link rel="stylesheet" href="/assets/user/myhr/css/myhr.css">
 @endsection
 @section('javascript')
-    <script>
-        function readURL(input) {
-
-          if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function(e) {
-                $(input).parent().prev().children().children('.img-responsive').attr('src',e.target.result);
-                console.log.apply(console,$(input).parent().prev().children().children('img'));
-            }
-
-            reader.readAsDataURL(input.files[0]);
-          }
-        }
-
-        $(".inp-img").change(function() {
-          readURL(this);
-        });
-    </script>
+    <script src="/assets/user/myhr/js/myhr.js"></script>
 @endsection

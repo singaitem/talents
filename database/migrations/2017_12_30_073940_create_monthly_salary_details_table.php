@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePersonsTable extends Migration
+class CreateMonthlySalaryDetailsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,11 @@ class CreatePersonsTable extends Migration
      */
     public function up()
     {
-        Schema::create('persons', function (Blueprint $table) {
+        Schema::create('monthly_salary_details', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('email')->unique();
-            $table->string('name');
-            $table->date('dateofbirth');
-            $table->string('marital');
-            $table->string('phone_number');
-            $table->string('picture');
-            $table->char('gender',10);
+            $table->integer('monthly_salary_id');
+            $table->integer('element_id');
+            $table->integer('value');
             $table->timestamps();
         });
     }
@@ -33,6 +29,6 @@ class CreatePersonsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('persons');
+        Schema::dropIfExists('monthly_salary_details');
     }
 }

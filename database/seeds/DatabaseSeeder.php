@@ -11,12 +11,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        //Data Master
         $this->call(CompaniesTableSeeder::class);
+        $this->call(HomeBasesTableSeeder::class);
         $this->call(PositionsTableSeeder::class);
         $this->call(TransactionCategoriesTableSeeder::class);
         $this->call(TransactionTypesTableSeeder::class);
+        $this->call(ElementsTableSeeder::class);
 
-    	$this->call(PersonsTableSeeder::class);    
+        //Person
+    	$this->call(PersonsTableSeeder::class);
+        $this->call(AddressesTableSeeder::class);
+        $this->call(FamiliesTableSeeder::class);
+        $this->call(CertificatesTableSeeder::class);
+
+
+            
     	$this->call(EmployeesTableSeeder::class);
     	$this->call(UsersTableSeeder::class);
 
@@ -25,5 +35,8 @@ class DatabaseSeeder extends Seeder
         $this->call(RequestsTableSeeder::class);
         $this->call(ClaimsTableSeeder::class);
         $this->call(ClaimDetailsTableSeeder::class);
+
+        $this->call(SalariesTableSeeder::class);
+
     }
 }

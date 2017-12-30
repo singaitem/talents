@@ -14,10 +14,10 @@ class EmployeesTableSeeder extends Seeder
      */
     public function run()
     {
-        $perDummy1 = Person::find(1)->first();
-        $perDummy2 = Person::find(2)->first();
-        $perDummy3 = Person::find(3)->first();
-        $perDummy4 = Person::find(4)->first();
+        $perDummy1 = Person::find(1);
+        $perDummy2 = Person::find(2);
+        $perDummy3 = Person::find(3);
+        $perDummy4 = Person::find(4);
 
 
         $comp1= Company::where('code','XYZ123')->first();
@@ -25,8 +25,14 @@ class EmployeesTableSeeder extends Seeder
         $benefitSupervisor = Position::where('name','Benefit Supervisor')->first();
         $posIt = Position::where('name','IT Developer')->first();
         $manager = Position::where('name','Manager')->first(); 
-
-       
+        
+        
+        $emp1 = new Employee();
+        $emp1->person_id=$perDummy1->id;
+        $emp1->company_id=$comp1->id;
+        $emp1->position_id=$posIt->id;
+        $emp1->name='00001';
+        $emp1->save();
 
         $emp2 = new Employee();
         $emp2->person_id=$perDummy2->id;
@@ -34,14 +40,9 @@ class EmployeesTableSeeder extends Seeder
         $emp2->position_id=$benefitSupervisor->id;
         $emp2->name='00002';
         $emp2->save();
-
-        $emp1 = new Employee();
-        $emp1->person_id=$perDummy1->id;
-        $emp1->company_id=$comp1->id;
-        $emp1->position_id=$posIt->id;
         $emp1->supervisor_id=$emp2->id;
-        $emp1->name='00001';
         $emp1->save();
+        
 
         $emp3 = new Employee();
         $emp3->person_id=$perDummy3->id;

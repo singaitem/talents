@@ -20,10 +20,12 @@ let mix = require('laravel-mix');
 mix.scripts([
     'node_modules/jquery/dist/jquery.min.js',
     'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js'
 ], 'public/assets/app/js/app.js').version();
 
 mix.styles([
 	'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'node_modules/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css',
     'node_modules/font-awesome/css/font-awesome.min.css',
     'node_modules/Ionicons/css/ionicons.min.css',
     'node_modules/adminlte/css/AdminLTE.min.css'
@@ -109,14 +111,13 @@ mix.styles([
 ],'public/assets/user/self_service/css/datepicker.css').version();
 /*
  |--------------------------------------------------------------------------
- | Profile
+ | MyHR
  |--------------------------------------------------------------------------
  |
 */ 
 mix.scripts([
-    'resources/assets/myhr/js/dropzone.js',
-],'public/assets/user/myhr/js/dropzone.js').version();
+    'resources/assets/myhr/js/myhr.js',
+],'public/assets/user/myhr/js/myhr.js').version();
 mix.styles([
-    'resources/assets/myhr/css/profile.css',
-    'resources/assets/myhr/css/dropzone.css',
-],'public/assets/user/myhr/css/profile.css').version();
+    'resources/assets/myhr/css/myhr.css',
+],'public/assets/user/myhr/css/myhr.css').version();

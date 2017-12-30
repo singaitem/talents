@@ -109,8 +109,8 @@
           <ul class="treeview-menu">
             <li><a href="{{route('profile')}}"><i class="fa fa-user"></i>Profile</a></li>
             <li><a href="{{route('family')}}"><i class="fa fa-users"></i>Family</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-home"></i>Address</a></li>
-            <li><a href="../../index2.html"><i class="fa fa-certificate"></i>Certificate</a></li>
+            <li><a href="{{route('address')}}"><i class="fa fa-home"></i>Address</a></li>
+            <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i>Certificate</a></li>
           </ul>
         </li>
         <li class="treeview">
@@ -140,7 +140,7 @@
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="#"><i class="fa fa-circle-o"></i>Monthly</a></li>
+                <li><a href="{{route('payslip.monthly')}}"><i class="fa fa-circle-o"></i>Monthly</a></li>
                 <li><a href="#"><i class="fa fa-circle-o"></i>Yearly</a></li>
               </ul>
             </li>

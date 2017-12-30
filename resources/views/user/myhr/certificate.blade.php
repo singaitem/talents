@@ -1,15 +1,15 @@
 @extends('user.layouts.user')
 
 @section('content')
-	<div class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Family
+                Certificate
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Family</li>
+                <li class="active">Certificate</li>
             </ol>
         </section>
 
@@ -41,9 +41,9 @@
                             <ul class="navigation">
                                 <li class="navigation-header">Navigation</li>
                                 <li><a href="{{route('profile')}}"><i class="fa fa-user"></i> Profile</a></li>
-                                <li class="active"><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
+                                <li><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
                                 <li><a href="{{route('address')}}"><i class="fa fa-home"></i> Address</a></li>
-                                <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
+                                <li class="active"><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
                                 <li class="navigation-divider"></li>
                                 <li><a href="{{route('logout')}}"><i class="fa fa-power-off"></i> Log out</a></li>
                             </ul>
@@ -83,16 +83,16 @@
                     <div class="box box-primary white-box">
                         <div class="body">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Family Members</h3>
+                                <h3 class="box-title">List Certificate</h3>
                             </div>
                             <div class="box-body">
                                 <div class="list-group">
-                                    @foreach(auth()->user()->employee->person->families as $family)
+                                    @foreach(auth()->user()->employee->person->certificates as $certificate)
                                     <div>
                                        <a href="" class="list-group-item">
-                                            <h4 class="list-group-item-heading">{{$family->name}}</h4>
+                                            <h4 class="list-group-item-heading">{{$certificate->name}}</h4>
                                             <p class="list-group-item-text">
-                                                {{$family->relationship}}
+                                                {{$certificate->no}}-{{$certificate->principle}}
                                             </p>
                                         </a> 
                                     </div>
