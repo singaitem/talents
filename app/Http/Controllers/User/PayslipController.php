@@ -12,8 +12,7 @@ class PayslipController extends Controller
         $this->middleware('auth');
     }
     public function monthly(){
-    	$monthlies = MonthlySalary::where('employee_id',auth()->user()->employee->id)->get();
-    	return view('user.self_service.payslip.monthly',compact('monthlies'));
+    	return view('user.self_service.payslip.monthly');
     }
     	
 }

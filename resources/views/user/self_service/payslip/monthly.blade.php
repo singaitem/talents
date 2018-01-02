@@ -5,8 +5,8 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Request
-                <small>Benefit</small>
+                Payslip
+                <small>Monthly</small>
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{'dashboard'}}"><i class="fa fa-dashboard"></i>Home</a></li>
@@ -27,22 +27,20 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No Transaction</th>
-                                        <th>Transaction Type</th>
+                                        <th>Period</th>
                                         <th>Date</th>
-                                        <th>Status</th>
-                                        <th>Reason</th>
+                                        <th>Paid Via</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($monthlies as $monthly)
+                                    @foreach(auth()->user()->employee->monthlysalaries as $monthly)
                                         <tr>
                                             <td>{{$monthly->period}}</td>
-                                            <td>{{$monthly->payment_start_date}}</td>
-                                            <td>{{$monthly->period}}</td>
-                                            <td><span class="label label-warning" style="line-height: 2;">{{$monthly->period}}</span>
+                                            <td>{{$monthly->paymentDateforHuman()}}</td>
+                                            <td>{{$monthly->payment_method}}</td>
+                                            <td><button class="button btn">View</button>
                                             </td>
-                                            <td>{{$monthly->period}}</td>
                                         </tr>
                                     @endforeach
                                 </tbody>

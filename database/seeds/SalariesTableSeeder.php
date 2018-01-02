@@ -55,6 +55,7 @@ class SalariesTableSeeder extends Seeder
         $monthly->total_deduction=5940443;
         $monthly->payment_start_date='2017-12-25';
         $monthly->period='December - 2017';
+        $monthly->payment_method='Transfer';
         $monthly->save();
 
         $monthlydetail = new MonthlySalaryDetail();

@@ -34,10 +34,10 @@ class Employee extends Model
     {
         return Employee::where('supervisor_id',$this->id)->get();
     }
-    public function monthlysalary(){
+    public function monthlysalaries(){
         return $this->hasMany(MonthlySalary::Class);
     }
-    public function yearlysalary(){
+    public function yearlysalaries(){
         return $this->hasMany(YearlySalary::Class);
     }
         

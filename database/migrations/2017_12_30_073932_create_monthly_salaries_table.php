@@ -22,6 +22,7 @@ class CreateMonthlySalariesTable extends Migration
             $table->integer('total_deduction');
             $table->date('payment_start_date');
             $table->string('period');
+            $table->string('payment_method');
             $table->timestamps();
         });
     }

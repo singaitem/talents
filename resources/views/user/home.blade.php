@@ -154,48 +154,21 @@
                         <!-- /.box-header -->
                         <div class="box-body">
                             <ul class="products-list product-list-in-box">
+                                @foreach(auth()->user()->employee->monthlysalaries as $monthly)
                                 <li class="item">
                                     <div class="product-img">
                                         <img src="/img/payslip.svg" alt="Product Image">
                                     </div>
                                     <div class="product-info">
                                         <a href="javascript:void(0)" class="product-title">
-                                            November - 2017
+                                            {{$monthly->period}}
                                         </a>
                                         <span class="product-description">
-                                            Payment at 25/November/2017
+                                            {{$monthly->paymentDateforHuman()}}
                                         </span>
                                     </div>
                                 </li>
-                                <!-- /.item -->
-                                <li class="item">
-                                    <div class="product-img">
-                                        <img src="/img/payslip.svg" alt="Product Image">
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="javascript:void(0)" class="product-title">
-                                            October - 2017
-                                        </a>
-                                        <span class="product-description">
-                                            Payment at 25/October/2017
-                                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
-                                <li class="item">
-                                    <div class="product-img">
-                                        <img src="/img/payslip.svg" alt="Product Image">
-                                    </div>
-                                    <div class="product-info">
-                                        <a href="javascript:void(0)" class="product-title">
-                                            December - 2017
-                                        </a>
-                                        <span class="product-description">
-                                            Payment at 25/December/2017
-                                        </span>
-                                    </div>
-                                </li>
-                                <!-- /.item -->
+                                @endforeach
                                 
                             </ul>
                         </div>
