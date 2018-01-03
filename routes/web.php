@@ -42,9 +42,17 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/profile','MyHRController@index')->name('profile');
+
 	Route::get('/family','MyHRController@family')->name('family');
+	Route::get('/family/member/{family}','MyHRController@familyDetail')->name('family.detail');
+	Route::get('/family/new','MyHRController@familyCreate')->name('family.create');
+
 	Route::get('/address','MyHRController@address')->name('address');
+	Route::get('/address/detail/{address}','MyHRController@addressDetail')->name('address.detail');
+	Route::get('/address/new','MyHRController@addressCreate')->name('address.create');
+
 	Route::get('/certificate','MyHRController@certificate')->name('certificate');
+	Route::get('/certificate/new','MyHRController@certificateCreate')->name('certificate.create');
 
 	/*
 	|--------------------------------------------------------------------------

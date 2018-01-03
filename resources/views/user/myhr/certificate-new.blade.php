@@ -1,15 +1,16 @@
 @extends('user.layouts.user')
 
 @section('content')
-	<div class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Family
+                Certificate
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Family</li>
+                <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
+                <li class="active">Create Certificate</li>
             </ol>
         </section>
 
@@ -41,9 +42,9 @@
                             <ul class="navigation">
                                 <li class="navigation-header">Navigation</li>
                                 <li><a href="{{route('profile')}}"><i class="fa fa-user"></i> Profile</a></li>
-                                <li class="active"><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
+                                <li><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
                                 <li><a href="{{route('address')}}"><i class="fa fa-home"></i> Address</a></li>
-                                <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
+                                <li class="active"><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
                                 <li class="navigation-divider"></li>
                                 <li><a href="{{route('logout')}}"><i class="fa fa-power-off"></i> Log out</a></li>
                             </ul>
@@ -83,24 +84,58 @@
                     <div class="box box-primary white-box">
                         <div class="body">
                             <div class="box-header with-border">
-                                <h3 class="box-title">Family Members</h3>
+                                <h3 class="box-title">Create Certificate</h3>
                             </div>
                             <div class="box-body">
-                                <div class="list-group">
-                                    @foreach(auth()->user()->employee->person->families as $family)
-                                    <div>
-                                       <a href="{{route('family.detail',$family)}}" class="list-group-item">
-                                            <h4 class="list-group-item-heading">{{$family->name}}</h4>
-                                            <p class="list-group-item-text">
-                                                {{$family->relationship}}
-                                            </p>
-                                        </a> 
+                                <form class="form-horizontal form-material">
+                                	<div class="form-group">
+                                        <label for="name" class="col-md-12">Name</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Name" class="form-control form-control-line" name="name" id="name">
+                                        </div>
                                     </div>
-                                    @endforeach
-                                    <button type="button" onclick="location.href='{{route('family.create')}}'" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
-                                        <i class="icon md-plus fa fa-plus" aria-hidden="true"></i>
-                                    </button>
-                                </div>
+                                    <div class="form-group">
+                                        <label for="no" class="col-md-12">No</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="No" class="form-control form-control-line" name="no" id="no">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="principle" class="col-md-12">Principle</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Principle" class="form-control form-control-line" name="principle" id="principle">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="year" class="col-md-12">Year</label>
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Year" class="form-control form-control-line" name="year" id="year">
+                                        </div>
+                                    </div>
+									<div class="form-group">
+                                        <label class="col-sm-12">Lifetime Type</label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control form-control-line">
+                                            	<option value="" disabled selected hidden>-- Please Select Status --</option>
+                                                <option value="Lifetime">Lifetime</option>
+                                                <option value="Period">Period</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="col-md-12">Description</label>
+                                        <div class="col-md-12">
+                                            <textarea id="description" placeholder="Description" rows="5" name="description" class="form-control form-control-line"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-success">Insert Certificate</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -83,26 +83,14 @@
                     <div class="white-box">
                         <div class="nav-tabs-custom">
                             <ul class="nav nav-tabs">
-                                <li class="active"><a href="#basic" data-toggle="tab"> Information</a></li>
+                                <li class="active"><a href="#basic" data-toggle="tab"> Basic Information</a></li>
                                 <li><a href="#detail" data-toggle="tab">Change Marital Status</a></li>
                                 <li><a href="#changePassword" data-toggle="tab">Change Password</a></li>
+                                <li><a href="#changeProfilePicture" data-toggle="tab">Change Profile Picture</a></li>
                             </ul>
                             <div class="tab-content">
                                 <div class="active tab-pane" id="basic">
                                     <form class="form-horizontal form-material">
-                                        <div class="form-group">
-                                            <label class="col-sm-12">Profile Picture</label>
-                                            <div class="col-sm-4">
-                                                <div class="wrapper-upload">
-                                                    <div class="upload-img">
-                                                        <img src="/img/profile_picture/{{auth()->user()->employee->person->picture}}" class="img-responsive">
-                                                    </div>
-                                                </div>
-                                                <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*" >
-                                                </label>
-                                            </div>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Full Name</label>
                                             <div class="col-md-12">
@@ -125,11 +113,7 @@
                                                 <input type="text" class="form-control pull-right" id="datepicker" value="{{auth()->user()->employee->person->birthdateformated()}}">
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <div class="col-sm-12">
-                                                <button class="btn btn-success">Update Profile</button>
-                                            </div>
-                                        </div>
+                                        
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="detail">
@@ -201,6 +185,29 @@
                                         </div>
                                     </form>
                                 </div>
+                                <div class="tab-pane" id="changeProfilePicture">
+                                    <form class="form-horizontal form-material">
+                                        <div class="form-group">
+                                            <label class="col-sm-12">Profile Picture</label>
+                                            <div class="col-sm-4">
+                                                <div class="wrapper-upload">
+                                                    <div class="upload-img">
+                                                        <img src="/img/profile_picture/{{auth()->user()->employee->person->picture}}" class="img-responsive">
+                                                    </div>
+                                                </div>
+                                                <label class="btn btn-primary btn-file">
+                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*" >
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-sm-12">
+                                                <button class="btn btn-success">Update Profile</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                
                             <!-- tab-content -->    
                             </div>
                         </div>

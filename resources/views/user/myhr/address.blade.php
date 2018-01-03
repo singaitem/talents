@@ -89,7 +89,7 @@
                                 <div class="list-group">
                                     @foreach(auth()->user()->employee->person->addresses as $address)
                                     <div>
-                                       <a href="" class="list-group-item">
+                                       <a href="{{route('address.detail',$address->id)}}" class="list-group-item">
                                             <h4 class="list-group-item-heading">{{$address->stay_status}}</h4>
                                             <p class="list-group-item-text">
                                                 {{$address->name}}
@@ -97,7 +97,7 @@
                                         </a> 
                                     </div>
                                     @endforeach
-                                    <button type="button" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
+                                    <button type="button" onclick="location.href='{{route('address.create')}}'" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
                                         <i class="icon md-plus fa fa-plus" aria-hidden="true"></i>
                                     </button>
                                 </div>

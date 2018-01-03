@@ -97,7 +97,7 @@
                                         </a> 
                                     </div>
                                     @endforeach
-                                    <button type="button" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
+                                    <button type="button" onclick="location.href='{{route('certificate.create')}}'" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
                                         <i class="icon md-plus fa fa-plus" aria-hidden="true"></i>
                                     </button>
                                 </div>
