@@ -25,7 +25,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4 box-transition">
-                            <a class="lightbox" href="">
+                            <a class="lightbox" href="{{route('medical')}}">
                                 <img src="/img/medical.svg" alt="Medical">
                                 <div class="text-center panel-footer">Medical</div>
                             </a>
@@ -37,7 +37,7 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4 box-transition">
-                            <a class="lightbox" href="">
+                            <a class="lightbox" href="{{route('travel')}}">
                                 <img src="/img/business-travel.svg" alt="Coast">
                                 <div class="text-center panel-footer">Business Travel</div>
                             </a>

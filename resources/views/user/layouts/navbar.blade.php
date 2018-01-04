@@ -25,18 +25,20 @@
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-bell-o"></i>
-              <span class="label label-warning">2</span>
+              <span class="label label-warning">{{count(auth()->user()->employee->notifications)}}</span>
             </a>
             <ul class="dropdown-menu">
-              <li class="header">You have 10 notifications</li>
+              <li class="header">You have {{auth()->user()->employee->notificationTotal()}} notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
+                  @foreach(auth()->user()->employee->notifications as $notification)
                   <li>
                     <a href="#">
-                      <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                      <i class="fa {{$notification->icon}}"></i> {{$notification->total}} {{$notification->name}}
                     </a>
                   </li>
+                  @endforeach
                 </ul>
               </li>
             </ul>

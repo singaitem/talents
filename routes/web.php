@@ -34,7 +34,18 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/approve/benefit','ApprovalController@benefit')->name('approve.benefit');
 	Route::get('/approve/benefit/{claim}','ApprovalController@detail')->name('approve.detail');
 	Route::post('/approve/benefit/{claim}','ApprovalController@approve')->name('approve.approved');
-
+	/*
+	|--------------------------------------------------------------------------
+	| Medical
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/request/medical','MedicalController@index')->name('medical');
+	/*
+	|--------------------------------------------------------------------------
+	| Business Travel
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/request/travel','BusinessTravelController@index')->name('travel');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -62,6 +73,8 @@ Route::group(['namespace' => 'User'], function () {
 	*/
 
 	Route::get('/monthly','PayslipController@monthly')->name('payslip.monthly');
+	Route::get('/monthly/payslip/{SalaryMonthly}','PayslipController@payslip')->name('payslip.monthly.detail');
+	
 
 });
 

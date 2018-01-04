@@ -130,6 +130,32 @@
                                     </div>
                                     <div class="col-md-12">
                                         <div class="form-group">
+                                            <label class="col-sm-12">Attachment</label>
+                                           
+                                            <div class="col-sm-6">
+                                                <div class="wrapper-upload">
+                                                    <div class="upload-img">
+                                                        <img src="/img/upload.png" class="img-responsive">
+                                                    </div>
+                                                </div>  
+                                                <label class="btn btn-primary btn-file">
+                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
+                                                </label>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div class="wrapper-upload">
+                                                    <div class="upload-img">
+                                                        <img src="/img/upload.png" class="img-responsive">
+                                                    </div>
+                                                </div>  
+                                                <label class="btn btn-primary btn-file">
+                                                    Browse <input type="file" name="image3" class="inp-img" accept="image/*">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
                                             <div class="col-sm-12">
                                                 <button class="btn btn-success">Insert Certificate</button>
                                             </div>

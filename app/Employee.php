@@ -40,7 +40,17 @@ class Employee extends Model
     public function yearlysalaries(){
         return $this->hasMany(YearlySalary::Class);
     }
-        
+    public function notifications(){
+        return $this->hasMany(Notification::Class);        
+    }
+    public function notificationTotal(){
+        $total = 0; 
+        foreach($this->notifications as $notification){
+            $total +=$notification->total;
+        }                
+        return $total;
+    }
+                                
         
     
         
