@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\HomeBase;
 use App\Family;
 use App\Address;
+use App\Certificate;
 class MyHRController extends Controller
 {
 	public function __construct()
@@ -48,6 +49,10 @@ class MyHRController extends Controller
     public function certificateCreate(){
         return view('user.myhr.certificate-new');
     }
+    public function certificateDetail(Certificate $certificate){
+        return view('user.myhr.certificate-detail',compact('certificate'));
+    }
+        
         
         
         

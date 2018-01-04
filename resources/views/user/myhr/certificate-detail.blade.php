@@ -9,7 +9,8 @@
             </h1>
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Certificate</li>
+                <li><a href="{{route('certificate')}}"><i class="fa fa-certificate"></i> Certificate</a></li>
+                <li class="active">Create Certificate</li>
             </ol>
         </section>
 
@@ -83,23 +84,68 @@
                     <div class="box box-primary white-box">
                         <div class="body">
                             <div class="box-header with-border">
-                                <h3 class="box-title">List Certificate</h3>
+                                <h3 class="box-title">Detail Certificate</h3>
                             </div>
                             <div class="box-body">
-                                <div class="list-group">
-                                    @foreach(auth()->user()->employee->person->certificates as $certificate)
-                                    <div>
-                                       <a href="{{route('certificate.detail',$certificate->id)}}" class="list-group-item">
-                                            <h4 class="list-group-item-heading">{{$certificate->name}}</h4>
-                                            <p class="list-group-item-text">
-                                                {{$certificate->no}}-{{$certificate->principle}}
-                                            </p>
-                                        </a> 
+                                <div class="form-horizontal form-material">
+                                	<div class="form-group">
+                                        <label for="name" class="col-md-12">Name</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->name}}
+                                        	</div>
+                                        </div>
                                     </div>
-                                    @endforeach
-                                    <button type="button" onclick="location.href='{{route('certificate.create')}}'" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
-                                        <i class="icon md-plus fa fa-plus" aria-hidden="true"></i>
-                                    </button>
+                                    <div class="form-group">
+                                        <label for="no" class="col-md-12">No</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->no}}
+                                        	</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name" class="col-md-12">Principle</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->principle}}
+                                        	</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="year" class="col-md-12">Year</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->year}}
+                                        	</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="year" class="col-md-12">Lifetime Type</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->type}}
+                                        	</div>
+                                        </div>
+                                    </div>
+									<div class="form-group">
+                                        <label for="description" class="col-md-12">Description</label>
+                                        <div class="col-md-12">
+                                        	<div class="box-hover-info">
+                                        		{{$certificate->description}}
+                                        	</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="description" class="col-md-12">Attachment</label>
+                                        @foreach($certificate->attachments() as $attachment)
+                                        <div class="col-md-6">
+                                        	<div class="box-hover-info">
+                                        		{{$attachment->name}}
+                                        	</div>
+                                        </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>

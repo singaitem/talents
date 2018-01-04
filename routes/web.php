@@ -53,6 +53,7 @@ Route::group(['namespace' => 'User'], function () {
 
 	Route::get('/certificate','MyHRController@certificate')->name('certificate');
 	Route::get('/certificate/new','MyHRController@certificateCreate')->name('certificate.create');
+	Route::get('/certificate/detail/{certificate}','MyHRController@certificateDetail')->name('certificate.detail');
 
 	/*
 	|--------------------------------------------------------------------------

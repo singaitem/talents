@@ -297,3 +297,13 @@
             -o-transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
             transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
         }
+        .box-hover-info:after{
+            display:block;
+            content: '';
+            border-bottom: solid 2px #707cd2;  
+            transform: scaleX(0);  
+            transition: transform 250ms ease-in-out;
+        }
+        .box-hover-info:hover:after {
+         transform: scaleX(1); 
+        }
