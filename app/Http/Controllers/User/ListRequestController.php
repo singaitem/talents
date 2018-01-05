@@ -16,5 +16,10 @@ class ListRequestController extends Controller
     	$allClaim = Claim::where('employee_id',auth()->user()->employee->id)->get();
         return view('user.self_service.list',['claims'=>$allClaim]);
     }
+    public function personal()
+    {
+        $allClaim = Claim::where('employee_id',auth()->user()->employee->id)->get();
+        return view('user.self_service.request-personal',['claims'=>$allClaim]);
+    }
     	
 }

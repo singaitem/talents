@@ -6,15 +6,15 @@
         <section class="content-header">
           <h1>
             <div class="col-md-10 col-md-offset-1" style="margin-bottom: 10px;">
-                <img src="/img/medicaloverlimmit.png" alt="Eyeglasses" style="max-width: 50px;">
-                Medical Overlimit
+                <img src="/img/ring.svg" alt="Eyeglasses" style="max-width: 50px;">
+                Wedding
             </div>
             
           </h1>
           <ol class="breadcrumb">
             <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Home</a></li>
             <li><a href="{{route('selfservice')}}"><i class="fa ion-ios-body-outline"></i>Request</a></li>
-            <li class="active">Medical Overlimit</li>
+            <li class="active">Wedding</li>
           </ol>
         </section>
 
@@ -32,7 +32,7 @@
                         <form role="form" action="{{route('kacamata.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="box-body">
-                                Are you sure want to claim Medical OverLimit ?
+                                Are you sure want to claim Wedding Donation ?
                                 
                             </div>
                             <!-- /.box-body -->

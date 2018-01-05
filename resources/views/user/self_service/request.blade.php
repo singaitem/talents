@@ -32,7 +32,7 @@
                         </div>
                         <div class="col-sm-12 col-md-4 box-transition">
                             <a class="lightbox" href="{{route('medicaloverlimit')}}">
-                                <img src="https://cdn4.iconfinder.com/data/icons/usa-dollar-2/512/xxx025-512.png" alt="Tunnel" align="middle">
+                                <img src="/img/medicaloverlimmit.png" alt="Tunnel" align="middle">
                                 <div class="text-center panel-footer">Medical Overlimit</div>
                             </a>
                         </div>
@@ -43,13 +43,13 @@
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4 box-transition">
-                            <a class="lightbox" href="">
-                                <img src="https://accenttravel.com/wp-content/uploads/2016/07/icon-reports_v1.png" alt="Rails">
+                            <a class="lightbox" href="{{route('spdadvance')}}">
+                                <img src="http://firstclose.com/wp-content/uploads/2017/07/assets-18.svg" alt="Rails">
                                 <div class="text-center panel-footer">SPD Advance</div>
                             </a>
                         </div>
                         <div class="col-sm-6 col-md-4 box-transition">
-                            <a class="lightbox" href="">
+                            <a class="lightbox" href="{{route('wedding')}}">
                                 <img src="/img/ring.svg" alt="Traffic">
                                 <div class="text-center panel-footer">Wedding</div>
                             </a>

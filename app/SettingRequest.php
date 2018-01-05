@@ -10,4 +10,8 @@ class SettingRequest extends Model
     {
     	return $this->hasMany(SettingRequestDetail::Class);
     }
+    public function category(){
+    	return $this->belongsTo(Category::Class);
+    }
+    	
 }

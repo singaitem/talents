@@ -16,6 +16,9 @@ class TransactionCategory extends Model
     {
     	return $this->hasMany(Balance::Class);
     }
-    	
+    public function settingRequest(){
+          return $this->hasMany(SettingRequest::Class);  
+        }
+             	
     	
 }

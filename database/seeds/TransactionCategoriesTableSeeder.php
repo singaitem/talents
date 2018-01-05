@@ -13,6 +13,7 @@ class TransactionCategoriesTableSeeder extends Seeder
     {
         $kacamata = new TransactionCategory();
         $kacamata->name='Kacamata';
+        $kacamata->module='Benefit';
         $kacamata->save();
     }
 }

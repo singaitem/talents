@@ -15,6 +15,9 @@ class CreateYearlySalaryDetailsTable extends Migration
     {
         Schema::create('yearly_salary_details', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('yearly_salary_id');
+            $table->integer('element_id');
+            $table->integer('value');
             $table->timestamps();
         });
     }

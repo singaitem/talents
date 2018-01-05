@@ -17,6 +17,13 @@ Route::group(['namespace' => 'User'], function () {
 
 
 	Route::get('/request','SelfServiceController@index')->name('selfservice');
+	/*
+	|--------------------------------------------------------------------------
+	| My Request
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/list','ListRequestController@index')->name('request.list');
+	Route::get('/personal-request','ListRequestController@personal')->name('request.personal');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -29,7 +36,6 @@ Route::group(['namespace' => 'User'], function () {
 	Route::post('/request/submit','ClaimController@claim')->name('claim.submit');
 
 
-	Route::get('/list','ListRequestController@index')->name('request.list');
 
 	Route::get('/approve/benefit','ApprovalController@benefit')->name('approve.benefit');
 	Route::get('/approve/benefit/{claim}','ApprovalController@detail')->name('approve.detail');
@@ -52,6 +58,18 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/travel','BusinessTravelController@index')->name('travel');
+	/*
+	|--------------------------------------------------------------------------
+	| SPD Advance
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/request/spdadvance','SPDAdvanceController@index')->name('spdadvance');
+	/*
+	|--------------------------------------------------------------------------
+	| Wedding
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/request/wedding','WeddingController@index')->name('wedding');
 
 	/*
 	|--------------------------------------------------------------------------

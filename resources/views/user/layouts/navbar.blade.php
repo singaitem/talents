@@ -147,7 +147,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../UI/general.html"><i class="fa fa-user"></i>Personal</a></li>
+            <li><a href="{{route('request.personal')}}"><i class="fa fa-user"></i>Personal</a></li>
             <li><a href="{{route('request.list')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>
