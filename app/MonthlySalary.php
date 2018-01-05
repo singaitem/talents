@@ -21,6 +21,18 @@ class MonthlySalary extends Model
         $difference = ($payment->diff($now)->days < 1)?'Today': $payment->diffForHumans(); 
         return $difference;    
     }
+    public function detailElementType(String $type){
+        $monthlysalarydetail[] = new MonthlySalaryDetail();
+        array_pop($monthlysalarydetail);
+        foreach ($this->details as $mtdd) {
+            if($mtdd->element->type==$type){
+                array_push($monthlysalarydetail,$mtdd);
+            }
+            
+        }
+        return $monthlysalarydetail;
+    }
+        
             	
     	
     	

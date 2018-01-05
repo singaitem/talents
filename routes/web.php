@@ -42,6 +42,12 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/request/medical','MedicalController@index')->name('medical');
 	/*
 	|--------------------------------------------------------------------------
+	| Medical Overlimit
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/request/medicaloverlimit','MedicalOverlimitController@index')->name('medicaloverlimit');
+	/*
+	|--------------------------------------------------------------------------
 	| Business Travel
 	|--------------------------------------------------------------------------
 	*/
@@ -73,7 +79,7 @@ Route::group(['namespace' => 'User'], function () {
 	*/
 
 	Route::get('/monthly','PayslipController@monthly')->name('payslip.monthly');
-	Route::get('/monthly/payslip/{SalaryMonthly}','PayslipController@payslip')->name('payslip.monthly.detail');
+	Route::get('/monthly/payslip/{monthly}','PayslipController@payslip')->name('payslip.monthly.detail');
 	
 
 });

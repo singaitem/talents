@@ -31,7 +31,7 @@
                             </a>
                         </div>
                         <div class="col-sm-12 col-md-4 box-transition">
-                            <a class="lightbox" href="">
+                            <a class="lightbox" href="{{route('medicaloverlimit')}}">
                                 <img src="https://cdn4.iconfinder.com/data/icons/usa-dollar-2/512/xxx025-512.png" alt="Tunnel" align="middle">
                                 <div class="text-center panel-footer">Medical Overlimit</div>
                             </a>

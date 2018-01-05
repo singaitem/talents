@@ -14,5 +14,8 @@ class PayslipController extends Controller
     public function monthly(){
     	return view('user.self_service.payslip.monthly');
     }
-    	
+   	public function payslip(MonthlySalary $monthly){
+   		return view('user.self_service.payslip.payslip-monthly',compact('monthly'));
+   	}
+   		
 }

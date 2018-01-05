@@ -123,18 +123,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="treeview">
-              <a href="#"><i class="fa fa-money"></i>Benefit
-                <span class="pull-right-container">
-                  <i class="fa fa-angle-left pull-right"></i>
-                </span>
-              </a>
-              <ul class="treeview-menu">
-                <li><a href="{{route('selfservice')}}"><i class="fa fa-share-square-o"></i>Request</a></li>
-                <li><a href="{{route('request.list')}}"><i class="fa fa-list-alt"></i>List</a></li>
-                <li><a href="#"><i class="fa fa-file-o"></i>Report</a></li>
-              </ul>
-            </li>
+            <li><a href="{{route('selfservice')}}"><i class="fa fa-money"></i>Benefit</a></li>
             <li class="treeview">
               <a href="#"><i class="fa fa-file-text-o"></i>Payslip
                 <span class="pull-right-container">
@@ -159,7 +148,7 @@
           </a>
           <ul class="treeview-menu">
             <li><a href="../UI/general.html"><i class="fa fa-user"></i>Personal</a></li>
-            <li><a href="../UI/icons.html"><i class="fa fa-money"></i>Benefit</a></li>
+            <li><a href="{{route('request.list')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>
         <li class="treeview">

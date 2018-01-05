@@ -16,14 +16,16 @@ class NotificationsTableSeeder extends Seeder
         $notification = new Notification();
         $notification->employee_id=$emp1->id;
         $notification->total=1;
-        $notification->name=' new Request has been Approved';
+        $notification->name='approved';
+        $notification->description=' new Request has been Approved';
         $notification->icon='fa-check-circle text-green';
         $notification->save();
 
         $notification = new Notification();
         $notification->employee_id=$emp1->id;
         $notification->total=2;
-        $notification->name=' new Request has been Rejected';
+        $notification->name='rejected';
+        $notification->description=' new Request has been Rejected';
         $notification->icon='fa-times-circle text-red';
         $notification->save();
     }

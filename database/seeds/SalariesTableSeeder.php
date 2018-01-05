@@ -56,7 +56,11 @@ class SalariesTableSeeder extends Seeder
         $monthly->payment_start_date='2017-12-25';
         $monthly->period='December - 2017';
         $monthly->payment_method='Transfer';
+        $monthly->bank_name='BCA';
+        $monthly->bank_account='6040894517';
+        $monthly->bank_employee_name='ALEXANDER PIERCE';
         $monthly->save();
+
 
         $monthlydetail = new MonthlySalaryDetail();
         $monthlydetail->monthly_salary_id=$monthly->id;

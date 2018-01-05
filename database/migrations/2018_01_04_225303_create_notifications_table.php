@@ -18,6 +18,7 @@ class CreateNotificationsTable extends Migration
             $table->integer('employee_id');
             $table->integer('total');
             $table->string('name');
+            $table->string('description');
             $table->string('icon');
             $table->timestamps();
         });

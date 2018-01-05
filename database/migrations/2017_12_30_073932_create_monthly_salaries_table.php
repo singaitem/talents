@@ -23,6 +23,9 @@ class CreateMonthlySalariesTable extends Migration
             $table->date('payment_start_date');
             $table->string('period');
             $table->string('payment_method');
+            $table->string('bank_name');
+            $table->string('bank_account');
+            $table->string('bank_employee_name');
             $table->timestamps();
         });
     }

@@ -39,7 +39,7 @@
                                             <td>{{$monthly->period}}</td>
                                             <td>{{$monthly->paymentDateforHuman()}}</td>
                                             <td>{{$monthly->payment_method}}</td>
-                                            <td><button class="button btn">View</button>
+                                            <td><a href='{{route('payslip.monthly.detail',$monthly->id)}}' class="button btn btn-default">View</a>
                                             </td>
                                         </tr>
                                     @endforeach
