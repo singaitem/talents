@@ -46,5 +46,32 @@ class TransactionTypesTableSeeder extends Seeder
         $frame->save();
 
 
+        $spd = TransactionCategory::where('name','SPD Advance')->first();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Regular';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Pulang Kampung';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Mutasi';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Training';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Assesment';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+
     }
 }

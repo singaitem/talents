@@ -132,7 +132,7 @@
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{route('payslip.monthly')}}"><i class="fa fa-circle-o"></i>Monthly</a></li>
-                <li><a href="#"><i class="fa fa-circle-o"></i>Yearly</a></li>
+                <li><a href="{{route('payslip.yearly')}}"><i class="fa fa-circle-o"></i>Yearly</a></li>
               </ul>
             </li>
           </ul>
@@ -151,6 +151,7 @@
             <li><a href="{{route('request.list')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>
+        @if(auth()->user()->employee->subordinate()->count()>0 or auth()->user()->employee->isPIC() == true)
         <li class="treeview">
           <a href="#">
             <i class="fa fa-handshake-o"></i> <span>Approval</span>
@@ -163,6 +164,8 @@
             <li><a href="{{route('approve.benefit')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>
+        <li><a href="{{route('setting')}}"><i class="fa fa-cogs"></i> <span>Settings</span></a></li>
+        @endif
       </ul>
     </section>
     <!-- /.sidebar -->

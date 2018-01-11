@@ -63,6 +63,7 @@ mix.scripts([
     'node_modules/adminlte/js/adminlte.min.js',
     'node_modules/pace/pace.min.js',
     'node_modules/adminlte/js/demo.js',
+    'node_modules/jQuery-confirmation-modal/bootstrap.confirm.js'
 ],'public/assets/user/js/user.js').version();
  mix.styles([
     'node_modules/adminlte/css/skins/all-skins.min.css',

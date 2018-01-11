@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-sm-6 col-md-4 box-transition">
                             <a class="lightbox" href="{{route('spdadvance')}}">
-                                <img src="http://firstclose.com/wp-content/uploads/2017/07/assets-18.svg" alt="Rails">
+                                <img src="/img/spdadvance.svg" alt="Rails">
                                 <div class="text-center panel-footer">SPD Advance</div>
                             </a>
                         </div>

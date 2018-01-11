@@ -15,5 +15,10 @@ class TransactionCategoriesTableSeeder extends Seeder
         $kacamata->name='Kacamata';
         $kacamata->module='Benefit';
         $kacamata->save();
+
+        $kacamata = new TransactionCategory();
+        $kacamata->name='SPD Advance';
+        $kacamata->module='Benefit';
+        $kacamata->save();
     }
 }

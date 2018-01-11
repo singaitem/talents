@@ -5,12 +5,12 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                Approve
-                <small>Benefit</small>
+                Payslip
+                <small>Yearly</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active"><a href="#">Approval</a></li>
+                <li><a href="{{'dashboard'}}"><i class="fa fa-dashboard"></i>Home</a></li>
+                <li class="active">Payslip Yearly</li>
             </ol>
         </section>
 
@@ -20,31 +20,26 @@
                 <div class="col-xs-12">
                     <div class="box">
                         <div class="box-header">
-                            <h3 class="box-title">List of Approve</h3>
+                            <h3 class="box-title">List of Request</h3>
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>No Transaction</th>
-                                        <th>Employee No</th>
-                                        <th>Transaction Type</th>
-                                        <th>Date</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
+                                        <th>Period</th>
+                                        <th>Effective Month</th>
+                                        <th>Current Month</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($claims as $claim)
+                                    @foreach(auth()->user()->employee->yearlysalaries as $yearly)
                                         <tr>
-                                            <td><a href="{{ route('approve.detail', [$claim->id])}}">{{$claim->name}}</a></td>
-                                            <td>{{$claim->employee->name}}</td>
-                                            <td>{{$claim->transaction_category->name}}</td>
-                                            <td>{{$claim->transaction_date}}</td>
-                                            <td>{{$claim->total_value}}</td>
-                                            <td>
-                                                <span class="label label-warning" style="line-height: 2;">{{$claim->request->status}}</span>
+                                            <td>{{$yearly->period}}</td>
+                                            <td>{{$yearly->effective_month}}</td>
+                                            <td>{{$yearly->current_month}}</td>
+                                            <td><a href='{{route('payslip.yearly.detail',$yearly->id)}}' class="button btn btn-default">View</a>
                                             </td>
                                         </tr>
                                     @endforeach

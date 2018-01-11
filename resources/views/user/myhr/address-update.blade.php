@@ -173,7 +173,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success">Update Profile</button>
+                                                <button class="btn btn-success" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Update Address</button>
                                             </div>
                                         </div>
                                     </div>

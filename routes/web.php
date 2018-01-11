@@ -14,7 +14,7 @@
 Route::group(['namespace' => 'User'], function () {
 
 	Route::get('/','DashboardController@index')->name('dashboard');
-
+	Route::get('/setting','SettingController@index')->name('setting');
 
 	Route::get('/request','SelfServiceController@index')->name('selfservice');
 	/*
@@ -98,6 +98,9 @@ Route::group(['namespace' => 'User'], function () {
 
 	Route::get('/monthly','PayslipController@monthly')->name('payslip.monthly');
 	Route::get('/monthly/payslip/{monthly}','PayslipController@payslip')->name('payslip.monthly.detail');
+	
+	Route::get('/yearly','PayslipController@yearly')->name('payslip.yearly');
+	Route::get('/yearly/payslip/{yearly}','PayslipController@yearlyPayslipDetail')->name('payslip.yearly.detail');
 	
 
 });

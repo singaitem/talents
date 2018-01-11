@@ -26,6 +26,13 @@ class Employee extends Model
     {
         return $this->belongsTo(Position::Class);
     }
+    public function isPIC(){
+        if(strpos($this->position->name, 'Approval') !== false ){
+            return true;
+        }
+        return false;
+    }
+        
     public function supervisor()
     {
         return $this->belongsTo(Employee::Class,'supervisor_id');

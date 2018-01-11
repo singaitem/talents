@@ -157,7 +157,7 @@
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success">Insert Certificate</button>
+                                                <button class="btn btn-success" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Add Certificate</button>
                                             </div>
                                         </div>
                                     </div>

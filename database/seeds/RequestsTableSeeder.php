@@ -32,5 +32,20 @@ class RequestsTableSeeder extends Seeder
         $reqdetail2->status ='Pending';
         $reqdetail2->save();
 
+
+        $req1 = new Request();
+        $req1->status='Need Realisation';
+        $req1->save();
+        $reqdetail1 = new RequestDetail();
+        $reqdetail1->request_id=$req1->id;
+        $reqdetail1->request_to=$dummy2->id;
+        $reqdetail1->status ='Approved';
+        $reqdetail1->save();
+        $reqdetail2 = new RequestDetail();
+        $reqdetail2->request_id=$req1->id;
+        $reqdetail2->request_to=$dummy3->id;
+        $reqdetail2->status ='Approved';
+        $reqdetail2->save();
+
     }
 }

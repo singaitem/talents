@@ -15,4 +15,16 @@ class YearlySalary extends Model
     public function details(){
     	return $this->hasMany(YearlySalaryDetail::Class);
     }
+    public function detailElementType(String $type){
+        $yearlysalarydetail[] = new YearlySalaryDetail();
+        array_pop($yearlysalarydetail);
+        foreach ($this->details as $ytdd) {
+            if($ytdd->element->type==$type){
+                array_push($yearlysalarydetail,$ytdd);
+            }
+            
+        }
+        return $yearlysalarydetail;
+    }
+    
 }

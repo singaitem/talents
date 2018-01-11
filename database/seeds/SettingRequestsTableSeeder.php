@@ -18,18 +18,18 @@ class SettingRequestsTableSeeder extends Seeder
     	$kacamata = TransactionCategory::where('name','Kacamata')->first();
     	$setting = new SettingRequest();
     	$setting->category_id=$kacamata->id;
-       	$setting->save();
+     	$setting->save();
 
-       	$settingDetail = new SettingRequestDetail();
-       	$settingDetail->setting_request_id = $setting->id;
-       	$settingDetail->type=1;
-       	$settingDetail->save();
+     	$settingDetail = new SettingRequestDetail();
+     	$settingDetail->setting_request_id = $setting->id;
+     	$settingDetail->type=1;
+     	$settingDetail->save();
 
-       	$settingDetail2 = new SettingRequestDetail();
-       	$settingDetail2->setting_request_id = $setting->id;
-       	$settingDetail2->type=2;
-       	$settingDetail2->position_id = $benefitapproval->id;
-       	$settingDetail2->save();
+     	$settingDetail2 = new SettingRequestDetail();
+     	$settingDetail2->setting_request_id = $setting->id;
+     	$settingDetail2->type=2;
+     	$settingDetail2->position_id = $benefitapproval->id;
+     	$settingDetail2->save();
 
     }
 }

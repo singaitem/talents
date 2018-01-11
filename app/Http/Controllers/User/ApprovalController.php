@@ -12,7 +12,7 @@ class ApprovalController extends Controller
         $this->middleware('auth');
     }
     public function benefit(){
-    	$allClaim = Claim::all();
+    	$allRequest = Claim::all();
         return view('user.approval.benefit',['claims'=>$allClaim]);
     }
     public function detail(Claim $claim){

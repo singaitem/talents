@@ -92,7 +92,6 @@ class KacamataController extends Controller
         $claim->name='BN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
         $claim->transaction_date= $tr_date;
         $claim->total_value=$valueFrame+$valueLensa;
-        $claim->image='image.jpg';
         $claim->info='Claim Benefit';
         $claim->description='On '.request('optical_store').' Optical Store';
         $claim->save();

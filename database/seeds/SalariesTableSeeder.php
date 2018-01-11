@@ -43,9 +43,12 @@ class SalariesTableSeeder extends Seeder
         $yearly->total_allowance=11277861;
         $yearly->total_deduction=5940443;
         $yearly->period='2017';
-        $yearly->effective_month='12';
+        $yearly->effective_month='11';
         $yearly->current_month='12';
         $yearly->save();
+
+
+
 
         $monthly = new MonthlySalary();
         $monthly->employee_id=$emp1->id;
@@ -53,8 +56,8 @@ class SalariesTableSeeder extends Seeder
         $monthly->take_home_pay=5337418;
         $monthly->total_allowance=11277861;
         $monthly->total_deduction=5940443;
-        $monthly->payment_start_date='2017-12-25';
-        $monthly->period='December - 2017';
+        $monthly->payment_start_date='2017-11-25';
+        $monthly->period='November - 2017';
         $monthly->payment_method='Transfer';
         $monthly->bank_name='BCA';
         $monthly->bank_account='6040894517';
@@ -159,5 +162,45 @@ class SalariesTableSeeder extends Seeder
         $monthlydetail->value=2277459;
         $monthlydetail->save();
 
+        $monthly = new MonthlySalary();
+        $monthly->employee_id=$emp1->id;
+        $monthly->yearly_salary_id=$yearly->id;
+        $monthly->take_home_pay=5337418;
+        $monthly->total_allowance=11277861;
+        $monthly->total_deduction=5940443;
+        $monthly->payment_start_date='2017-12-25';
+        $monthly->period='December - 2017';
+        $monthly->payment_method='Transfer';
+        $monthly->bank_name='BCA';
+        $monthly->bank_account='6040894517';
+        $monthly->bank_employee_name='ALEXANDER PIERCE';
+        $monthly->save();
+
+        $allDetails = MonthlySalaryDetail::all();
+        foreach($allDetails as $detail){
+            $monthlydetail = new MonthlySalaryDetail();
+            $monthlydetail->monthly_salary_id=$monthly->id;
+            $monthlydetail->element_id=$detail->element_id;
+            $monthlydetail->value=$detail->value;
+            $monthlydetail->save();
+        }
+        $yearly = YearlySalary::find(1);
+        $yearly->total_take_home_pay=MonthlySalary::sum('take_home_pay');
+        $yearly->total_allowance=MonthlySalary::sum('total_allowance');
+        $yearly->total_deduction=MonthlySalary::sum('total_deduction');
+        $yearly->save();
+
+        
+        $aggrDetail = DB::table('monthly_salary_details')
+        ->selectRaw('sum(value)total,element_id')
+        ->groupBy('element_id')->get();
+        foreach($aggrDetail as $detail){
+            $yearlydetail = new YearlySalaryDetail();
+            $yearlydetail->yearly_salary_id=$yearly->id;
+            $yearlydetail->element_id=$detail->element_id;
+            $yearlydetail->value=$detail->total;
+            $yearlydetail->save();
+        }
+        
     }
 }
