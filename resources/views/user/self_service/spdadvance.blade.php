@@ -38,25 +38,20 @@
                                     <form role="form" action="{{route('kacamata.store')}}" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="box-body">
+                                    		<div class="form-group">
+                                    			<label for="">Origin</label>
+                                    			<select name="" id="" class="form-control">
+                                    				<option value="Jakarta">Jakarta</option>
+                                    			</select>
+                                    		</div>
+                                    		<div class="form-group">
+                                    			<label for="">Destination</label>
+                                    			<select name="" id="" class="form-control">
+                                    				<option value="Jakarta">Jakarta</option>
+                                    			</select>
+                                    		</div>
 
-                                        	<div class="col-md-6">
-                                        		<div class="form-group">
-                                        			<label for="">Origin</label>
-                                        			<select name="" id="" class="form-control">
-                                        				<option value="Jakarta">Jakarta</option>
-                                        			</select>
-                                        		</div>
-                                        	</div>
-                                        	<div class="col-md-6">
-                                        		<div class="form-group">
-                                        			<label for="">Destination</label>
-                                        			<select name="" id="" class="form-control">
-                                        				<option value="Jakarta">Jakarta</option>
-                                        			</select>
-                                        		</div>
-                                        	</div>
-
-                                        	<div class="col-md-6">
+                                        	<div class="col-md-6" style="padding-left: 0px;">
                                         		<div class="form-group">
             	                                    <label for="transactionDate">Start Date</label>
             	                                    <div class="input-group date">
@@ -66,8 +61,8 @@
             	                                        <input type="text" class="form-control pull-right datepicker" id="transactionDate" placeholder="dd/mm/yyyy" name="transaction_date" value="{{ old('transaction_date') }}">
             	                                    </div>
                                             	</div>
-                                        	</div>
-                                        	<div class="col-md-6">
+                                        	</div> 
+                                        	<div class="col-md-6" style="padding-right: 0px;">
                                         		<div class="form-group">
             	                                    <label for="transactionDate">End Date</label>
             	                                    <div class="input-group date">
@@ -78,30 +73,24 @@
             	                                    </div>
                                             	</div>
                                         	</div>
-                                    		<div class="form-group">
-            	                                <label for="name">Remark</label>
-            	                                <textarea name="" id="" cols="" class="form-control" placeholder="Remark"></textarea>
-                                    		</div>
-                                            
                                             <div class="form-group">
-                                            	<label for="">SPD Type</label>
-                                    			<select name="" id="" class="form-control">
-                                    				<option value="" disabled hidden selected>-- Select SPD Type --</option>
-                                    				<option value="regular">Regular</option>
+                                                <label for="">SPD Type</label>
+                                                <select name="" id="" class="form-control">
+                                                    <option value="" disabled hidden selected>-- Select SPD Type --</option>
+                                                    <option value="regular">Regular</option>
                                                     <option value="pulang">Pulang Kampung</option>
                                                     <option value="mutasi">Mutasi</option>
                                                     <option value="training">Training</option>
                                                     <option value="assesment">Assesment</option>
-                                    			</select>
+                                                </select>
                                             </div>
-                                            
                                             <div class="box box-success">
                                                 <div class="box-header with-border">
                                                     <h3 class="box-title">Please fill out your expense</h3>
                                                 </div>
                                                 <div class="box-body form-horizontal">
                                                     <div class="form-group">
-                                                        <label for="ticket" class="col-sm-3 control-label" style="text-align: left;" >Ticket</label>
+                                                        <label for="ticket" class="col-sm-3 control-label" style="text-align: left;" >Amount</label>
 
                                                         <div class="col-sm-9">
                                                             <div class="input-group">
@@ -111,171 +100,12 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="form-group">
-                                                        <label for="taxi" class="col-sm-3 control-label" style="text-align: left;" >Taxi</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="taxi" id="taxi" value="{{ old('taxi') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="transport" class="col-sm-3 control-label" style="text-align: left;" >Transport</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="transport" id="transport" value="{{ old('transport') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="hotel" class="col-sm-3 control-label" style="text-align: left;" >Hotel</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="hotel" id="hotel" value="{{ old('hotel') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="rental" class="col-sm-3 control-label" style="text-align: left;" >Rental Mobil</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="rental" id="rental" value="{{ old('rental') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="mileage" class="col-sm-3 control-label" style="text-align: left;" >Mileage</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="mileage" id="mileage" value="{{ old('mileage') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3">
-                                                            <select class="form-control control-label text-right" name="selected_type" id="selected_type">
-                                                                <option value="uang makan dalam negri">Uang Makan Dalam Negri</option>
-                                                                <option value="uang makan dalam negri">Uang Makan Luar Negri</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" id="lensa" class="form-control" name="lensa" value="{{ old('lensa') }}" oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <div class="col-sm-3">
-                                                            <select class="form-control control-label text-right" name="selected_type" id="selected_type">
-                                                                <option value="uang saku dalam negri">Uang Saku dalam Negri</option>
-                                                                <option value="uang saku dalam negri">Uang Saku Luar Negri</option>
-                                                            </select>
-                                                        </div>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" id="lensa" class="form-control" name="lensa" value="{{ old('lensa') }}" oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
-                                                    <div class="form-group">
-                                                        <label for="laundry" class="col-sm-3 control-label" style="text-align: left;" >Laundry</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="laundry" id="laundry" value="{{ old('laundry') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="tpb" class="col-sm-3 control-label" style="text-align: left;" >Tol Parkir Bensin</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="tpb" id="tpb" value="{{ old('tpb') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="form-group">
-                                                        <label for="other" class="col-sm-3 control-label" style="text-align: left;" >Other</label>
-
-                                                        <div class="col-sm-9">
-                                                            <div class="input-group">
-                                                                <span class="input-group-addon">Rp</span>
-                                                                <input type="number" class="form-control numbers" name="other" id="other" value="{{ old('other') }}"  oninput="calculateTotal()">
-                                                                <span class="input-group-addon">.00</span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-
                                                 </div>
                                             </div>
-
-                                            
-                                            
-                                            <div class="form-group">
-                                                <label class="col-sm-2">Total</label>
-                                                <label class="col-sm-4 col-sm-offset-6 text-right" id="countTotal">Rp.--</label>
-                                                <div class="col-sm-12 box box-success"></div>
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-sm-4">
-                                                    <div class="wrapper-upload">
-                                                        <div class="upload-img">
-                                                            <img src="/img/upload.png" class="img-responsive">
-                                                        </div>
-                                                    </div>
-                                                    <label class="btn btn-primary btn-file">
-                                                        Browse <input type="file" name="image1" class="inp-img" accept="image/*" >
-                                                    </label>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="wrapper-upload">
-                                                        <div class="upload-img">
-                                                            <img src="/img/upload.png" class="img-responsive">
-                                                        </div>
-                                                    </div>  
-                                                    <label class="btn btn-primary btn-file">
-                                                        Browse <input type="file" name="image2" class="inp-img" accept="image/*">
-                                                    </label>
-                                                </div>
-                                                <div class="col-sm-4">
-                                                    <div class="wrapper-upload">
-                                                        <div class="upload-img">
-                                                            <img src="/img/upload.png" class="img-responsive">
-                                                        </div>
-                                                    </div>  
-                                                    <label class="btn btn-primary btn-file">
-                                                        Browse <input type="file" name="image3" class="inp-img" accept="image/*">
-                                                    </label>
-                                                </div>
-                                            </div>
+                                    		<div class="form-group">
+            	                                <label for="name">Remark</label>
+            	                                <textarea name="" id="" cols="" class="form-control" placeholder="Remark"></textarea>
+                                    		</div>
                                         </div>
                                         <!-- /.box-body -->
                                         <div class="box-footer text-right" id="appendModal">
@@ -288,7 +118,7 @@
                                     <div class="list-group">
                                         @foreach($claimSPD as $claim)
                                             <div>
-                                               <a href="{{ route('approve.detail', [$claim->id])}}" class="list-group-item">
+                                               <a href="{{ route('realisation', [$claim->id])}}" class="list-group-item">
                                                     <h4 class="list-group-item-heading">{{$claim->name}}</h4>
                                                     <p class="list-group-item-text">
                                                         {{$claim->employee->name}}-{{$claim->transaction_date}}

@@ -19,41 +19,9 @@ class MyHRController extends Controller
         $homebases = HomeBase::all();
     	return view('user.myhr.profile',['homebases'=>$homebases]);
     }
-    public function family()
-    {
-    	return view('user.myhr.family');	
+    public function marital(){
+    	dd('not done');
     }
-    public function familyDetail(Family $family){
-        return view('user.myhr.family-update',compact('family'));
-    }
-    public function familyCreate(){
-        return view('user.myhr.family-new');
-    }
-        
-    public function address(){
-        return view('user.myhr.address');
-    }
-    public function addressDetail(Address $address){
-        $homebases = HomeBase::all();
-        return view('user.myhr.address-update',compact('address','homebases'));
-    }
-    public function addressCreate(){
-        $homebases = HomeBase::all();
-        return view('user.myhr.address-new',compact('homebases'));
-    }
-        
-        
-    public function certificate(){
-        return view('user.myhr.certificate');
-    }
-    public function certificateCreate(){
-        return view('user.myhr.certificate-new');
-    }
-    public function certificateDetail(Certificate $certificate){
-        return view('user.myhr.certificate-detail',compact('certificate'));
-    }
-        
-        
-        
-        
+    	
+    
 }

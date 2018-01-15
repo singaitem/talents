@@ -22,8 +22,9 @@ Route::group(['namespace' => 'User'], function () {
 	| My Request
 	|--------------------------------------------------------------------------
 	*/
-	Route::get('/list','ListRequestController@index')->name('request.list');
+	Route::get('/benefit-request','ListRequestController@index')->name('request.list');
 	Route::get('/personal-request','ListRequestController@personal')->name('request.personal');
+	Route::get('/request/detail/{claim}','ListRequestController@detail')->name('request.detail');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -64,6 +65,7 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/spdadvance','SPDAdvanceController@index')->name('spdadvance');
+	Route::get('/request/realisation/{claim}','SPDAdvanceController@realisation')->name('realisation');
 	/*
 	|--------------------------------------------------------------------------
 	| Wedding
@@ -73,22 +75,38 @@ Route::group(['namespace' => 'User'], function () {
 
 	/*
 	|--------------------------------------------------------------------------
-	| My HR
+	| Profile
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/profile','MyHRController@index')->name('profile');
+	Route::post('/profile/marital','MyHRController@marital')->name('update.marital');
 
-	Route::get('/family','MyHRController@family')->name('family');
-	Route::get('/family/member/{family}','MyHRController@familyDetail')->name('family.detail');
-	Route::get('/family/new','MyHRController@familyCreate')->name('family.create');
+	/*
+	|--------------------------------------------------------------------------
+	| Family
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/family','FamilyController@index')->name('family');
+	Route::get('/family/member/{family}','FamilyController@detail')->name('family.detail');
+	Route::get('/family/new','FamilyController@create')->name('family.create');
 
-	Route::get('/address','MyHRController@address')->name('address');
-	Route::get('/address/detail/{address}','MyHRController@addressDetail')->name('address.detail');
-	Route::get('/address/new','MyHRController@addressCreate')->name('address.create');
+	/*
+	|--------------------------------------------------------------------------
+	| Address
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/address','AddressController@index')->name('address');
+	Route::get('/address/detail/{address}','AddressController@detail')->name('address.detail');
+	Route::get('/address/new','AddressController@create')->name('address.create');
 
-	Route::get('/certificate','MyHRController@certificate')->name('certificate');
-	Route::get('/certificate/new','MyHRController@certificateCreate')->name('certificate.create');
-	Route::get('/certificate/detail/{certificate}','MyHRController@certificateDetail')->name('certificate.detail');
+	/*
+	|--------------------------------------------------------------------------
+	| Certificate
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/certificate','CertificateController@index')->name('certificate');
+	Route::get('/certificate/new','CertificateController@create')->name('certificate.create');
+	Route::get('/certificate/detail/{certificate}','CertificateController@detail')->name('certificate.detail');
 
 	/*
 	|--------------------------------------------------------------------------

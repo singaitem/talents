@@ -4,6 +4,7 @@ use Illuminate\Database\Seeder;
 use App\Certificate;
 use App\Attachment;
 use App\Person;
+use App\AttachmentDetail;
 class CertificatesTableSeeder extends Seeder
 {
     /**
@@ -15,7 +16,18 @@ class CertificatesTableSeeder extends Seeder
     {
         $per1 = Person::find(1);
 
+
+        $attach = new Attachment();
+        $attach->name='Attachment Certificate';
+        $attach->save();
+
+        $attachmentDetail = new AttachmentDetail();
+        $attachmentDetail->attachment_id=$attach->id;
+        $attachmentDetail->name='oraclecertif.jpg';
+        $attachmentDetail->save();
+
         $certif = new Certificate();
+        $certif->attachment_id=$attach->id;
         $certif->person_id=$per1->id;
         $certif->no='821891';
         $certif->name='Oracle Certification';
@@ -24,11 +36,6 @@ class CertificatesTableSeeder extends Seeder
         $certif->principle='Oracle';
         $certif->description='Java SE Programmer';
         $certif->save();
-
-        $attach = new Attachment();
-        $attach->certificate_id=$certif->id;
-        $attach->name='oraclecertif.jpg';
-        $attach->save();
 
 
     }

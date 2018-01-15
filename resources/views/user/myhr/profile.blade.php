@@ -128,16 +128,15 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="detail">
-                                    <form class="form-horizontal form-material">
-                                       
-                                        
+                                    <form class="form-horizontal form-material" method="post" action="{{route('')}}" enctype="multipart/form-data">
+                                        {{csrf_field()}}
                                         <div class="form-group">
                                             <label class="col-sm-12">Marital Status</label>
                                             <div class="col-sm-12">
                                                 <select class="form-control form-control-line">
-                                                    <option value="single" @if(auth()->user()->employee->person->marital == 'single')selected @endif>Single</option>
-                                                    <option value="married" @if(auth()->user()->employee->person->marital == 'married')selected @endif>Married</option>
-                                                    <option value="divorce" @if(auth()->user()->employee->person->marital == 'divorce')selected @endif>Divorce</option>
+                                                    <option value="single" @if(auth()->user()->employee->person->marital == 'single')selected disabled hidden @endif>Single</option>
+                                                    <option value="married" @if(auth()->user()->employee->person->marital == 'married')selected disabled hidden @endif>Married</option>
+                                                    <option value="divorce" @if(auth()->user()->employee->person->marital == 'divorce')selected disabled hidden @endif>Divorce</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -167,7 +166,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Update Profile</button>
+                                                <button class="btn btn-success" type="submit" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Update Profile</button>
                                             </div>
                                         </div>
                                     </form>

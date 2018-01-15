@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Attachment extends Model
 {
-    public function certificate(){
-    	return $this->belongsTo(Certificate::Class);
+    public function certificates(){
+    	return $this->hasMany(Certificate::Class);
     }
+    public function details(){
+    	return $this->hasMany(AttachmentDetails::Class);
+    }
+    	
     	
 }

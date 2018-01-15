@@ -32,5 +32,17 @@ class Person extends Model
     public function certificates(){
         return $this->hasMany(Certificate::Class);        
     }
+    public function requestAddresses(){
+        return $this->hasMany(RequestAddress::Class);
+    }
+    public function requestCertificates(){
+        return $this->hasMany(RequestCertificate::Class);
+    }
+    public function requestFamilies(){
+        return $this->hasMany(RequestFamily::Class);
+    }
+    public function requestMaritals(){
+        return $this->hasMany(RequestMarital::Class);
+    }
             	
 }

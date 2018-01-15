@@ -10,7 +10,7 @@ class Certificate extends Model
     	return $this->belongsTo(Person::Class,'person_id');
     }
     public function attachments(){
-    	return $this->hasMany(Attachment::Class);
+    	return $this->belongsTo(Attachment::Class);
     }
     	
     	

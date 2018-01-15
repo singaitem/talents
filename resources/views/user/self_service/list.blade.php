@@ -37,7 +37,7 @@
                                 <tbody>
                                     @foreach($claims as $claim)
                                         <tr>
-                                            <td>{{$claim->name}}</td>
+                                            <td><a href="{{ route('request.detail', [$claim->id])}}">{{$claim->name}}</a></td>
                                             <td>{{$claim->transaction_category->name}}</td>
                                             <td>{{$claim->transaction_date}}</td>
                                             <td><span class="label label-warning" style="line-height: 2;">{{$claim->request->status}}</span>

@@ -17,6 +17,15 @@ class SPDAdvanceController extends Controller
         $claimSPD = Claim::where('transaction_category_id',$spdAdvance->id)->where('employee_id',auth()->user()->employee->id)->get();
     	return view('user.self_service.spdadvance',compact('transaction_categories','balance','claimSPD'));
 	}
+	public function realisation(Claim $claim){
+		$transaction_categories = TransactionCategory::where('name','Kacamata')->first();
+        $balance = Balance::where('employee_id',auth()->user()->employee->id)
+        ->where('transaction_category_id',$transaction_categories->id)->first();
+
+        
+		return view('user.self_service.realisation',compact('transaction_categories','balance','claim'));
+	}
+		
 		
     
 }
