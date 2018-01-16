@@ -1224,6 +1224,36 @@ $(function () {
 })
 $(document).ready(function() {
     var main_route = (window.location);
+    if(main_route.href.slice(0,-1) == main_route.origin){
+      var dashboardlink = main_route.href.slice(0,-1);
+      $('a[href$="'+dashboardlink+'"]').parent().addClass("active");
+      $('a[href$="'+dashboardlink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("family/")){
+      var familyMenuOpenLink = main_route.origin+"/family";
+      $('a[href$="'+familyMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+familyMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("address/")){
+      var addressMenuOpenLink = main_route.origin+"/address";
+      $('a[href$="'+addressMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+addressMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("request/")){
+      var addressMenuOpenLink = main_route.origin+"/request";
+      $('a[href$="'+addressMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+addressMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("monthly/")){
+      var addressMenuOpenLink = main_route.origin+"/monthly";
+      $('a[href$="'+addressMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+addressMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("yearly/")){
+      var addressMenuOpenLink = main_route.origin+"/yearly";
+      $('a[href$="'+addressMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+addressMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }else if(main_route.href.includes("request/realisation/")){
+      var addressMenuOpenLink = main_route.origin+"/request";
+      $('a[href$="'+addressMenuOpenLink+'"]').parent().addClass("active");
+      $('a[href$="'+addressMenuOpenLink+'"]').parents(".treeview").addClass("active").addClass("menu-open");
+    }
+    
     $('a[href$="'+main_route+'"]').parent().addClass("active");
     $('a[href$="'+main_route+'"]').parents(".treeview").addClass("active").addClass("menu-open");
 });

@@ -9,8 +9,9 @@
                 <small>Yearly</small>
             </h1>
             <ol class="breadcrumb">
-                <li><a href="{{'dashboard'}}"><i class="fa fa-dashboard"></i>Home</a></li>
-                <li class="active">Payslip Yearly</li>
+                <li><a href="{{'dashboard'}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                <li><a href="{{'payslip.yearly'}}"><i class="fa fa-file-text-o"></i>Payslip Yearly</a></li>
+                <li class="active">Payslip Detail</li>
             </ol>
         </section>
 

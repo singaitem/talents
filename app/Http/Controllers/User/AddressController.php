@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Address;
+use App\HomeBase;
 class AddressController extends Controller
 {   
     public function __construct()

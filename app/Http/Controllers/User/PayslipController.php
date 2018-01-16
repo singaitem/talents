@@ -24,5 +24,9 @@ class PayslipController extends Controller
     public function yearlyPayslipDetail(YearlySalary $yearly){
       return view('user.self_service.payslip.payslip-yearly',compact('yearly'));    
     }
+    public function generate(){
+      
+    }
+      
         	
 }

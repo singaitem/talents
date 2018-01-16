@@ -8,8 +8,8 @@
             <small>Type of requests</small>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Home</a></li>
-            <li class="active">SelfService</li>
+            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+            <li class="active">Self Service</li>
           </ol>
         </section>
 

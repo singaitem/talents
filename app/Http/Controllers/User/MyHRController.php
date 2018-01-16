@@ -72,15 +72,24 @@ class MyHRController extends Controller
         $requestMarital->marital=request('marital');
         $requestMarital->save();
 
-        $claimAttach1 = new ClaimAttachment();
-        $claimAttach1->claim_id=$claim1->id;
-        $claimAttach1->name='2-1.jpg';
-        $claimAttach1->save();
-        $claimAttach2 = new ClaimAttachment();
-        $claimAttach2->claim_id=$claim1->id;
-        $claimAttach2->name='2-2.jpg';
-        $claimAttach2->save();
-
+        if (request()->hasFile('image1')) {
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName();
+            request()->file('image1')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim1->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
+        if (request()->hasFile('image2')) {
+            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            request()->file('image2')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim1->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
+        $homebases = HomeBase::all();
+        return view('user.myhr.profile',['homebases'=>$homebases]);
     }
     public function changeProfilePicture(){
         

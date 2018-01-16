@@ -12,8 +12,9 @@
             
           </h1>
           <ol class="breadcrumb">
-            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Home</a></li>
+            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
             <li><a href="{{route('selfservice')}}"><i class="fa ion-ios-body-outline"></i>Request</a></li>
+            <li><a href="{{route('spdadvance')}}"><i class="fa fa-sticky-note-o"></i>Spd Advance</a></li>
             <li class="active">Realisation</li>
           </ol>
         </section>

@@ -160,7 +160,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="../forms/general.html"><i class="fa fa-user-o"></i>Personal</a></li>
+            <li><a href="{{route('approve.personal')}}"><i class="fa fa-user-o"></i>Personal</a></li>
             <li><a href="{{route('approve.benefit')}}"><i class="fa fa-money"></i>Benefit</a></li>
           </ul>
         </li>

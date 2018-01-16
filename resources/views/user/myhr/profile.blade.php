@@ -150,7 +150,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                             <div class="col-sm-6">
@@ -160,7 +160,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image3" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                         </div>

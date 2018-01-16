@@ -37,10 +37,10 @@ Route::group(['namespace' => 'User'], function () {
 	Route::post('/request/submit','ClaimController@claim')->name('claim.submit');
 
 
-
+	Route::get('/approve/personalia','ApprovalController@personal')->name('approve.personal');
 	Route::get('/approve/benefit','ApprovalController@benefit')->name('approve.benefit');
-	Route::get('/approve/benefit/{claim}','ApprovalController@detail')->name('approve.detail');
-	Route::post('/approve/benefit/{claim}','ApprovalController@approve')->name('approve.approved');
+	Route::get('/approve/detail/{claim}','ApprovalController@detail')->name('approve.detail');
+	Route::post('/approve/detail/{claim}','ApprovalController@approve')->name('approve.approved');
 	/*
 	|--------------------------------------------------------------------------
 	| Medical
