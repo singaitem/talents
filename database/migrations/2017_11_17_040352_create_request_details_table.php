@@ -16,7 +16,8 @@ class CreateRequestDetailsTable extends Migration
         Schema::create('request_details', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('request_id');
-            $table->integer('request_to');
+            $table->integer('request_to')->nullable();
+            $table->integer('request_to_position')->nullable();
             $table->string('status');
             $table->timestamps();
         });

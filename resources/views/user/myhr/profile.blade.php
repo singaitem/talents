@@ -128,12 +128,12 @@
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="detail">
-                                    <form class="form-horizontal form-material" method="post" action="{{route('')}}" enctype="multipart/form-data">
+                                    <form role="form" class="form-horizontal form-material" method="post" action="{{route('update.marital')}}" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         <div class="form-group">
                                             <label class="col-sm-12">Marital Status</label>
                                             <div class="col-sm-12">
-                                                <select class="form-control form-control-line">
+                                                <select class="form-control form-control-line" name="marital">
                                                     <option value="single" @if(auth()->user()->employee->person->marital == 'single')selected disabled hidden @endif>Single</option>
                                                     <option value="married" @if(auth()->user()->employee->person->marital == 'married')selected disabled hidden @endif>Married</option>
                                                     <option value="divorce" @if(auth()->user()->employee->person->marital == 'divorce')selected disabled hidden @endif>Divorce</option>
@@ -196,7 +196,8 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="changeProfilePicture">
-                                    <form class="form-horizontal form-material">
+                                    <form class="form-horizontal form-material" enctype="multipart/form-data" method="post" action="{{route('update.profile-picture')}}">
+                                        {{csrf_field()}}
                                         <div class="form-group">
                                             <label class="col-sm-12">Profile Picture</label>
                                             <div class="col-sm-4">
@@ -212,7 +213,7 @@
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
-                                                <button class="btn btn-success" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Update Profile</button>
+                                                <button class="btn btn-success" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success" type="submit">Update Profile</button>
                                             </div>
                                         </div>
                                     </form>

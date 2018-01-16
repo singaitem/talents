@@ -4,7 +4,7 @@ namespace App\Http\Controllers\User;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Certificate;
 class CertificateController extends Controller
 {
 	public function __construct()

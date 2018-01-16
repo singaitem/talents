@@ -68,7 +68,7 @@ class ClaimsTableSeeder extends Seeder
 
         
         $req1 = Request::find(3);
-        $spdAdvance = TransactionCategory::where('name','Marital')->first();
+        $spdAdvance = TransactionCategory::where('name','Change Marital Status')->first();
         $claim1 = new Claim();
         $claim1->employee_id=$dummy1->id;
         $claim1->request_id=$req1->id;

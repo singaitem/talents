@@ -49,8 +49,7 @@ class KacamataController extends Controller
             if($setting->type==1){
                 $requestdetail->request_to=auth()->user()->employee->supervisor->id;
             }else if($setting->type==2){
-                $emp = Employee::where('position_id',$setting->position_id)->first();
-                $requestdetail->request_to=$emp->id;
+                $requestdetail->request_to_position=$setting->position_id;
             }else if($setting->type==3){
                 $requestdetail->request_to=$setting->employee_id;
             }

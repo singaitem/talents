@@ -79,8 +79,8 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/profile','MyHRController@index')->name('profile');
-	Route::post('/profile/marital','MyHRController@marital')->name('update.marital');
-
+	Route::post('/profile','MyHRController@changeMaritalStatus')->name('update.marital');
+	Route::post('/profile/picture','MyHRController@changeProfilePicture')->name('update.profile-picture');
 	/*
 	|--------------------------------------------------------------------------
 	| Family

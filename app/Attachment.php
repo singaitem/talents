@@ -10,7 +10,7 @@ class Attachment extends Model
     	return $this->hasMany(Certificate::Class);
     }
     public function details(){
-    	return $this->hasMany(AttachmentDetails::Class);
+    	return $this->hasMany(AttachmentDetail::Class);
     }
     	
     	

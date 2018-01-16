@@ -16,6 +16,10 @@ class SettingRequestsTableSeeder extends Seeder
     {
     	$benefitapproval = Position::where('name','Benefit Approval')->first();
     	$kacamata = TransactionCategory::where('name','Kacamata')->first();
+        $marital = TransactionCategory::where('name','Change Marital Status')->first();
+
+
+
     	$setting = new SettingRequest();
     	$setting->category_id=$kacamata->id;
      	$setting->save();
@@ -30,6 +34,16 @@ class SettingRequestsTableSeeder extends Seeder
      	$settingDetail2->type=2;
      	$settingDetail2->position_id = $benefitapproval->id;
      	$settingDetail2->save();
+
+        $setting = new SettingRequest();
+        $setting->category_id=$marital->id;
+        $setting->save();
+
+        $settingDetail = new SettingRequestDetail();
+        $settingDetail->setting_request_id = $setting->id;
+        $settingDetail->type=1;
+        $settingDetail->save();
+
 
     }
 }

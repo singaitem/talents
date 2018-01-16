@@ -22,7 +22,7 @@ class TransactionCategoriesTableSeeder extends Seeder
         $kacamata->save();
 
         $kacamata = new TransactionCategory();
-        $kacamata->name='Marital';
+        $kacamata->name='Change Marital Status';
         $kacamata->module='Personalia';
         $kacamata->save();
     }

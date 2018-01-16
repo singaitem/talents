@@ -138,7 +138,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="description" class="col-md-12">Attachment</label>
-                                        @foreach($certificate->attachments as $attachment)
+                                        @foreach($certificate->attachment->details as $attachment)
                                         <div class="col-md-6">
                                         	<div class="box-hover-info">
                                         		<img src="/img/attachment/{{$attachment->name}}" style="max-width: 100%;">
