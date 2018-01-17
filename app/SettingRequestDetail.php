@@ -14,4 +14,8 @@ class SettingRequestDetail extends Model
     {
     	return $this->belongsTo(Position::Class);
     }
+    public function employee(){
+    	return $this->belongsTo(Employee::Class);
+    }
+    	
 }

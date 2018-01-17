@@ -12,10 +12,15 @@
                 <li class="active">User profile</li>
             </ol>
         </section>
-
-            <!-- Main content -->
+        <!-- Main content -->
         <section class="content">
-
+        @if (session('status'))
+          <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <h4><i class="icon fa fa-check"></i> Success!</h4>
+             {{ session('status') }}
+          </div>
+        @endif
             <div class="row">
                 <div class="col-md-3">
 

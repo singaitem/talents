@@ -11,7 +11,7 @@ class ListRequestController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function benefit()
     {
     	$allClaim = Claim::join('transaction_categories','claims.transaction_category_id','=','transaction_categories.id')->where('transaction_categories.module','Benefit')->where('employee_id',auth()->user()->employee->id)->select('claims.*')->orderBy('claims.name','desc')->get();
         return view('user.self_service.list',['claims'=>$allClaim]);

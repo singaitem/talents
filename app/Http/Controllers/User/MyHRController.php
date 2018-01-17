@@ -89,7 +89,7 @@ class MyHRController extends Controller
             $claimAttachment->save();
         }
         $homebases = HomeBase::all();
-        return view('user.myhr.profile',['homebases'=>$homebases]);
+        return redirect()->route('profile')->with('status', 'Your marital status has been requested to change to '.request('marital'));
     }
     public function changeProfilePicture(){
         

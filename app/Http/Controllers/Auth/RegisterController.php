@@ -72,7 +72,7 @@ class RegisterController extends Controller
         }
         
         $this->create($request->all());
-        return redirect()->route('login');
+        return redirect()->route('login')->with('status', 'You have succesfully registered');
     }
     protected function validator(array $data)
     {

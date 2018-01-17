@@ -57,7 +57,14 @@ class Employee extends Model
         }                
         return $total;
     }
-                                
+    public function requestDetails(){
+        return $this->hasMany(RequestDetail::Class);                    
+    }
+    public function setting_request_details(){
+        return $this->hasMany(SettingRequestDetail::Class);
+    }
+        
+                                        
         
     
         

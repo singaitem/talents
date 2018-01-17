@@ -1,49 +1,97 @@
 @extends('user.layouts.user')
-
 @section('content')
-	<div class="content-wrapper">
+    <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <section class="content-header">
-            <h1>
-                Setting
-            </h1>
-            <ol class="breadcrumb">
-                <li class="active"><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li class="active">Setting</li>
-            </ol>
+          <h1>
+            Setting
+          </h1>
+          <ol class="breadcrumb">
+            <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+            <li class="active">Setting</li>
+          </ol>
         </section>
 
-            <!-- Main content -->
+        <!-- Main content -->
         <section class="content">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="box box-primary white-box">
-                        <div class="body">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Family Members</h3>
-                            </div>
-                            <div class="box-body">
-                                <div class="list-group">
-                                    @foreach(auth()->user()->employee->person->families as $family)
-                                    <div>
-                                       <a href="{{route('family.detail',$family)}}" class="list-group-item">
-                                            <h4 class="list-group-item-heading">{{$family->name}}</h4>
-                                            <p class="list-group-item-text">
-                                                {{$family->relationship}}
-                                            </p>
-                                        </a> 
-                                    </div>
-                                    @endforeach
-                                    <button type="button" onclick="location.href='{{route('family.create')}}'" class="btn-raised btn btn-danger btn-floating waves-effect waves-light waves-round waves-effect waves-light">
-                                        <i class="icon md-plus fa fa-plus" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                            </div>
+            <div class="container-fluid gallery-container">
+                <div class="gallery-box">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-2 col-md-offset-1 box-transition">
+                            <a class="lightbox" href="{{route('setting.marital')}}">
+                                <img src="/img/marital.svg" alt="Eyeglasses">
+                                <div class="text-center panel-footer">Change Marital</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.family')}}">
+                                <img src="/img/family.svg" alt="Eyeglasses">
+                                <div class="text-center panel-footer">Family</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.address')}}">
+                                <img src="/img/address.png" alt="Eyeglasses">
+                                <div class="text-center panel-footer">Address</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.certificate')}}">
+                                <img src="/img/certificate-flat.png" alt="Eyeglasses">
+                                <div class="text-center panel-footer">Certificate</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.eyeglasses')}}">
+                                <img src="/img/glasses.svg" alt="Eyeglasses">
+                                <div class="text-center panel-footer">Eyeglasses</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 col-md-offset-1 box-transition">
+                            <a class="lightbox" href="{{route('setting.medical')}}">
+                                <img src="/img/medical.svg" alt="Medical">
+                                <div class="text-center panel-footer">Medical</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-12 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.medicaloverlimit')}}">
+                                <img src="/img/medicaloverlimmit.png" alt="Tunnel" align="middle">
+                                <div class="text-center panel-footer">Medical Overlimit</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.businesstravel')}}">
+                                <img src="/img/business-travel.svg" alt="Coast">
+                                <div class="text-center panel-footer">Business Travel</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.spdadvance')}}">
+                                <img src="/img/spdadvance.svg" alt="Rails">
+                                <div class="text-center panel-footer">SPD Advance</div>
+                            </a>
+                        </div>
+                        <div class="col-sm-6 col-md-2 box-transition">
+                            <a class="lightbox" href="{{route('setting.wedding')}}">
+                                <img src="/img/ring.svg" alt="Traffic">
+                                <div class="text-center panel-footer">Wedding</div>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- /.content -->
+          
     </div>
+@endsection
+@section('css')
+    <link rel="stylesheet" href="/assets/user/self_service/css/gallery.css">
+    <style>
+        .gallery-box .lightbox img {
+            min-height: 150px;
+        }
+    </style>
+@endsection
+@section('javascript')
+    <script src="/assets/user/self_service/js/gallery.js"></script>
 @endsection

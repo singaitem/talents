@@ -14,7 +14,7 @@
 Route::group(['namespace' => 'User'], function () {
 
 	Route::get('/','DashboardController@index')->name('dashboard');
-	Route::get('/setting','SettingController@index')->name('setting');
+	
 
 	Route::get('/request','SelfServiceController@index')->name('selfservice');
 	/*
@@ -22,7 +22,7 @@ Route::group(['namespace' => 'User'], function () {
 	| My Request
 	|--------------------------------------------------------------------------
 	*/
-	Route::get('/benefit-request','ListRequestController@index')->name('request.list');
+	Route::get('/benefit-request','ListRequestController@benefit')->name('request.list');
 	Route::get('/personal-request','ListRequestController@personal')->name('request.personal');
 	Route::get('/request/detail/{claim}','ListRequestController@detail')->name('request.detail');
 
@@ -119,7 +119,23 @@ Route::group(['namespace' => 'User'], function () {
 	
 	Route::get('/yearly','PayslipController@yearly')->name('payslip.yearly');
 	Route::get('/yearly/payslip/{yearly}','PayslipController@yearlyPayslipDetail')->name('payslip.yearly.detail');
-	
+	/*
+	|--------------------------------------------------------------------------
+	| Setting
+	|--------------------------------------------------------------------------
+	*/
+	Route::get('/setting','SettingController@index')->name('setting');
+	Route::get('/setting/marital','SettingController@marital')->name('setting.marital');
+	Route::get('/setting/family','SettingController@family')->name('setting.family');
+	Route::get('/setting/address','SettingController@address')->name('setting.address');
+	Route::get('/setting/certificate','SettingController@certificate')->name('setting.certificate');
+	Route::get('/setting/eyeglasses','SettingController@eyeglasses')->name('setting.eyeglasses');
+	Route::get('/setting/medical','SettingController@medical')->name('setting.medical');
+	Route::get('/setting/medicaloverlimit','SettingController@medicaloverlimit')->name('setting.medicaloverlimit');
+	Route::get('/setting/businesstravel','SettingController@businesstravel')->name('setting.businesstravel');
+	Route::get('/setting/spdadvance','SettingController@spdadvance')->name('setting.spdadvance');
+	Route::get('/setting/wedding','SettingController@wedding')->name('setting.wedding');
+	Route::get('/setting/approver','SettingController@approver')->name('setting.approver');
 
 });
 
