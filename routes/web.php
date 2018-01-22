@@ -81,6 +81,7 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/profile','MyHRController@index')->name('profile');
 	Route::post('/profile','MyHRController@changeMaritalStatus')->name('update.marital');
 	Route::post('/profile/picture','MyHRController@changeProfilePicture')->name('update.profile-picture');
+	Route::post('/profile/changepassword','MyHRController@changePassword')->name('update.password');
 	/*
 	|--------------------------------------------------------------------------
 	| Family
@@ -136,6 +137,7 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/setting/spdadvance','SettingController@spdadvance')->name('setting.spdadvance');
 	Route::get('/setting/wedding','SettingController@wedding')->name('setting.wedding');
 	Route::get('/setting/approver','SettingController@approver')->name('setting.approver');
+	Route::get('/setting/update/{SettingRequest}','SettingController@approver')->name('setting.update.approver');
 
 });
 

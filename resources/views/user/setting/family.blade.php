@@ -46,7 +46,10 @@
                                             <td>
                                                 @if($detail->type==2){{$detail->position->name}}@elseif($detail->type==3){{$detail->employee->name}}@endif
                                             </td>
-                                            <td><button class="btn btn-default btn-sm">Change</button></td>
+                                             <td>
+                                                <a href="{{route('setting.update.approver',$setting->id)}}" class="btn btn-default btn-sm" role="button">Change</a>
+                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                            </td>
                                         </tr>
                                         <?php $countApprover++; ?>
                                     @endforeach

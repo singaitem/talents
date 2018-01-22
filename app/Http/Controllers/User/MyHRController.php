@@ -13,6 +13,8 @@ use App\Claim;
 use App\RequestMarital;
 use App\ClaimAttachment;
 use App\Person;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Hash;
 class MyHRController extends Controller
 {
 	public function __construct()
@@ -103,7 +105,30 @@ class MyHRController extends Controller
         }
         
     }
+    public function changePassword(){
+        if (Hash::check(request('oldPassword'),auth()->user()->password )) {
+            $validator = Validator::make(request()->all(), [
+                'password' => 'required|string|min:6|confirmed',
+            ]);
+            if ($validator->fails()) {
+                return redirect()->route('profile')
+                            ->withErrors($validator)
+                            ->withInput();
+            }
+            request()->user()->fill([
+                'password' => Hash::make(request('password'))
+            ])->save();
+            return redirect()->route('profile');
+
+        }else{
+            return redirect()->route('profile')->withErrors([
+                'errors' => 'Current Password does not match',
+            ]);
+        }
         
+        
+    }
+                
 
     
 }

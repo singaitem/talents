@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i>Dashboard</a></li>
                 <li><a href="{{route('setting')}}"><i class="fa fa-wrench"></i>Setting</a></li>
-                <li class="active">Approver</li>
+                <li class="active">Update Approver</li>
             </ol>
         </section>
 
@@ -54,8 +54,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center" style="margin-bottom: 20px;margin-top: 20px;">
-                                    <button class="btn btn-success" style="margin-right: 10px;">Save</button>
-                                    <a href="{{ URL::previous() }}" class="btn btn-danger" role="button">Cancel</a>
+                                    <button class="btn btn-toolbar">Save</button>
                                 </div>
                             </form>
                         </div>

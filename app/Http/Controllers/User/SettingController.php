@@ -5,6 +5,7 @@ namespace App\Http\Controllers\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SettingRequest;
+use App\Position;
 class SettingController extends Controller
 {
 	public function __construct()
@@ -58,8 +59,14 @@ class SettingController extends Controller
         return SettingRequest::join('transaction_categories','setting_requests.category_id','=','transaction_categories.id')->where('transaction_categories.name',$category)->select('setting_requests.*')->first();
     }
     public function approver(){
-        return view('user.setting.approver');
+        $positions = Position::all();
+        return view('user.setting.approver',compact('positions'));
     }
+    public function updateApprove(SettingRequest $setting){
+        $positions = Position::all();
+        return view('user.setting.update-approver',compact('positions','setting'));
+    }
+        
         
                 
 		

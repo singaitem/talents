@@ -177,21 +177,31 @@
                                     </form>
                                 </div>
                                 <div class="tab-pane" id="changePassword">
-                                    <form class="form-horizontal form-material">
+                                    <form class="form-horizontal form-material" action="{{route('update.password')}}" method="post">
+                                        {{csrf_field()}}
+                                        @if (!$errors->isEmpty())
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <div class="alert alert-danger" role="alert">
+                                                        {!! $errors->first() !!}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
                                         <div class="form-group">
                                             <label class="col-md-12">Current Password</label>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control form-control-line"></div>
+                                                <input type="password" class="form-control form-control-line" name="oldPassword"></div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">New Password</label>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control form-control-line"> </div>
+                                                <input type="password" class="form-control form-control-line" name="password"> </div>
                                         </div>
                                         <div class="form-group">
                                             <label class="col-md-12">Confirm Password</label>
                                             <div class="col-md-12">
-                                                <input type="password" class="form-control form-control-line"> </div>
+                                                <input type="password" class="form-control form-control-line" name="password_confirmation"> </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-12">
