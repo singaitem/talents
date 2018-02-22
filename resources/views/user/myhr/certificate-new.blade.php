@@ -87,7 +87,8 @@
                                 <h3 class="box-title">Create Certificate</h3>
                             </div>
                             <div class="box-body">
-                                <form class="form-horizontal form-material">
+                                <form action="{{route('certificate.add')}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
+                                    {{csrf_field()}}
                                 	<div class="form-group">
                                         <label for="name" class="col-md-12">Name</label>
                                         <div class="col-md-12">
@@ -115,7 +116,7 @@
 									<div class="form-group">
                                         <label class="col-sm-12">Lifetime Type</label>
                                         <div class="col-sm-12">
-                                            <select class="form-control form-control-line">
+                                            <select name="lifetime" class="form-control form-control-line">
                                             	<option value="" disabled selected hidden>-- Please Select Status --</option>
                                                 <option value="Lifetime">Lifetime</option>
                                                 <option value="Period">Period</option>
@@ -139,7 +140,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                             <div class="col-sm-6">
@@ -149,7 +150,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image3" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                         </div>

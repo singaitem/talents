@@ -14,8 +14,8 @@ class Request extends Model
     }
     public function getWaitingRequestAuth(){
     	foreach($this->details as $detail){
-    		if($detail->status!='Waiting'){
-    			if(auth()->user()->employee->id == $detail->request_to){
+    		if($detail->status=='Waiting'){
+    			if(auth()->user()->employee->id == $detail->request_to || auth()->user()->employee->position->id==$detail->request_to_position){
     				return $detail;
     			}
     		}
@@ -23,6 +23,42 @@ class Request extends Model
     	}		
     	return null;
 	}
+    public function getNextWaitingRequestAuth(){
+        $hasWaitingNext = false;
+        foreach($this->details as $detail){
+            if($hasWaitingNext==true){
+                return $detail;
+            }
+            if($detail->status=='Waiting'){
+                if(auth()->user()->employee->id == $detail->request_to || auth()->user()->employee->position->id==$detail->request_to_position){
+                    $hasWaitingNext=true;
+                    continue;
+                }
+            }
+            
+        }       
+        return null;
+    }
+    public function hasPending(){
+        foreach($this->details as $detail){
+            if(auth()->user()->employee->id == $detail->request_to || auth()->user()->employee->position->id==$detail->request_to_position){
+                if($detail->status=='Pending'){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    public function hasApprove(){
+        foreach($this->details as $detail){
+            if($detail->status=='Approved'){
+                    return true;
+                }
+        }
+        return false;
+    }
+        
+        
     public function requestAddresses(){
         return $this->hasMany(RequestAddress::Class);
     }

@@ -15,7 +15,7 @@ class CreateRequestFamiliesTable extends Migration
     {
         Schema::create('request_families', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('family_id');
+            $table->integer('family_id')->nullable();
             $table->integer('claim_id');
             $table->string('name');
             $table->string('relationship');

@@ -87,15 +87,16 @@
                                 <h3 class="box-title">Create Address</h3>
                             </div>
                             <div class="box-body">
-                                <form class="form-horizontal form-material">
+                                <form action="{{route('address.add')}}" method="post" class="form-horizontal form-material">
+                                    {{csrf_field()}}
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="col-sm-12">City</label>
                                             <div class="col-sm-12">
-                                                <select class="form-control form-control-line">
+                                                <select name="homebase" class="form-control form-control-line">
                                                 	<option value="" disabled selected hidden>-- Please Select City --</option>
                                                     @foreach($homebases as $homebase)
-                                                    <option value="{{$homebase->name}}">
+                                                    <option value="{{$homebase->id}}">
                                                         {{$homebase->name}}
                                                     </option>
                                                     @endforeach
@@ -139,7 +140,7 @@
                                         <div class="form-group">
                                             <label for="address" class="col-md-12">Address</label>
                                             <div class="col-md-12">
-                                                <textarea id="address" rows="5" class="form-control form-control-line"></textarea>
+                                                <textarea id="address" rows="5" class="form-control form-control-line" name="addressTxt"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -147,7 +148,7 @@
                                         <div class="form-group">
                                             <label class="col-sm-12">Stay Status</label>
                                             <div class="col-sm-12">
-                                                <select class="form-control form-control-line">		
+                                                <select name="stay_status" class="form-control form-control-line">		
                                                 	<option value="" disabled selected hidden>-- Please Select Status --</option>
                                                     <option value="Owned">Owned</option>
                                                     <option value="Contract">Contract</option>
@@ -168,7 +169,7 @@
                                         <div class="form-group">
                                             <label for="primary" class="col-md-12">Primary Address</label>
                                             <div class="col-md-12">
-                                                <input type="checkbox" class="form-control form-control-line" name="primary" id="primary">
+                                                <input type="checkbox" class="form-control-line" name="primary" id="primary">
                                             </div>
                                         </div>
                                     </div>        

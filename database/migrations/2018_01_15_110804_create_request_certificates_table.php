@@ -15,7 +15,7 @@ class CreateRequestCertificatesTable extends Migration
     {
         Schema::create('request_certificates', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('certificate_id');
+            $table->integer('certificate_id')->nullable();
             $table->integer('claim_id');
             $table->string('no');
             $table->string('name');

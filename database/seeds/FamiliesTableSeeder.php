@@ -24,8 +24,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Bandung';
     	$family->dateofbirth='1955-08-01';
     	$family->alive_status='Alive';
-    	$family->gender='male';
-    	$family->marital_status='married';
+    	$family->gender='Male';
+    	$family->marital_status='Married';
     	$family->address='Jalan palapa no 21.';
         $family->save();
 
@@ -36,8 +36,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Bandung';
     	$family->dateofbirth='1956-08-01';
     	$family->alive_status='Alive';
-    	$family->gender='female';
-    	$family->marital_status='married';
+    	$family->gender='Female';
+    	$family->marital_status='Married';
     	$family->address='Jalan palapa no 21.';
         $family->save();
 
@@ -48,8 +48,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Jakarta';
     	$family->dateofbirth='1985-08-01';
     	$family->alive_status='Alive';
-    	$family->gender='female';
-    	$family->marital_status='married';
+    	$family->gender='Female';
+    	$family->marital_status='Married';
     	$family->address='Jalan karuhun no 21.';
         $family->save();
 
@@ -62,8 +62,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Jakarta';
     	$family->dateofbirth='1985-10-01';
     	$family->alive_status='Alive';
-    	$family->gender='male';
-    	$family->marital_status='married';
+    	$family->gender='Male';
+    	$family->marital_status='Married';
     	$family->address='Jalan mistako no 21.';
         $family->save();
 
@@ -74,8 +74,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Jakarta';
     	$family->dateofbirth='2001-10-01';
     	$family->alive_status='Alive';
-    	$family->gender='male';
-    	$family->marital_status='married';
+    	$family->gender='Male';
+    	$family->marital_status='Married';
     	$family->address='Jalan mistako no 21.';
         $family->save();
 
@@ -88,8 +88,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Jongol';
     	$family->dateofbirth='1955-03-14';
     	$family->alive_status='Alive';
-    	$family->gender='male';
-    	$family->marital_status='married';
+    	$family->gender='Male';
+    	$family->marital_status='Married';
     	$family->address='Jalan kakurata no 21.';
         $family->save();
 
@@ -100,8 +100,8 @@ class FamiliesTableSeeder extends Seeder
     	$family->placeofbirth='Jongol';
     	$family->dateofbirth='1956-04-15';
     	$family->alive_status='Alive';
-    	$family->gender='female';
-    	$family->marital_status='married';
+    	$family->gender='Female';
+    	$family->marital_status='Married';
     	$family->address='Jalan kakurata no 21.';
         $family->save();
 

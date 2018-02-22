@@ -87,7 +87,8 @@
                                 <h3 class="box-title">Family Members</h3>
                             </div>
                             <div class="box-body">
-                                <form class="form-horizontal form-material">
+                                <form action="{{route('family.add')}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
+                                    {{csrf_field()}}
                                     <div class="col-md-12">
                                     	<div class="form-group">
 	                                        <label for="fullname" class="col-md-12">Full Name</label>
@@ -117,7 +118,10 @@
                                     	<div class="form-group">
 	                                        <label for="alivestatus" class="col-md-12">Alive Status</label>
 	                                        <div id="alivestatus" class="col-md-12">
-	                                            <input type="text" class="form-control pull-right" id="alivestatus" value="{{$family->alive_status}}">
+	                                            <select name="alivestatus" class="form-control form-control-line">
+                                                    <option value="Alive" @if($family->alive_status=="Alive")selected @endif>Alive</option>
+                                                    <option value="Passed Away" @if($family->alive_status=="Passed Away")selected @endif>Passed Away</option>
+                                                </select>
 	                                        </div>
                                     	</div>
                                     </div>
@@ -125,7 +129,10 @@
                                     	<div class="form-group">
 	                                        <label for="gender" class="col-md-12">Gender</label>
 	                                        <div id="gender" class="col-md-12">
-	                                            <input type="text" class="form-control pull-right" id="gender" value="{{$family->gender}}">
+                                                <select name="gender" class="form-control form-control-line">     
+                                                    <option value="Male" @if($family->gender=="Male")selected @endif>Male</option>
+                                                    <option value="Female" @if($family->gender=="Female")selected @endif>Female</option>
+                                                </select>
 	                                        </div>
                                     	</div>
                                     </div>
@@ -133,7 +140,14 @@
                                         <div class="form-group">
                                             <label for="relationship" class="col-md-12">Relationship</label>
                                             <div id="relationship" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="relationship" value="{{$family->relationship}}">
+                                                <select name="relationship" class="form-control form-control-line">    
+                                                    <option value="Father" @if($family->relationship=="Father")selected @endif>Father</option>
+                                                    <option value="Monther" @if($family->relationship=="Monther")selected @endif>Monther</option>
+                                                    <option value="Husband" @if($family->relationship=="Husband")selected @endif>Husband</option>
+                                                    <option value="Wife" @if($family->relationship=="Wife")selected @endif>Wife</option>
+                                                    <option value="Son" @if($family->relationship=="Son")selected @endif>Son</option>
+                                                    <option value="Daughther" @if($family->relationship=="Daughther")selected @endif>Daughther</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +155,11 @@
                                         <div class="form-group">
                                             <label for="marital" class="col-md-12">Marital Status</label>
                                             <div id="marital" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="marital" value="{{$family->marital_status}}">
+                                                <select name="marital" class="form-control form-control-line">
+                                                    <option value="Single" @if($family->marital_status=="Single")selected @endif>Single</option>
+                                                    <option value="Married" @if($family->marital_status=="Married")selected @endif>Married</option>
+                                                    <option value="Divorce" @if($family->marital_status=="Divorce")selected @endif>Divorce</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +167,7 @@
                                         <div class="form-group">
                                             <label for="identity" class="col-md-12">Identity Card No</label>
                                             <div id="identity" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="identity" value="{{$family->identity_no}}">
+                                                <input type="text" class="form-control pull-right" name="identity" id="identity" value="{{$family->identity_no}}">
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +175,7 @@
                                         <div class="form-group">
                                             <label for="familycard" class="col-md-12">Family Card No</label>
                                             <div id="familycard" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="familycard" value="{{$family->family_card_no}}">
+                                                <input name="familycard" type="text" class="form-control pull-right" id="familycard" value="{{$family->family_card_no}}">
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +183,7 @@
                                         <div class="form-group">
                                             <label for="address" class="col-md-12">Address</label>
                                             <div class="col-md-12">
-                                                <textarea id="address" rows="5" class="form-control form-control-line">{{$family->address}}</textarea>
+                                                <textarea name="address" id="address" rows="5" class="form-control form-control-line">{{$family->address}}</textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +198,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                             <div class="col-sm-6">
@@ -190,7 +208,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image3" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                         </div>

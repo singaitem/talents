@@ -29,7 +29,7 @@
                         
                          <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('kacamata.store')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('medicaloverlimit.store')}}" method="post">
                             {{csrf_field()}}
                             <div class="box-body">
                                 Are you sure want to claim Medical OverLimit ?
@@ -37,7 +37,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer text-right" id="appendModal">
-                                <button class="btn bg-navy btn-block">Claim</button>
+                                <button class="btn bg-navy btn-block" type="submit" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Claim</button>
                             </div>
                             @extends('user.self_service.confirmation')
                         </form>

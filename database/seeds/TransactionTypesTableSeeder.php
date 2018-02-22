@@ -49,29 +49,106 @@ class TransactionTypesTableSeeder extends Seeder
         $spd = TransactionCategory::where('name','SPD Advance')->first();
         $spdType = new TransactionType();
         $spdType->transaction_category_id=$spd->id;
-        $spdType->name='Regular';
+        $spdType->name='Ticket';
         $spdType->type='One Time (Transaction)';
         $spdType->save();
         $spdType = new TransactionType();
         $spdType->transaction_category_id=$spd->id;
-        $spdType->name='Pulang Kampung';
+        $spdType->name='Taxi';
         $spdType->type='One Time (Transaction)';
         $spdType->save();
         $spdType = new TransactionType();
         $spdType->transaction_category_id=$spd->id;
-        $spdType->name='Mutasi';
+        $spdType->name='Transport';
         $spdType->type='One Time (Transaction)';
         $spdType->save();
         $spdType = new TransactionType();
         $spdType->transaction_category_id=$spd->id;
-        $spdType->name='Training';
+        $spdType->name='Hotel';
         $spdType->type='One Time (Transaction)';
         $spdType->save();
         $spdType = new TransactionType();
         $spdType->transaction_category_id=$spd->id;
-        $spdType->name='Assesment';
+        $spdType->name='Rental Mobil';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Mileage';
         $spdType->type='One Time (Transaction)';
         $spdType->save();
 
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Uang Makan Dalam Negri';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Uang Makan Luar Negri';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Uang Saku Dalam Negri';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Uang Saku Luar Negri';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Laundry';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Tol Parkir Bensin';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+        $spdType = new TransactionType();
+        $spdType->transaction_category_id=$spd->id;
+        $spdType->name='Other';
+        $spdType->type='One Time (Transaction)';
+        $spdType->save();
+
+
+
+
+
+        $medical = TransactionCategory::where('name','Medical')->first();
+        $apotik = new TransactionType();
+        $apotik->transaction_category_id=$medical->id;
+        $apotik->name='Apotik';
+        $apotik->type='1 Years';
+        $apotik->save();
+
+        $apotik = new TransactionType();
+        $apotik->transaction_category_id=$medical->id;
+        $apotik->name='Dokter';
+        $apotik->type='1 Years';
+        $apotik->save();
+
+        $med = new TransactionType();
+        $med->transaction_category_id=$medical->id;
+        $med->name='Medical';
+        $med->type='1 Years';
+        $med->save();
+
+        $med = new TransactionType();
+        $med->transaction_category_id=$medical->id;
+        $med->name='Medical Overlimit';
+        $med->type='1 Years';
+        $med->save();
+
+        $wedding = TransactionCategory::where('name','Wedding')->first();
+        $wed = new TransactionType();
+        $wed->transaction_category_id=$wedding->id;
+        $wed->name='Wedding';
+        $wed->type='One time';
+        $wed->save();
     }
 }

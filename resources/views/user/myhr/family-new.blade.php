@@ -10,7 +10,7 @@
             <ol class="breadcrumb">
                 <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li><a href="{{route('family')}}"><i class="fa fa-users"></i> Family</a></li>
-                <li class="active">Create Family</li>
+                <li class="active">Add Family Members</li>
             </ol>
         </section>
 
@@ -87,7 +87,8 @@
                                 <h3 class="box-title">Family Members</h3>
                             </div>
                             <div class="box-body">
-                                <form class="form-horizontal form-material">
+                                <form action="{{route('family.add')}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
+                                    {{csrf_field()}}
                                     <div class="col-md-12">
                                     	<div class="form-group">
 	                                        <label for="fullname" class="col-md-12">Full Name</label>
@@ -109,7 +110,7 @@
                                     	<div class="form-group">
 	                                        <label for="datepicker" class="col-md-12">Date of Birth</label>
 	                                        <div class="col-md-12 date">
-	                                            <input type="text" id="datepicker" name="dateofbirth" class="form-control form-control-line" value="">
+	                                            <input type="text" placeholder="dd/mm/yyyy" id="datepicker" name="dateofbirth" class="form-control form-control-line" value="">
 	                                        </div>
                                     	</div>
                                     </div>
@@ -117,7 +118,11 @@
                                     	<div class="form-group">
 	                                        <label for="alivestatus" class="col-md-12">Alive Status</label>
 	                                        <div id="alivestatus" class="col-md-12">
-	                                            <input type="text" class="form-control pull-right" id="alivestatus" value="">
+	                                            <select name="alivestatus" class="form-control form-control-line">     
+                                                    <option value="" disabled selected hidden>-- Please Select Alive Status --</option>
+                                                    <option value="Alive">Alive</option>
+                                                    <option value="Passed Away">Passed Away</option>
+                                                </select>
 	                                        </div>
                                     	</div>
                                     </div>
@@ -125,7 +130,11 @@
                                     	<div class="form-group">
 	                                        <label for="gender" class="col-md-12">Gender</label>
 	                                        <div id="gender" class="col-md-12">
-	                                            <input type="text" class="form-control pull-right" id="gender" value="">
+	                                            <select name="gender" class="form-control form-control-line">     
+                                                    <option value="" disabled selected hidden>-- Please Select Gender --</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
+                                                </select>
 	                                        </div>
                                     	</div>
                                     </div>
@@ -133,7 +142,15 @@
                                         <div class="form-group">
                                             <label for="relationship" class="col-md-12">Relationship</label>
                                             <div id="relationship" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="relationship" value="">
+                                                <select name="relationship" class="form-control form-control-line">     
+                                                    <option value="" disabled selected hidden>-- Please Select Relationship --</option>
+                                                    <option value="Father">Father</option>
+                                                    <option value="Monther">Monther</option>
+                                                    <option value="Husband">Husband</option>
+                                                    <option value="Wife">Wife</option>
+                                                    <option value="Son">Son</option>
+                                                    <option value="Daughther">Daughther</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -141,7 +158,12 @@
                                         <div class="form-group">
                                             <label for="marital" class="col-md-12">Marital Status</label>
                                             <div id="marital" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="marital" value="">
+                                                <select name="marital" class="form-control form-control-line">
+                                                    <option value="" disabled selected hidden>-- Please Select Marital --</option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Divorce">Divorce</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
@@ -149,7 +171,7 @@
                                         <div class="form-group">
                                             <label for="identity" class="col-md-12">Identity Card No</label>
                                             <div id="identity" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="identity" value="">
+                                                <input type="text" placeholder="Identity Card No" name="identity" class="form-control pull-right" id="identity" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -157,7 +179,7 @@
                                         <div class="form-group">
                                             <label for="familycard" class="col-md-12">Family Card No</label>
                                             <div id="familycard" class="col-md-12">
-                                                <input type="text" class="form-control pull-right" id="familycard" value="">
+                                                <input type="text" placeholder="Family Card No" name="familycard" class="form-control pull-right" id="familycard" value="">
                                             </div>
                                         </div>
                                     </div>
@@ -165,7 +187,7 @@
                                         <div class="form-group">
                                             <label for="address" class="col-md-12">Address</label>
                                             <div class="col-md-12">
-                                                <textarea id="address" rows="5" class="form-control form-control-line"></textarea>
+                                                <textarea id="address" name="address" rows="5" class="form-control form-control-line" placeholder="Address"></textarea>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +202,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image1" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                             <div class="col-sm-6">
@@ -190,7 +212,7 @@
                                                     </div>
                                                 </div>  
                                                 <label class="btn btn-primary btn-file">
-                                                    Browse <input type="file" name="image3" class="inp-img" accept="image/*">
+                                                    Browse <input type="file" name="image2" class="inp-img" accept="image/*">
                                                 </label>
                                             </div>
                                         </div>

@@ -44,7 +44,7 @@
                                             <td>{{$claim->transaction_date}}</td>
                                             <td>{{$claim->total_value}}</td>
                                             <td>
-                                                <span class="label label-warning" style="line-height: 2;">{{$claim->request->status}}</span>
+                                                <span @if($claim->status=="Approved")class="label label-success"@else class="label label-warning" @endif  style="line-height: 2;">{{$claim->status}}</span>
                                             </td>
                                         </tr>
                                     @endforeach

@@ -15,7 +15,7 @@ class CreateRequestAddressesTable extends Migration
     {
         Schema::create('request_addresses', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('address_id');
+            $table->integer('address_id')->nullable();
             $table->integer('claim_id');
             $table->string('name');
             $table->integer('homebase_id');

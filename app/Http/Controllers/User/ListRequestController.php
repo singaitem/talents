@@ -23,7 +23,11 @@ class ListRequestController extends Controller
         return view('user.self_service.request-personal',['claims'=>$allClaim]);
     }
     public function detail(Claim $claim){
-        return view('user.request.detail',['claim'=>$claim]);
+        $hideButton = false;
+        if($claim->transaction_category->module=="Personalia" || $claim->request->hasApprove()==true){
+            $hideButton=true;
+        }
+        return view('user.request.detail',compact('claim','hideButton'));
     }
     public function cancel(){
         

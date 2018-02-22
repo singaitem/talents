@@ -29,7 +29,7 @@
                         
                          <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('kacamata.store')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('travel.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="box-body">
 
@@ -74,18 +74,18 @@
                             	</div>
                         		<div class="form-group">
 	                                <label for="name">Remark</label>
-	                                <textarea name="" id="" cols="" class="form-control" placeholder="Remark"></textarea>
+	                                <textarea name="remark" id="" cols="" class="form-control" placeholder="Remark"></textarea>
                         		</div>
                                 
                                 <div class="form-group">
                                 	<label for="">SPD Type</label>
-                        			<select name="" id="" class="form-control">
+                        			<select name="spd_type" id="" class="form-control">
                         				<option value="" disabled hidden selected>-- Select SPD Type --</option>
-                        				<option value="regular">Regular</option>
-                                        <option value="pulang">Pulang Kampung</option>
-                                        <option value="mutasi">Mutasi</option>
-                                        <option value="training">Training</option>
-                                        <option value="assesment">Assesment</option>
+                        				<option value="Regular">Regular</option>
+                                        <option value="Pulang Kampung">Pulang Kampung</option>
+                                        <option value="Mutasi">Mutasi</option>
+                                        <option value="Training">Training</option>
+                                        <option value="Assesment">Assesment</option>
                         			</select>
                                 </div>
                                 
@@ -100,7 +100,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="ticket" id="ticket" value="{{ old('ticket') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="ticket" id="ticket" value="{{ old('ticket') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -111,7 +111,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="taxi" id="taxi" value="{{ old('taxi') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="taxi" id="taxi" value="{{ old('taxi') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -122,7 +122,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="transport" id="transport" value="{{ old('transport') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="transport" id="transport" value="{{ old('transport') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -133,7 +133,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="hotel" id="hotel" value="{{ old('hotel') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="hotel" id="hotel" value="{{ old('hotel') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -144,7 +144,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="rental" id="rental" value="{{ old('rental') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="rental" id="rental" value="{{ old('rental') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -155,39 +155,39 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="mileage" id="mileage" value="{{ old('mileage') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="mileage" id="mileage" value="{{ old('mileage') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-3">
-                                                <select class="form-control control-label text-right" name="selected_type" id="selected_type">
-                                                    <option value="uang makan dalam negri">Uang Makan Dalam Negri</option>
-                                                    <option value="uang makan dalam negri">Uang Makan Luar Negri</option>
+                                                <select class="form-control control-label text-right" name="uang_makan_type" id="selected_type">
+                                                    <option value="umdn">Uang Makan Dalam Negri</option>
+                                                    <option value="umln">Uang Makan Luar Negri</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" id="lensa" class="form-control" name="lensa" value="{{ old('lensa') }}" oninput="calculateTotal()">
+                                                    <input type="number" id="lensa" class="form-control input-calc" name="uang_makan" value="{{ old('uang_makan') }}" oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-sm-3">
-                                                <select class="form-control control-label text-right" name="selected_type" id="selected_type">
-                                                    <option value="uang saku dalam negri">Uang Saku dalam Negri</option>
-                                                    <option value="uang saku dalam negri">Uang Saku Luar Negri</option>
+                                                <select class="form-control control-label text-right" name="uang_saku_type" id="selected_type">
+                                                    <option value="usdn">Uang Saku Dalam Negri</option>
+                                                    <option value="usln">Uang Saku Luar Negri</option>
                                                 </select>
                                             </div>
 
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" id="lensa" class="form-control" name="lensa" value="{{ old('lensa') }}" oninput="calculateTotal()">
+                                                    <input type="number" id="lensa" class="form-control input-calc" name="uang_saku" value="{{ old('uang_saku') }}" oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -199,7 +199,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="laundry" id="laundry" value="{{ old('laundry') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="laundry" id="laundry" value="{{ old('laundry') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -210,7 +210,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="tpb" id="tpb" value="{{ old('tpb') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="tpb" id="tpb" value="{{ old('tpb') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -221,7 +221,7 @@
                                             <div class="col-sm-9">
                                                 <div class="input-group">
                                                     <span class="input-group-addon">Rp</span>
-                                                    <input type="number" class="form-control numbers" name="other" id="other" value="{{ old('other') }}"  oninput="calculateTotal()">
+                                                    <input type="number" class="form-control numbers input-calc" name="other" id="other" value="{{ old('other') }}"  oninput="calculateTotal()">
                                                     <span class="input-group-addon">.00</span>
                                                 </div>
                                             </div>
@@ -234,7 +234,7 @@
                                 
                                 <div class="form-group">
                                     <label class="col-sm-2">Total</label>
-                                    <label class="col-sm-4 col-sm-offset-6 text-right" id="countTotal">Rp.--</label>
+                                    <label class="col-sm-4 col-sm-offset-6 text-right">Rp. <span id="countTotal" class="numbers">--</span></label>
                                     <div class="col-sm-12 box box-success"></div>
                                     
                                 </div>
@@ -313,6 +313,13 @@
 @endsection
 @section('javascript')
     <script type="text/javascript">
+        $(":input").on('keypress', function (e) {
+            if (e.keyCode == 13) {
+                $("#confirm").click();
+                e.preventDefault();
+                return false;
+            }
+        });
         $("#myModal").insertAfter($("#appendModal"));
         function isLower(a,b){
             if(a<b){
@@ -323,33 +330,19 @@
         }
         function calculateTotal(){
             var total = 0;
-            if($('#dokter').val()!=null){
-                total=isNaN(parseInt($('#dokter').val()))?0:parseInt($('#dokter').val());
-            }
-            if($('#apotik').val()!=null){
-                total+=isNaN(parseInt($('#apotik').val()))?0:parseInt($('#apotik').val());
-            }
+            $('.input-calc').each(function(){
+                if($(this).val()!=null){
+                    total+=isNaN(parseInt($(this).val()))?0:parseInt($(this).val());
+                }
+            });
             $('#countTotal').text(total);
+            $(".numbers").digits();
         }
         
         $('#confirm').click(function() {
             var total = $('#countTotal').text();
-            $('#totalClaim').html('Rp. '+total);
-            var value = 0;
-            var frameValue = {{$balance->findDetail('Frame')->value}};
-            var frameCurrValue = isNaN(parseInt($('#frame').val()))?0:parseInt($('#frame').val());
-            value+= isLower(frameValue,frameCurrValue);
-            
-            var lensatype =  $('#selected_type').find(":selected").text();
-            var lensaValue = 0;
-            @foreach($balance->details as $detail)
-                if('{{$detail->transaction_type->name}}' == lensatype){
-                    lensaValue={{$detail->value}};
-                }
-            @endforeach
-            var lensaCurrValue = isNaN(parseInt($('#lensa').val()))?0:parseInt($('#lensa').val());
-            value+= isLower(lensaValue,lensaCurrValue);
-            $('#totalValue').html('Rp. '+value);
+            $('#totalClaim').html(total);
+            $('#totalValue').html(total);
             $('#myModal').modal('show');
         });
         function readURL(input) {

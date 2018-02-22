@@ -9,10 +9,10 @@
                 </div>
                 <div class="modal-body">
                     <label class="col-sm-6" style="font-weight: normal;">Total Claim</label>
-                    <label class="col-sm-6 text-right" id="totalClaim">Rp.</label>
+                    <label class="col-sm-6 text-right">Rp. <span class="numbers" id="totalClaim">--</span></label>
                     <div class="col-sm-12 box box-primary"></div>
                     <label class="col-sm-6">Total Current Claim</label>
-                    <label class="col-sm-6 text-right" id="totalValue">Rp.</label>
+                    <label class="col-sm-6 text-right">Rp. <span class="numbers" id="totalValue">--</span></label>
                     <div class="col-sm-12 box box-primary"></div>
                 </div>
                 <div class="modal-footer">

@@ -47,18 +47,21 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/medical','MedicalController@index')->name('medical');
+	Route::post('/request/medical','MedicalController@store')->name('medical.store');
 	/*
 	|--------------------------------------------------------------------------
 	| Medical Overlimit
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/medicaloverlimit','MedicalOverlimitController@index')->name('medicaloverlimit');
+	Route::post('/request/medicaloverlimit','MedicalOverlimitController@store')->name('medicaloverlimit.store');
 	/*
 	|--------------------------------------------------------------------------
 	| Business Travel
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/travel','BusinessTravelController@index')->name('travel');
+	Route::post('/request/travel','BusinessTravelController@store')->name('travel.store');
 	/*
 	|--------------------------------------------------------------------------
 	| SPD Advance
@@ -72,6 +75,7 @@ Route::group(['namespace' => 'User'], function () {
 	|--------------------------------------------------------------------------
 	*/
 	Route::get('/request/wedding','WeddingController@index')->name('wedding');
+	Route::post('/request/wedding','WeddingController@store')->name('wedding.store');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -89,8 +93,9 @@ Route::group(['namespace' => 'User'], function () {
 	*/
 	Route::get('/family','FamilyController@index')->name('family');
 	Route::get('/family/member/{family}','FamilyController@detail')->name('family.detail');
+	Route::post('/family/member/{family}','FamilyController@changeFamily')->name('family.update');
 	Route::get('/family/new','FamilyController@create')->name('family.create');
-
+	Route::post('/family/new','FamilyController@addFamily')->name('family.add');
 	/*
 	|--------------------------------------------------------------------------
 	| Address
@@ -98,8 +103,10 @@ Route::group(['namespace' => 'User'], function () {
 	*/
 	Route::get('/address','AddressController@index')->name('address');
 	Route::get('/address/detail/{address}','AddressController@detail')->name('address.detail');
+	Route::post('/address/detail/{address}','AddressController@changeAddress')->name('address.update');
 	Route::get('/address/new','AddressController@create')->name('address.create');
-
+	Route::post('/address/new','AddressController@addAddress')->name('address.add');
+	
 	/*
 	|--------------------------------------------------------------------------
 	| Certificate
@@ -107,6 +114,7 @@ Route::group(['namespace' => 'User'], function () {
 	*/
 	Route::get('/certificate','CertificateController@index')->name('certificate');
 	Route::get('/certificate/new','CertificateController@create')->name('certificate.create');
+	Route::post('/certificate/new','CertificateController@addCertificate')->name('certificate.add');
 	Route::get('/certificate/detail/{certificate}','CertificateController@detail')->name('certificate.detail');
 
 	/*

@@ -29,7 +29,7 @@
                         
                          <!-- /.box-header -->
                         <!-- form start -->
-                        <form role="form" action="{{route('kacamata.store')}}" method="post" enctype="multipart/form-data">
+                        <form role="form" action="{{route('medical.store')}}" method="post" enctype="multipart/form-data">
                             {{csrf_field()}}
                             <div class="box-body">
                                 <div class="form-group">
@@ -81,7 +81,7 @@
                                 
                                 <div class="form-group">
                                     <label class="col-sm-2">Total</label>
-                                    <label class="col-sm-4 col-sm-offset-6 text-right" id="countTotal">Rp.--</label>
+                                    <label class="col-sm-4 col-sm-offset-6 text-right">Rp. <span id="countTotal" class="numbers">--</span></label>
                                     <div class="col-sm-12 box box-success"></div>
                                     
                                 </div>
@@ -159,7 +159,14 @@
     </style>
 @endsection
 @section('javascript')
-    <script type="text/javascript">
+    <script type="text/javascript">        
+        $(":input").on('keypress', function (e) {
+            if (e.keyCode == 13) {
+                $("#confirm").click();
+                e.preventDefault();
+                return false;
+            }
+        });
         $("#myModal").insertAfter($("#appendModal"));
         function isLower(a,b){
             if(a<b){
@@ -177,26 +184,20 @@
                 total+=isNaN(parseInt($('#apotik').val()))?0:parseInt($('#apotik').val());
             }
             $('#countTotal').text(total);
+            $(".numbers").digits();
         }
         
         $('#confirm').click(function() {
             var total = $('#countTotal').text();
-            $('#totalClaim').html('Rp. '+total);
+            $('#totalClaim').html(total);
             var value = 0;
-            var frameValue = {{$balance->findDetail('Frame')->value}};
-            var frameCurrValue = isNaN(parseInt($('#frame').val()))?0:parseInt($('#frame').val());
-            value+= isLower(frameValue,frameCurrValue);
-            
-            var lensatype =  $('#selected_type').find(":selected").text();
-            var lensaValue = 0;
-            @foreach($balance->details as $detail)
-                if('{{$detail->transaction_type->name}}' == lensatype){
-                    lensaValue={{$detail->value}};
-                }
-            @endforeach
-            var lensaCurrValue = isNaN(parseInt($('#lensa').val()))?0:parseInt($('#lensa').val());
-            value+= isLower(lensaValue,lensaCurrValue);
-            $('#totalValue').html('Rp. '+value);
+            var medicalValue = {{$balance->findDetail('Medical')->value}};
+            var apotikcurrValue = isNaN(parseInt($('#apotik').val()))?0:parseInt($('#apotik').val());
+            var doktercurrValue = isNaN(parseInt($('#dokter').val()))?0:parseInt($('#dokter').val());
+            var inputValue = apotikcurrValue + doktercurrValue; 
+            value= isLower(medicalValue,inputValue);
+            $('#totalValue').html(value);
+            $(".numbers").digits();
             $('#myModal').modal('show');
         });
         function readURL(input) {

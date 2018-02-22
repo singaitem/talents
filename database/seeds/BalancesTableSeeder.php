@@ -17,6 +17,7 @@ class BalancesTableSeeder extends Seeder
     	$dummy1 = Employee::where('name','00001')->first();
     	$frame = TransactionType::where('name','Frame')->first();
         $lensa = TransactionType::where('name','like','%Lensa%')->get();
+        $medical = TransactionType::where('name','Medical')->first();
         $balanceDummy1 = new Balance();
         $balanceDummy1->employee_id=$dummy1->id;
         $balanceDummy1->transaction_category_id=$frame->category->id;
@@ -40,6 +41,22 @@ class BalancesTableSeeder extends Seeder
             $balanceDetailLoop->adjustment=0;
             $balanceDetailLoop->save();
             $balLimit+=25000;
-        }   
+        }
+
+        $balanceDummy1 = new Balance();
+        $balanceDummy1->employee_id=$dummy1->id;
+        $balanceDummy1->transaction_category_id=$medical->category->id;
+        $balanceDummy1->save();
+        $balanceDetail1 = new BalanceDetail();
+        $balanceDetail1->balance_id=$balanceDummy1->id;
+        $balanceDetail1->transaction_type_id=$medical->id;
+        $balanceDetail1->limit=5000000;
+        $balanceDetail1->used=0; 
+        $balanceDetail1->value=5000000;
+        $balanceDetail1->adjustment=0;
+        $balanceDetail1->save();
+
+
+
     }
 }

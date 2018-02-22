@@ -23,7 +23,7 @@ class ClaimDetailsTableSeeder extends Seeder
         $dt1->save();
 
 
-        $spdAdvance = TransactionType::where('name','Regular')->first();
+        $spdAdvance = TransactionType::where('name','Transport')->first();
         $claim1 = Claim::find(2);
         $dt1 = new ClaimDetail();
         $dt1->transaction_type_id=$spdAdvance->id;

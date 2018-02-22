@@ -8,8 +8,8 @@
         Claim Detail
       </h1>
       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Approval</a></li>
+        <li><a href="{{route('dashboard')}}"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a @if($claim->transaction_category->module=="Benefit")href="{{route('request.list')}}"@elseif($claim->transaction_category->module=="Personalia")href="{{route('request.personal')}}"@endif>Request</a></li>
         <li class="active">Detail</li>
       </ol>
     </section>
@@ -95,6 +95,7 @@
       <!-- /.row -->
 
       <!-- this row will not appear when printing -->
+      @if($hideButton==false)
       <div class="row no-print">
         <div class="col-xs-12">
           <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
@@ -104,6 +105,7 @@
           </form>
         </div>
       </div>
+      @endif
     </section>
     <!-- /.content -->
     <div class="clearfix"></div>

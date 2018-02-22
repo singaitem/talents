@@ -80,6 +80,7 @@ class KacamataController extends Controller
         }else{
             $valueLensa=$balanceLensa->value;
         }
+        
         $tr_date = Carbon::createFromFormat('d/m/Y', request('transaction_date'));
         $noUrut = Claim::where('transaction_date',$tr_date->format('Y-m-d'))->count();
         $noUrut++;
