@@ -29,8 +29,14 @@ class ListRequestController extends Controller
         }
         return view('user.request.detail',compact('claim','hideButton'));
     }
-    public function cancel(){
-        
+    public function cancel(Claim $claim){
+        $claim->request->status='Canceled';
+        $claim->request->save();
+        if($claim->transaction_category->module=="Benefit"){
+            return redirect()->intended(route('request.list'));
+        }else{
+            return redirect()->intended(route('request.personal'));
+        }
     }
         
     	

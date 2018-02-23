@@ -32,8 +32,7 @@ class FamilyController extends Controller
     public function addFamily(){
         $settingFamily = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Family')->first();
-
+        ->where('transaction_categories.name','Family')->select('setting_requests.*')->first();
         $family = TransactionCategory::where('name','Family')->first();
 
         // Create Request
@@ -95,7 +94,7 @@ class FamilyController extends Controller
         $reqFamily->address=request("address");
         $reqFamily->save();
         if (request()->hasFile('image1')) {
-            $photoName = time().'.'.request()->file('image1')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'.'.request()->file('image1')->getClientOriginalExtension();
             request()->file('image1')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;
@@ -103,7 +102,7 @@ class FamilyController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image2')) {
-            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
             request()->file('image2')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;
@@ -112,12 +111,12 @@ class FamilyController extends Controller
         }
         return redirect()->intended(route('request.personal'));
     }
-    public function changeFamily(Family $oldFamily){
+    public function changeFamily(Family $family){
         $settingFamily = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Family')->first();
+        ->where('transaction_categories.name','Family')->select('setting_requests.*')->first();
 
-        $family = TransactionCategory::where('name','Family')->first();
+        $catFamily = TransactionCategory::where('name','Family')->first();
 
         // Create Request
         $request = new \App\Request();
@@ -154,7 +153,7 @@ class FamilyController extends Controller
         $claim1 = new Claim();
         $claim1->employee_id=auth()->user()->employee->id;
         $claim1->request_id=$request->id;
-        $claim1->transaction_category_id = $family->id;
+        $claim1->transaction_category_id = $catFamily->id;
         $claim1->name='PN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
         $claim1->transaction_date=$tr_date;
         $claim1->total_value=0;
@@ -162,7 +161,7 @@ class FamilyController extends Controller
         $claim1->description='';
         $claim1->save();
         $reqFamily = new RequestFamily();
-        $reqFamily->family_id=$oldFamily->id;
+        $reqFamily->family_id=$family->id;
         $reqFamily->claim_id=$claim1->id;
         $reqFamily->name=request("fullname");
         $reqFamily->relationship = request("relationship");
@@ -179,7 +178,7 @@ class FamilyController extends Controller
         $reqFamily->address=request("address");
         $reqFamily->save();
         if (request()->hasFile('image1')) {
-            $photoName = time().'.'.request()->file('image1')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'.'.request()->file('image1')->getClientOriginalExtension();
             request()->file('image1')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;
@@ -187,7 +186,7 @@ class FamilyController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image2')) {
-            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
             request()->file('image2')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;

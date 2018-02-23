@@ -33,9 +33,9 @@ class AddressController extends Controller
     public function addAddress(){
         $settingAddress = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Address')->first();
+        ->where('transaction_categories.name','Address')->select('setting_requests.*')->first();
 
-        $address = TransactionCategory::where('name','Address')->first();
+        $catAddress = TransactionCategory::where('name','Address')->first();
 
         // Create Request
         $request = new \App\Request();
@@ -72,7 +72,7 @@ class AddressController extends Controller
         $claim1 = new Claim();
         $claim1->employee_id=auth()->user()->employee->id;
         $claim1->request_id=$request->id;
-        $claim1->transaction_category_id = $address->id;
+        $claim1->transaction_category_id = $catAddress->id;
         $claim1->name='PN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
         $claim1->transaction_date=$tr_date;
         $claim1->total_value=0;
@@ -96,12 +96,12 @@ class AddressController extends Controller
         $reqAddress->save();
         return redirect()->intended(route('request.personal'));
     }
-    public function changeAddress(Address $oldAddress){
+    public function changeAddress(Address $address){
          $settingAddress = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Address')->first();
+        ->where('transaction_categories.name','Address')->select('setting_requests.*')->first();
 
-        $address = TransactionCategory::where('name','Address')->first();
+        $catAddress = TransactionCategory::where('name','Address')->first();
 
         // Create Request
         $request = new \App\Request();
@@ -138,7 +138,7 @@ class AddressController extends Controller
         $claim1 = new Claim();
         $claim1->employee_id=auth()->user()->employee->id;
         $claim1->request_id=$request->id;
-        $claim1->transaction_category_id = $address->id;
+        $claim1->transaction_category_id = $catAddress->id;
         $claim1->name='PN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
         $claim1->transaction_date=$tr_date;
         $claim1->total_value=0;
@@ -147,7 +147,7 @@ class AddressController extends Controller
         $claim1->save();
 
         $reqAddress = new RequestAddress();
-        $reqAddress->address_id=$oldAddress->id;
+        $reqAddress->address_id=$address->id;
         $reqAddress->claim_id=$claim1->id;
         $reqAddress->name=request("addressTxt");
         $reqAddress->homebase_id = request("homebase");

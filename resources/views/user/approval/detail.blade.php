@@ -99,14 +99,39 @@
         <div class="col-xs-12">
           <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
             {{csrf_field()}}
-            <button type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Approve
+            <button data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success" type="submit" class="btn btn-primary pull-right"><i class="fa fa-check"></i> Approve
             </button>
           </form>
-          <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
+          <form action="{{route('approve.rejected',$claim->id)}}" method="post" style="display: inline;">
             {{csrf_field()}}
-            <button type="submit" class="btn btn-danger pull-right" style="margin-right: 5px;">
-            <i class="fa fa-times"></i> Reject
-            </button>
+            <a id="reject" class="btn btn-danger pull-right" style="margin-right: 5px;">
+              <i class="fa fa-times"></i> Reject
+            </a>
+            <div class="modal fade" id="myModal">
+              <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Reason</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="col-md-12" style="margin-bottom: 10px;">
+                          <div class="col-md-12">
+                              <textarea id="reason" rows="5" class="form-control form-control-line" name="reason" placeholder="Reason"></textarea>
+                          </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                  </div>
+                  <!-- /.modal-content -->
+              </div>
+              <!-- /.modal-dialog -->
+            </div>
           </form>
         </div>
       </div>
@@ -115,4 +140,11 @@
     <!-- /.content -->
     <div class="clearfix"></div>
   </div>
+@endsection
+@section('javascript')
+    <script type="text/javascript">
+      $('#reject').click(function() {
+        $('#myModal').modal('show');
+      });
+    </script>
 @endsection

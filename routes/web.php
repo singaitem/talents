@@ -25,6 +25,7 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/benefit-request','ListRequestController@benefit')->name('request.list');
 	Route::get('/personal-request','ListRequestController@personal')->name('request.personal');
 	Route::get('/request/detail/{claim}','ListRequestController@detail')->name('request.detail');
+	Route::post('/request/detail/{claim}','ListRequestController@cancel')->name('request.cancel');
 
 	/*
 	|--------------------------------------------------------------------------
@@ -41,6 +42,7 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/approve/benefit','ApprovalController@benefit')->name('approve.benefit');
 	Route::get('/approve/detail/{claim}','ApprovalController@detail')->name('approve.detail');
 	Route::post('/approve/detail/{claim}','ApprovalController@approve')->name('approve.approved');
+	Route::post('/approve/detail/reject/{claim}','ApprovalController@reject')->name('approve.rejected');
 	/*
 	|--------------------------------------------------------------------------
 	| Medical
@@ -144,9 +146,11 @@ Route::group(['namespace' => 'User'], function () {
 	Route::get('/setting/businesstravel','SettingController@businesstravel')->name('setting.businesstravel');
 	Route::get('/setting/spdadvance','SettingController@spdadvance')->name('setting.spdadvance');
 	Route::get('/setting/wedding','SettingController@wedding')->name('setting.wedding');
-	Route::get('/setting/approver','SettingController@approver')->name('setting.approver');
-	Route::get('/setting/update/{SettingRequest}','SettingController@approver')->name('setting.update.approver');
-
+	Route::get('/setting/approver/{setting}','SettingController@addApprover')->name('setting.approver');
+	Route::post('/setting/approver/{setting}','SettingController@store')->name('setting.add');
+	Route::get('/setting/update/{settingdetail}','SettingController@changeApprover')->name('setting.update.approver');
+	Route::post('/setting/change/{settingdetail}','SettingController@change')->name('setting.approver.change');
+	Route::post('/setting/delete/{settingdetail}','SettingController@delete')->name('setting.delete');
 });
 
 Route::group(['namespace' => 'Auth'], function () {

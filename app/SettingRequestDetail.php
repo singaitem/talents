@@ -8,7 +8,7 @@ class SettingRequestDetail extends Model
 {
     public function setting()
     {
-    	return $this->belongsTo(SettingRequest::Class);
+    	return $this->belongsTo(SettingRequest::Class,'setting_request_id');
     }
     public function position()
     {

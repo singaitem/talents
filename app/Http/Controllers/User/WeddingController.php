@@ -21,7 +21,7 @@ class WeddingController extends Controller
 	public function store(){
 		$settingWedding = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Wedding')->first();
+        ->where('transaction_categories.name','Wedding')->select('setting_requests.*')->first();
 
         $wedding = TransactionCategory::where('name','Wedding')->first();
         $weddingtype = TransactionType::where('name','Wedding')->first();

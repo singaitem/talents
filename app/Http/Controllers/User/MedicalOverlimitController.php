@@ -69,7 +69,7 @@ class MedicalOverlimitController extends Controller
         $claim->transaction_category_id = $medicaloverlimit->id;
         $claim->name='BN/'.$tr_date->format('Ymd').'/'.$invNoUrut;
         $claim->transaction_date= $tr_date;
-        $claim->total_value=$balanceMedicalDetail->value;
+        $claim->total_value=$balanceMedicalDetail->limit;
         $claim->info='Claim Benefit';
         $claim->description='Increasing Medical Limit';
         $claim->save();

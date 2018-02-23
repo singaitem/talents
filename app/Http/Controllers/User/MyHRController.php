@@ -75,7 +75,7 @@ class MyHRController extends Controller
         $requestMarital->save();
 
         if (request()->hasFile('image1')) {
-            $photoName = time().'-'.request()->file('image1')->getClientOriginalName();
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'-'.request()->file('image1')->getClientOriginalName();
             request()->file('image1')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;
@@ -83,7 +83,7 @@ class MyHRController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image2')) {
-            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
             request()->file('image2')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim1->id;
@@ -102,6 +102,7 @@ class MyHRController extends Controller
             $authPer = Person::where('id',auth()->user()->employee->person->id)->first();
             $authPer->picture = $photoName;
             $authPer->save();
+            return redirect()->route('profile')->with('status', 'Your Profile Picture has been Changed');
         }
         
     }
@@ -118,7 +119,7 @@ class MyHRController extends Controller
             request()->user()->fill([
                 'password' => Hash::make(request('password'))
             ])->save();
-            return redirect()->route('profile');
+            return redirect()->route('profile')->with('status', 'Your Password has been Changed');
 
         }else{
             return redirect()->route('profile')->withErrors([

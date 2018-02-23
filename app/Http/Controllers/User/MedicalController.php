@@ -29,7 +29,7 @@ class MedicalController extends Controller
     public function store(){
     	$settingMedical = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Medical')->first();
+        ->where('transaction_categories.name','Medical')->select('setting_requests.*')->first();
         $medical = TransactionCategory::where('name','Medical')->first();
         $dokter = TransactionType::where('name','Dokter')->first();
         $apotik = TransactionType::where('name','Apotik')->first();
@@ -70,7 +70,7 @@ class MedicalController extends Controller
         $valueDokter=0;
         $valueApotik=0;
         $totalRequest = request('dokter')+request('apotik');
-        if($totalRequest>$balanceMedicalDetail->value){
+        if($totalRequest>$balanceMedicalDetail->value+$balanceMedicalDetail->adjustment){
         	if(request('dokter')>$balanceMedicalDetail->value){
 	        	$valueDokter=$balanceMedicalDetail->value;
 	        }else{
@@ -98,7 +98,7 @@ class MedicalController extends Controller
         $claim->description='On '.request('name');
         $claim->save();
         if (request()->hasFile('image1')) {
-            $photoName = time().'.'.request()->file('image1')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'.'.request()->file('image1')->getClientOriginalExtension();
             request()->file('image1')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;
@@ -106,7 +106,7 @@ class MedicalController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image2')) {
-            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
             request()->file('image2')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;
@@ -114,7 +114,7 @@ class MedicalController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image3')) {
-            $photoName = time().'.'.request()->file('image3')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image3')->getClientOriginalName().'.'.request()->file('image3')->getClientOriginalExtension();
             request()->file('image3')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;

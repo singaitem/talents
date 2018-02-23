@@ -11,7 +11,7 @@ class SettingRequest extends Model
     	return $this->hasMany(SettingRequestDetail::Class);
     }
     public function category(){
-    	return $this->belongsTo(Category::Class);
+    	return $this->belongsTo(TransactionCategory::Class,'category_id');
     }
     	
 }

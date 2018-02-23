@@ -47,8 +47,11 @@
                                                 @if($detail->type==2){{$detail->position->name}}@elseif($detail->type==3){{$detail->employee->name}}@endif
                                             </td>
                                              <td>
-                                                <a href="{{route('setting.update.approver',$setting->id)}}" class="btn btn-default btn-sm" role="button">Change</a>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
+                                                <form role="form" style="margin-bottom: 0px;" action="{{route('setting.delete',$detail->id)}}" method="post">
+                                                    {{csrf_field()}}
+                                                    <a href="{{route('setting.update.approver',$detail->id)}}" class="btn btn-default btn-sm" role="button">Change</a>
+                                                    <button class="btn btn-danger btn-sm" type="submit" data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success">Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                         <?php $countApprover++; ?>
@@ -56,7 +59,7 @@
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colspan="4" style="text-align: right;"><a class="btn btn-success" href="{{route('setting.approver')}}">Add</a></th>
+                                        <th colspan="4" style="text-align: right;"><a class="btn btn-success" href="{{route('setting.approver',$setting->id)}}">Add</a></th>
                                     </tr>
                                 </tfoot>
                                 

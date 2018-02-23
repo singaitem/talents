@@ -21,6 +21,18 @@ class Claim extends Model
     public function attachments(){
       return $this->hasMany(ClaimAttachment::Class);
     }
+    public function request_family(){
+      return $this->hasMany(RequestFamily::Class);
+    }
+    public function request_address(){
+      return $this->hasMany(RequestAddress::Class);
+    }
+    public function request_certificate(){
+      return $this->hasMany(RequestCertificate::Class);
+    }
+      
+      
+      
       
       
    		

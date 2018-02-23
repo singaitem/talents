@@ -98,9 +98,9 @@
       @if($hideButton==false)
       <div class="row no-print">
         <div class="col-xs-12">
-          <form action="{{route('approve.approved', [$claim->id])}}" method="post" style="display: inline;">
+          <form action="{{route('request.cancel', [$claim->id])}}" method="post" style="display: inline;">
             {{csrf_field()}}
-            <button type="submit" class="btn btn-warning pull-right"><i class="fa fa-undo"></i> Cancel
+            <button data-toggle="confirm" data-title="Confirmation" data-message="Are you sure?" data-type="success" type="submit" class="btn btn-warning pull-right"><i class="fa fa-undo"></i> Cancel
             </button>
           </form>
         </div>

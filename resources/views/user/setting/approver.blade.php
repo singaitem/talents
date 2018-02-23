@@ -24,7 +24,8 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
-                            <form action="">
+                            <form role="form" action="{{route('setting.add',$setting->id)}}" method="post">
+                                {{csrf_field()}}
                                 <div class="col-md-12" style="margin-bottom: 20px;margin-top: 10px;">
                                     <div class="col-md-2">
                                         <input type="radio" value="1" name="type" id="spv">
@@ -50,7 +51,7 @@
                                         <label for="emp">Employee No</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="EmpNo">
+                                        <input type="text" name="empno" class="form-control" id="inputEmail3" placeholder="EmpNo">
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center" style="margin-bottom: 20px;margin-top: 20px;">

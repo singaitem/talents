@@ -31,7 +31,7 @@ class CertificateController extends Controller
     public function addCertificate(){
         $settingCertificate = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Certificate')->first();
+        ->where('transaction_categories.name','Certificate')->select('setting_requests.*')->first();
 
         $certificate = TransactionCategory::where('name','Certificate')->first();
 
@@ -87,6 +87,22 @@ class CertificateController extends Controller
         $reqCert->principle=request("principle");
         $reqCert->description=request("description");
         $reqCert->save();
+        if (request()->hasFile('image1')) {
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'.'.request()->file('image1')->getClientOriginalExtension();
+            request()->file('image1')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim1->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
+        if (request()->hasFile('image2')) {
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
+            request()->file('image2')->move(public_path('img/upload/'), $photoName);
+            $claimAttachment = new ClaimAttachment();
+            $claimAttachment->claim_id=$claim1->id;
+            $claimAttachment->name=$photoName;
+            $claimAttachment->save();
+        }
         return redirect()->intended(route('request.personal'));
     }
         

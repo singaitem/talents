@@ -87,7 +87,7 @@
                                 <h3 class="box-title">Family Members</h3>
                             </div>
                             <div class="box-body">
-                                <form action="{{route('family.add')}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
+                                <form action="{{route('family.update',$family->id)}}" method="post" class="form-horizontal form-material" enctype="multipart/form-data">
                                     {{csrf_field()}}
                                     <div class="col-md-12">
                                     	<div class="form-group">

@@ -40,7 +40,7 @@
                                             <td><a href="{{ route('request.detail', [$claim->id])}}">{{$claim->name}}</a></td>
                                             <td>{{$claim->transaction_category->name}}</td>
                                             <td>{{$claim->transaction_date}}</td>
-                                            <td><span class="label label-warning" style="line-height: 2;">{{$claim->request->status}}</span>
+                                            <td><span @if($claim->request->status=="Approved")class="label label-success"@elseif($claim->request->status=="Rejected")class="label label-danger" @elseif($claim->request->status=="Canceled")class="label label-info" @else class="label label-warning" @endif style="line-height: 2;">{{$claim->request->status}}</span>
                                             </td>
                                             <td>{{$claim->reason}}</td>
                                         </tr>

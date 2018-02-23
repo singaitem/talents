@@ -24,33 +24,34 @@
                         </div>
                         <!-- /.box-header -->
                         <div class="box-body table-responsive no-padding">
-                            <form action="">
+                            <form role="form" action="{{route('setting.approver.change',$settingdetail->id)}}" method="post">
+                                {{csrf_field()}}
                                 <div class="col-md-12" style="margin-bottom: 20px;margin-top: 10px;">
                                     <div class="col-md-2">
-                                        <input type="radio" value="1" name="type" id="spv">
+                                        <input type="radio" value="1" name="type" id="spv" @if($settingdetail->type==1) checked @endif>
                                         <label for="spv">Supervisor</label>
                                     </div>
                                 </div>
                                 <div class="col-md-12" style="margin-bottom: 10px;">
                                     <div class="col-md-2">
-                                        <input type="radio" value="2" name="type" id="pos">
+                                        <input type="radio" value="2" name="type" id="pos"  @if($settingdetail->type==2) checked @endif>
                                         <label for="pos">Position</label>
                                     </div>
                                     <div class="col-md-6">
                                         <select name="position" id="" class="form-control">
                                             @foreach($positions as $position)
-                                            <option value="{{$position->id}}">{{$position->name}}</option>
+                                            <option value="{{$position->id}}" @if($position->id==$settingdetail->position_id) selected @endif>{{$position->name}}</option>
                                             @endforeach
                                         </select>
                                     </div> 
                                 </div>
                                 <div class="col-md-12" style="margin-bottom: 10px;">
                                     <div class="col-md-2">
-                                        <input type="radio" value="3" name="type" id="emp">
+                                        <input type="radio" value="3" name="type" id="emp"  @if($settingdetail->type==3) checked @endif>
                                         <label for="emp">Employee No</label>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="email" class="form-control" id="inputEmail3" placeholder="EmpNo">
+                                        <input type="text" name="empno" class="form-control" id="inputEmail3" placeholder="EmpNo" @if($settingdetail->type==3) value="{{$settingdetail->employee->name}}" @endif>
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center" style="margin-bottom: 20px;margin-top: 20px;">

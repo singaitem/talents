@@ -191,11 +191,12 @@
             var total = $('#countTotal').text();
             $('#totalClaim').html(total);
             var value = 0;
-            var medicalValue = {{$balance->findDetail('Medical')->value}};
+            var medicalLimit = {{$balance->findDetail('Medical')->limit}};
+            var medicalAdjustment = {{$balance->findDetail('Medical')->adjustment}};
             var apotikcurrValue = isNaN(parseInt($('#apotik').val()))?0:parseInt($('#apotik').val());
             var doktercurrValue = isNaN(parseInt($('#dokter').val()))?0:parseInt($('#dokter').val());
             var inputValue = apotikcurrValue + doktercurrValue; 
-            value= isLower(medicalValue,inputValue);
+            value= isLower(medicalLimit+medicalAdjustment,inputValue);
             $('#totalValue').html(value);
             $(".numbers").digits();
             $('#myModal').modal('show');

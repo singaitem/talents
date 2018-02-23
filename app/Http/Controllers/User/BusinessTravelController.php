@@ -24,7 +24,7 @@ class BusinessTravelController extends Controller
     public function store(){
     	$settingBusinessTravel = SettingRequest::
         join('transaction_categories','category_id','=','transaction_categories.id')
-        ->where('transaction_categories.name','Business Travel')->first();
+        ->where('transaction_categories.name','Business Travel')->select('setting_requests.*')->first();
         $businessTravel = TransactionCategory::where('name','Business Travel')->first();
 
         // Create Request
@@ -72,7 +72,7 @@ class BusinessTravelController extends Controller
         $claim->description=request("remark");
         $claim->save();
         if (request()->hasFile('image1')) {
-            $photoName = time().'.'.request()->file('image1')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image1')->getClientOriginalName().'.'.request()->file('image1')->getClientOriginalExtension();
             request()->file('image1')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;
@@ -80,7 +80,7 @@ class BusinessTravelController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image2')) {
-            $photoName = time().'.'.request()->file('image2')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image2')->getClientOriginalName().'.'.request()->file('image2')->getClientOriginalExtension();
             request()->file('image2')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;
@@ -88,7 +88,7 @@ class BusinessTravelController extends Controller
             $claimAttachment->save();
         }
         if (request()->hasFile('image3')) {
-            $photoName = time().'.'.request()->file('image3')->getClientOriginalExtension();
+            $photoName = time().'-'.request()->file('image3')->getClientOriginalName().'.'.request()->file('image3')->getClientOriginalExtension();
             request()->file('image3')->move(public_path('img/upload/'), $photoName);
             $claimAttachment = new ClaimAttachment();
             $claimAttachment->claim_id=$claim->id;

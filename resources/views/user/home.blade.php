@@ -19,13 +19,12 @@
                     <!-- small box -->
                     <div class="small-box bg-aqua">
                         <div class="inner">
-                            <h3>150</h3>
+                            <h3>{{$allClaim}}</h3>
                             <p>All Request</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-compose"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -33,13 +32,12 @@
                     <!-- small box -->
                     <div class="small-box bg-green">
                         <div class="inner">
-                            <h3>53</h3>
+                            <h3>{{$claimBenefit}}</h3>
                             <p>Benefit Request</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-cash"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -47,13 +45,12 @@
                     <!-- small box -->
                     <div class="small-box bg-yellow">
                         <div class="inner">
-                            <h3>44</h3>
+                            <h3>{{$claimPersonal}}</h3>
                             <p>Personalia Request</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-person-stalker"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -61,13 +58,12 @@
                     <!-- small box -->
                     <div class="small-box bg-red">
                         <div class="inner">
-                            <h3>65</h3>
+                            <h3>{{$pendingRequest}}</h3>
                             <p>Pending Request</p>
                         </div>
                         <div class="icon">
                             <i class="ion ion-social-buffer"></i>
                         </div>
-                        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <!-- ./col -->
@@ -97,36 +93,14 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @foreach($latestclaims as $claim)
                                         <tr>
-                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                            <td>Benefit</td>
-                                            <td>Kacamata</td>
-                                            <td><span class="label label-success">Approved</span></td>
+                                            <td><a href="{{route('request.detail',$claim->id)}}">{{$claim->name}}</a></td>
+                                            <td>{{$claim->transaction_category->module}}</td>
+                                            <td>{{$claim->transaction_category->name}}</td>
+                                            <td><span @if($claim->request->status=="Approved")class="label label-success"@elseif($claim->request->status=="Rejected")class="label label-danger" @elseif($claim->request->status=="Canceled")class="label label-info" @else class="label label-warning" @endif>{{$claim->request->status}}</span></td>
                                         </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                            <td>Personalia</td>
-                                            <td>Change Marital Status</td>
-                                            <td><span class="label label-success">Approved</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                            <td>Benefit</td>
-                                            <td>Medical</td>
-                                            <td><span class="label label-danger">Rejected</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                            <td>Benefit</td>
-                                            <td>Medical Overlimit</td>
-                                            <td><span class="label label-info">Waiting for Approval</span></td>
-                                        </tr>
-                                        <tr>
-                                            <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                            <td>Personalia</td>
-                                            <td>Add Family</td>
-                                            <td><span class="label label-info">Waiting for Approval</span>
-                                        </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>

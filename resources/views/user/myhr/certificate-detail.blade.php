@@ -141,7 +141,7 @@
                                         @foreach($certificate->attachment->details as $attachment)
                                         <div class="col-md-6">
                                         	<div class="box-hover-info">
-                                        		<img src="/img/attachment/{{$attachment->name}}" style="max-width: 100%;">
+                                        		<img src="/img/upload/{{$attachment->name}}" style="max-width: 100%;">
                                         	</div>
                                         </div>
                                         @endforeach
